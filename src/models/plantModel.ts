@@ -1,4 +1,4 @@
-export class OutputModel {
+export class PlantModel {
     public constructor(
       public id?: number,
       public imgSrc?: string,

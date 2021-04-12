@@ -15,7 +15,7 @@ export class Question extends Component<QuestionProps> {
     }
 
     public handleUserAnswerYes = () => {
-        store.dispatch({ type: ActionType.changeDisplay, payLoad: 'output' });
+        store.dispatch({ type: ActionType.changeDisplay, payLoad: 'plant' });
     }
 
     public keepOnSurvey = () => {

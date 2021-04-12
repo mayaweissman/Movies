@@ -1,4 +1,6 @@
 export enum ActionType { 
     changeDisplay,
-    updateCurrentQuestion
+    updateCurrentQuestion,
+    addPlantToShoppingCart
+
 }

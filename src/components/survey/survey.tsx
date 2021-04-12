@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Unsubscribe } from "redux";
 import { getAllInfo } from "../../data/info";
-import { getAllOutputs } from "../../data/outputs";
+import { getAllPlants } from "../../data/plants";
 import { getAllQuestions } from "../../data/questions";
 import { InfoModel } from "../../models/infoModel";
-import { OutputModel } from "../../models/outputModel";
+import { PlantModel } from "../../models/plantModel";
 import { QuestionModel } from "../../models/questionModel";
 import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
-import { OutPut } from "../output/output";
+import { Cart } from "../cart/cart";
+import { Plant } from "../plant/plant";
 import { Question } from "../question/question";
 import "./survey.css";
 
@@ -16,7 +17,7 @@ interface SurveyState {
     display: string,
     currentQuestion: QuestionModel,
     allQuestions: QuestionModel[],
-    allOutputs: OutputModel[],
+    allPlants: PlantModel[],
     allInfos: InfoModel[]
 }
 
@@ -30,7 +31,7 @@ export class Survey extends Component<any, SurveyState>{
             display: store.getState().display,
             currentQuestion: store.getState().currentQuestion,
             allQuestions: [],
-            allOutputs: [],
+            allPlants: [],
             allInfos: []
         }
 
@@ -67,8 +68,10 @@ export class Survey extends Component<any, SurveyState>{
                 <h1>Survey</h1>
                 {this.state.display === 'question' &&
                     <Question question={this.state.currentQuestion} />}
-                {this.state.display === 'output' &&
-                    <OutPut/>}
+                {this.state.display === 'plant' &&
+                    <Plant/>}
+                {this.state.display === 'cart' &&
+                    <Cart/>}
             </div>
         )
     }

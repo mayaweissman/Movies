@@ -5,7 +5,7 @@ export class QuestionModel {
       public imgSrc?: string,
       public hebTitle?: string,
       public engTitle?: string, 
-      public outputId?: number,
+      public plantId?: number,
       public infoId?: number,
     ) {}
   }
