@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Unsubscribe } from "redux";
-import { PlantOnCartModel } from "../../models/plantOnCartModel";
+import { PlantModel } from "../../models/plantModel";
 import { store } from "../../redux/store";
 import { PrintPage } from "../list/list";
 import "./cart.css";
 
 
 interface cartState {
-    shoppingCart: PlantOnCartModel[]
+    shoppingCart: PlantModel[]
 }
 export class Cart extends Component<any, cartState>{
 
@@ -53,8 +53,8 @@ export class Cart extends Component<any, cartState>{
                     <tbody>
                         {this.state.shoppingCart.map(p =>
                             <tr>
-                                <td>{p.count}</td>
-                                <td>{p.plantId}</td>
+                                <td>{p.hebTitle}</td>
+                                <td>{p.code}</td>
 
                             </tr>
                         )}

@@ -13,3 +13,11 @@
      position: relative;
      z-index: 1;
 }
+
+.ikea-logo{
+    position: absolute;
+    top: 4vw;
+    left: 4vw;
+    width: 20vw;
+    z-index: 999;
+}

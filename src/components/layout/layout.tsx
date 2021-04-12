@@ -12,17 +12,18 @@ export class Layout extends Component {
         return (
             <div className="layout">
                 <BrowserRouter>
-                    <header>
+                <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg"/>
+                    {/* <header>
                         <TopMenu />
                     </header>
-                    <main>
+                    <main> */}
                         <Switch>
                             <Route path="/home" component={Home} exact />
                             <Route path="/survey" component={Survey} exact />
                             <Route path="/about" component={About} exact />
                             <Redirect from="/" to="/home" exact />
                         </Switch>
-                    </main>
+                    {/* </main> */}
                     
                 </BrowserRouter>
             </div>

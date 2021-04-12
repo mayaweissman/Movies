@@ -1,0 +1,89 @@
+.home {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: contents;
+}
+
+.main-home {
+  background-color: #ffdb00;
+  height: 60%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.plants-bg{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    right: 0;
+}
+
+.about-link{
+    color: black;
+    text-decoration: none;
+    right: 5vw;
+    position: absolute;
+    top: 3vw;
+}
+
+.main-logo{
+    position: absolute;
+    top: 30vw;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+}
+
+.second-logo{
+    position: absolute;
+    top: 80vw;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+}
+
+.bottom-home{
+    position: absolute;
+    bottom: 0;
+    width: 84vw;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8vw;
+}
+
+.bottom-txt{
+    position: relative;
+    font-weight: bold;
+    margin-top: 5vw;
+}
+
+.survey-link{
+    background-color: #0058a3;
+    width: 100%;
+    color: white;
+    font-size: 6vw;
+    height: 12vw;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vw;
+    position: relative;
+    top: 5vw;
+}
+
+.about-pollutions{
+    color: #0058a3;
+    text-decoration: none;
+    font-size: 4vw;
+    margin-top: 3vw;
+    position: absolute;
+    bottom: 5vw;
+}

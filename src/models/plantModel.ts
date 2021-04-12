@@ -3,9 +3,12 @@ export class PlantModel {
       public id?: number,
       public imgSrc?: string,
       public hebTitle?: string,
-      public engTitle?: string, 
+      public engTitle?: string,
       public hebContent?: string,
-      public engContent?: string, 
+      public engContent?: string,
+      public price?: number,
+      public size?: string,
+      public code?: number
     ) {}
   }
   

@@ -1,0 +1,63 @@
+.top-question-area{
+    position: absolute;
+    top: 0;
+    background-color: #ffdb00;
+    width: 100%;
+    height: 60%;
+    z-index: 0;
+
+}
+
+.navigation{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    z-index: 1;
+}
+
+.bottom-question-area{
+    position: absolute;
+    bottom: 0;
+    height: 40%;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.question-title{
+    position: relative;
+    top: 5vw;
+    font-size: 7vw;
+}
+
+.buttons-area{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 140%;
+    overflow: auto;
+    height: 50vw;
+}
+
+.buttons-area > div {
+    width: 60vw;
+    border: 2px solid #0058a3;
+    font-size: 34vw;
+    height: 34vw;
+    display: flex;
+    padding: 0vw;
+    position: relative;
+    color: #0058a3;
+    background-color: transparent;
+    top: 10vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.yes-btn{
+    transform: translateX(-13vw);
+}
+
+.no-btn{
+    transform: translateX(-15vw);
+}
