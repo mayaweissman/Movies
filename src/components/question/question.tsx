@@ -11,6 +11,8 @@ interface QuestionProps {
 
 interface QuestionState {
   startX: number;
+  move: number;
+  class: string;
 }
 
 export class Question extends Component<QuestionProps, QuestionState> {
@@ -18,6 +20,8 @@ export class Question extends Component<QuestionProps, QuestionState> {
     super(props);
     this.state = {
       startX: 0,
+      move: 0,
+      class: "",
     };
   }
 
@@ -36,15 +40,25 @@ export class Question extends Component<QuestionProps, QuestionState> {
 
   public slide = (e: any) => {
     const move = e.targetTouches[0].pageX;
-    if (this.state.startX === 0) {
-      this.setState({ startX: move });
-      return;
-    }
-    if (move > this.state.startX) {
-      console.log("left");
-    } else {
-      console.log("right");
-    }
+    if (this.state.class === "") {
+      if (this.state.startX === 0) {
+        this.setState({ startX: move });
+        return;
+      }
+      if (move > this.state.startX) {
+        if (this.state.move < 80) {
+          this.setState({ move: this.state.move + 1 });
+        } else {
+          this.setState({ class: "slide-left" });
+        }
+      } else {
+        if (this.state.move > -80) {
+          this.setState({ move: this.state.move - 1 });
+        } else {
+          this.setState({ class: "slide-right" });
+        }
+      }
+    } 
   };
 
   public render() {
@@ -62,11 +76,22 @@ export class Question extends Component<QuestionProps, QuestionState> {
             onTouchEnd={() => this.setState({ startX: 0 })}
             onTouchMove={this.slide}
           >
-            <div className="no-btn" onClick={this.keepOnSurvey}>
+            <div
+              style={{ transform: `translateX(${this.state.move}px)` }}
+              className={"no-btn " + this.state.class}
+              onClick={this.keepOnSurvey}
+            >
               No.
             </div>
-            <div className="yes-btn" onClick={this.handleUserAnswerYes}>
+            <div
+              style={{ transform: `translateX(${this.state.move}px)` }}
+              className={"yes-btn " + this.state.class}
+              onClick={this.handleUserAnswerYes}
+            >
               Yes
+              {this.state.class === "slide-right" && (
+                <span className="after-yes">!</span>
+              )}
             </div>
           </div>
         </div>

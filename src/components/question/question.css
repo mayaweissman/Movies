@@ -55,9 +55,98 @@
 }
 
 .yes-btn{
-    transform: translateX(-13vw);
+    right: 11vw;
 }
 
 .no-btn{
-    transform: translateX(-15vw);
+    right: 13vw;
+}
+
+.yes-btn.slide-right{
+    animation: SlideRightForYesBtn 1s both;
+}
+
+.no-btn.slide-right{
+    animation: SlideRightForNoBtn 1.4s both;
+}
+
+.yes-btn.slide-left{
+    animation: SlideLeftForYesBtn 1s both;
+}
+
+.no-btn.slide-left{
+    animation: SlideLeftForNoBtn 1.4s both;
+}
+
+@keyframes SlideRightForYesBtn {
+    100%{
+        transform: translateX(-110px);
+        font-size: 31vw;
+    }
+}
+
+@-webkit-keyframes SlideRightForYesBtn {
+    100%{
+        transform: translateX(-110px);
+        font-size: 31vw;
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.after-yes{
+    opacity: 0;
+    animation: 1s fadeIn both;
+    animation-delay: 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+    }
+}
+
+@keyframes SlideRightForNoBtn {
+    100%{
+        transform: translateX(-180px) scale(0.8);
+    }
+}
+
+@-webkit-keyframes SlideRightForNoBtn {
+    100%{
+        transform: translateX(-180px) scale(0.8);
+    }
+}
+
+@keyframes SlideLeftForNoBtn {
+    100%{
+        transform: translateX(110px);
+    }
+}
+
+@-webkit-keyframes SlideLeftForNoBtn {
+    100%{
+        transform: translateX(110px);
+    }
+}
+
+@keyframes SlideLeftForYesBtn {
+    100%{
+        transform: translateX(180px) scale(0.8);
+    }
+}
+
+@-webkit-keyframes SlideLeftForYesBtn {
+    100%{
+        transform: translateX(180px) scale(0.8);
+    }
 }
