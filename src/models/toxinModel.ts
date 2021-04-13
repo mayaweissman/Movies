@@ -1,4 +1,4 @@
-export class PlantModel {
+export class ToxinModel {
     public constructor(
       public id?: number,
       public imgSrc?: string,
@@ -6,10 +6,7 @@ export class PlantModel {
       public engTitle?: string,
       public hebContent?: string,
       public engContent?: string,
-      public price?: number,
-      public size?: string,
-      public code?: number,
-      public toxins?: number[]
+      public shortName?: string
     ) {}
   }
   

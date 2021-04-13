@@ -6,6 +6,8 @@ import { InfoModel } from "../models/infoModel";
 import { OutputModel } from "../models/outputModel";
 import { QuestionModel } from "../models/questionModel";
 import { PlantModel } from "../models/plantModel";
+import { ToxinModel } from "../models/toxinModel";
+import { getAllToxins } from "../data/toxins";
 
 export class AppState {
   public display: string = "question";
@@ -14,6 +16,7 @@ export class AppState {
   public allInfos: InfoModel[] = getAllInfo();
   public allPlants: InfoModel[] = getAllPlants();
   public allOutputs: OutputModel[] = getAllOutputs();
+  public allToxins: ToxinModel[] = getAllToxins();
   public shoppingCart: PlantModel[] = [];
 
   public constructor() {
@@ -25,6 +28,7 @@ export class AppState {
       this.allPlants = appState.allPlants;
       this.allInfos = appState.allInfos;
       this.allOutputs = appState.allOutputs;
+      this.allToxins = appState.allToxins;
       this.currentQuestion = appState.currentQuestion;
       this.shoppingCart = appState.shoppingCart;
     }

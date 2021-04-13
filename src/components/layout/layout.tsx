@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { About } from "../about/about";
+import { Cart } from "../cart/cart";
 import { Home } from "../home/home";
 import { Question } from "../question/question";
 import { Survey } from "../survey/survey";
@@ -21,6 +22,7 @@ export class Layout extends Component {
                             <Route path="/home" component={Home} exact />
                             <Route path="/survey" component={Survey} exact />
                             <Route path="/about" component={About} exact />
+                            <Route path="/cart" component={Cart} exact />
                             <Redirect from="/" to="/home" exact />
                         </Switch>
                     {/* </main> */}
