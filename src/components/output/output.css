@@ -90,6 +90,10 @@
   font-size: 8vw;
 }
 
+.toxins-area{
+  display: flex;
+}
+
 .back-to-survey-btn {
   position: absolute;
   bottom: 3vw;
@@ -105,101 +109,10 @@
   outline: none;
 }
 
-.toxins {
-  display: flex;
-}
-
 .plant-info {
   text-align: right;
   margin-top: 5vw;
   font-size: 4.5vw;
-}
-
-
-.toxin-name{
-  z-index: 9;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-
-.toxin:before,
-.toxin:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 5.8vw;
-  height: 5.5vw;
-  transform: scaleY(0.5774) rotate( 
--45deg
-);
-  background-color: inherit;
-  left: 1vw;
-}
-
-.toxin:before {
-  top: -3.1vw;
-  border-top: solid 2px #000000;
-  border-right: solid 2px #000000;
-  right: 0.9vw;
-}
-
-.toxin:after {
-  bottom: -3vw;
-  border-bottom: solid 2px #000000;
-  border-left: solid 2px #000000;
-}
-
-.toxin {
-  position: relative;
-  width: 8vw;
-  margin-right: 1.5vw;
-  height: 5vw;
-  background-color: #ffffff;
-  border-left: solid 2px #000000;
-  border-right: solid 2px #000000;
-}
-
-.toxin.active {
-  position: relative;
-  width: 9vw;
-  height: 5vw;
-  margin-right: 1.5vw;
-  background-color: #000000;
-  border: 0;
-  color: white;
-  border-right: 2px solid;
-  border-left: 2px solid;
-}
-
-
-.toxin.active:before,
-.toxin.active:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 4.5vw solid transparent;
-  right: 0;
-  border-right: 4.5vw solid transparent;
-  height: unset;
-  transform: unset;
-  background-color: unset;
-  left: unset;
-}
-
-.toxin.active:before {
-  bottom: 100%;
-  border-bottom: 2.7vw solid #000000;
-  border-top: unset;
-  top: unset;
-}
-
-.toxin.active:after {
-  top: 100%;
-  width: 0;
-  border-top: 2.7vw solid #000000;
-  border-bottom: unset;
 }
 
 .next-plant{

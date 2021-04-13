@@ -7,6 +7,7 @@ import { QuestionModel } from "../../models/questionModel";
 import { ToxinModel } from "../../models/toxinModel";
 import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
+import { Toxins } from "../toxins/toxins";
 import "./output.css";
 
 interface OutputState {
@@ -63,10 +64,6 @@ export class Output extends Component<any, OutputState> {
       }
 
       this.setState({ plants });
-
-      const allToxins = store.getState().allToxins;
-      this.setState({ allToxins });
-
       this.setState({ currentPlant: plants[0] });
       this.setState({ nextPlant: plants[1] });
     } catch (err) {
@@ -86,14 +83,6 @@ export class Output extends Component<any, OutputState> {
         ? this.state.currentQuestion.index + 1
         : "",
     });
-  };
-
-  public isHelpForToxin = (toxinId: number) => {
-    const tox = this.state.currentPlant.toxins?.find((t) => t === toxinId);
-    if (tox) {
-      return true;
-    }
-    return false;
   };
 
   public moveToNextPlant = () => {
@@ -163,7 +152,8 @@ export class Output extends Component<any, OutputState> {
             <div className="top-plant-area">
               {this.state.plants.findIndex(
                 (p) => p.id == this.state.currentPlant.id
-              ) !== this.state.plants.length - 1 && (
+              ) !==
+                this.state.plants.length - 1 && (
                 <img
                   className="next-btn"
                   src="./assets/images/arrow.svg"
@@ -172,8 +162,7 @@ export class Output extends Component<any, OutputState> {
               )}
               {this.state.plants.findIndex(
                 (p) => p.id == this.state.currentPlant.id
-              ) !==
-                0 && (
+              ) !== 0 && (
                 <img
                   className="pre-btn"
                   src="./assets/images/arrow.svg"
@@ -186,20 +175,11 @@ export class Output extends Component<any, OutputState> {
               <span className="plant-title">
                 {this.state.currentPlant.hebTitle}
               </span>
-              <div className="toxins">
+              <div className="toxins-area">
                 <span>עוזר להפחית:</span>
-                {this.state.allToxins.map((t) => (
-                  <div
-                    className={
-                      this.isHelpForToxin(t.id as number)
-                        ? "toxin active"
-                        : "toxin"
-                    }
-                  >
-                    <span className="toxin-name">{t.shortName}</span>
-                  </div>
-                ))}
+                <Toxins plant={this.state.currentPlant} />
               </div>
+
               <span className="plant-info">
                 {this.state.currentPlant.hebContent}
               </span>
@@ -213,20 +193,11 @@ export class Output extends Component<any, OutputState> {
               <span className="plant-title">
                 {this.state.nextPlant.hebTitle}
               </span>
-              <div className="toxins">
+              <div className="toxins-area">
                 <span>עוזר להפחית:</span>
-                {this.state.allToxins.map((t) => (
-                  <div
-                    className={
-                      this.isHelpForToxin(t.id as number)
-                        ? "toxin active"
-                        : "toxin"
-                    }
-                  >
-                    {t.shortName}
-                  </div>
-                ))}
+                <Toxins plant={this.state.currentPlant} />
               </div>
+
               <span className="plant-info">
                 {this.state.nextPlant.hebContent}
               </span>
