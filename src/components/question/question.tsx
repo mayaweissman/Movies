@@ -113,7 +113,7 @@ export class Question extends Component<QuestionProps, QuestionState> {
           <br />
 
           <div className="buttons-area">
-            <button className="no-btn">לא</button>
+            <button className="no-btn"  onClick={this.keepOnSurvey}>לא</button>
             <button className="yes-btn" onClick={this.handleUserAnswerYes}>
               כן
             </button>

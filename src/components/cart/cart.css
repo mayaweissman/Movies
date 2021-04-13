@@ -1,0 +1,72 @@
+.cart > header{
+    background-color: #ffdb00;
+    height: 18vw;
+    position: sticky;
+}
+
+.cart{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.cart > main{
+    max-height: 100%;
+    overflow: auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.header-title{
+    font-size: 5vw;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+}
+
+.cart > .ikea-logo {
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    width: 20vw;
+    z-index: 999;
+}
+
+.cart-item{
+    display: flex;
+    align-items: flex-start;
+    direction: rtl;
+    height: 60vw;
+    position: relative;
+  }
+
+  .cart-item::after{
+    content: "";
+    background-color: #ececec;
+    width: 90%;
+    height: 0.3vw;
+    right: 50%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3vw;
+    transform: translateX(50%);
+}
+
+  .right-area-on-item{
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+  }
+
+  .left-area-on-item{
+    display: flex;
+  }
+
+  .plant-img{
+    background-color: #ffffff;
+    border: 1px solid #dcefdc;
+    height: 27vw;
+    margin: 1vw;
+    width: 16vw;
+  }

@@ -13,7 +13,6 @@ export class Layout extends Component {
         return (
             <div className="layout">
                 <BrowserRouter>
-                <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg"/>
                     {/* <header>
                         <TopMenu />
                     </header>
