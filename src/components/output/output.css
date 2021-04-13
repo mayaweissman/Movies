@@ -51,8 +51,24 @@
   top: 52%;
   z-index: 2 ;
   left: 0;
+  border: 0;
   font-size: 7vw;
   height: 17vw;
+  outline: none;
+}
+
+.on-list-btn {
+  background-color: #16A300;
+  color: white;
+  width: 100%;
+  position: absolute;
+  top: 52%;
+  border: none;
+  z-index: 2 ;
+  left: 0;
+  font-size: 7vw;
+  height: 17vw;
+  outline: none;
 }
 
 .bottom-plant-area {
@@ -77,7 +93,7 @@
 .back-to-survey-btn {
   position: absolute;
   bottom: 3vw;
-  width: 100%;
+  width: 93%;
   left: 50%;
   transform: translateX(-50%);
   border: 2px solid #0058a3;
@@ -99,49 +115,91 @@
   font-size: 4.5vw;
 }
 
-.toxin.active {
-  background-color: #000000;
-}
 
-.toxin {
-  position: relative;
-  width: 9vw;
-  height: 5vw;
-  margin-right: 1.5vw;
-  background-color: #d4d4d4;
-  color: white;
+.toxin-name{
+  z-index: 9;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
 }
 
 .toxin:before,
 .toxin:after {
   content: "";
   position: absolute;
+  z-index: 1;
+  width: 5.8vw;
+  height: 5.5vw;
+  transform: scaleY(0.5774) rotate( 
+-45deg
+);
+  background-color: inherit;
+  left: 1vw;
+}
+
+.toxin:before {
+  top: -3.1vw;
+  border-top: solid 2px #000000;
+  border-right: solid 2px #000000;
+  right: 0.9vw;
+}
+
+.toxin:after {
+  bottom: -3vw;
+  border-bottom: solid 2px #000000;
+  border-left: solid 2px #000000;
+}
+
+.toxin {
+  position: relative;
+  width: 8vw;
+  margin-right: 1.5vw;
+  height: 5vw;
+  background-color: #ffffff;
+  border-left: solid 2px #000000;
+  border-right: solid 2px #000000;
+}
+
+.toxin.active {
+  position: relative;
+  width: 9vw;
+  height: 5vw;
+  margin-right: 1.5vw;
+  background-color: #000000;
+  border: 0;
+  color: white;
+  border-right: 2px solid;
+  border-left: 2px solid;
+}
+
+
+.toxin.active:before,
+.toxin.active:after {
+  content: "";
+  position: absolute;
   width: 0;
   border-left: 4.5vw solid transparent;
   right: 0;
   border-right: 4.5vw solid transparent;
-}
-
-.toxin:before {
-  bottom: 100%;
-  border-bottom: 2.7vw solid #d4d4d4;
-}
-
-.toxin:after {
-  top: 100%;
-  width: 0;
-  border-top: 2.7vw solid #d4d4d4;
+  height: unset;
+  transform: unset;
+  background-color: unset;
+  left: unset;
 }
 
 .toxin.active:before {
   bottom: 100%;
   border-bottom: 2.7vw solid #000000;
+  border-top: unset;
+  top: unset;
 }
 
 .toxin.active:after {
   top: 100%;
   width: 0;
   border-top: 2.7vw solid #000000;
+  border-bottom: unset;
 }
 
 .next-plant{
@@ -149,6 +207,34 @@
   position: relative;
   height: 100%;
   bottom: 178vw;
+}
+
+.plants-navigation{
+  position: absolute;
+  z-index: 1;
+  top: 83vw;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-dot{
+  content: "";
+  background-color: #FFFFFF;
+  height: 2vw;
+  width: 2vw;
+  margin: 2vw;
+  border-radius: 50%;
+  position: relative;
+}
+
+.plant-dot.active{
+  width: 3.5vw;
+  height: 3.5vw;
+  position: relative;
+
 }
 
 .current-plant.slide-right{

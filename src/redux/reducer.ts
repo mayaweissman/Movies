@@ -15,14 +15,17 @@ export function reducer(oldAppState: AppState, action: Action): AppState {
 
     //Add plant to shopping cart or update plant if exist
     case ActionType.addPlantToShoppingCart:
+      const isExist = newAppState.shoppingCart.find(p => p.id === action.payLoad.id);
+      if (!isExist) {
         newAppState.shoppingCart.push(action.payLoad);
+      }
       break;
 
     case ActionType.updateCurrentQuestion:
       if (action.payLoad <= newAppState.allQuestions.length) {
         newAppState.currentQuestion = newAppState.allQuestions.find(q => q.index === action.payLoad) as QuestionModel;
       }
-      else{
+      else {
         newAppState.display = 'cart';
       }
       break;

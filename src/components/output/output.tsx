@@ -105,8 +105,8 @@ export class Output extends Component<any, OutputState> {
       this.setState({ currentPlant });
 
       const classes = { ...this.state.classes };
-      classes.current = "slide-right";
-      classes.next = "slide-right";
+      classes.current = "slide-left";
+      classes.next = "slide-left";
       this.setState({ classes });
       setTimeout(() => {
         const classes = { ...this.state.classes };
@@ -122,8 +122,8 @@ export class Output extends Component<any, OutputState> {
     const index = plants.findIndex((p) => p.id === this.state.currentPlant.id);
     if (index !== 0) {
       const classes = { ...this.state.classes };
-      classes.current = "slide-left";
-      classes.next = "slide-left";
+      classes.current = "slide-right";
+      classes.next = "slide-right";
       this.setState({ classes });
 
       this.setState({ nextPlant: this.state.currentPlant });
@@ -139,6 +139,22 @@ export class Output extends Component<any, OutputState> {
     }
   };
 
+  public addPlantToWishlist = () => {
+    store.dispatch({
+      type: ActionType.addPlantToShoppingCart,
+      payLoad: this.state.currentPlant,
+    });
+  };
+
+  public isOnShoppingCart = () => {
+    const shoppingCart: PlantModel[] = store.getState().shoppingCart;
+    const plant = shoppingCart.find((s) => s.id === this.state.currentPlant.id);
+    if (plant) {
+      return true;
+    }
+    return false;
+  };
+
   public render() {
     return (
       <div className="output">
@@ -147,21 +163,21 @@ export class Output extends Component<any, OutputState> {
             <div className="top-plant-area">
               {this.state.plants.findIndex(
                 (p) => p.id == this.state.currentPlant.id
-              ) !== 0 && (
+              ) !== this.state.plants.length - 1 && (
                 <img
                   className="next-btn"
                   src="./assets/images/arrow.svg"
-                  onClick={this.moveToPrePlant}
+                  onClick={this.moveToNextPlant}
                 />
               )}
               {this.state.plants.findIndex(
                 (p) => p.id == this.state.currentPlant.id
               ) !==
-                this.state.plants.length - 1 && (
+                0 && (
                 <img
                   className="pre-btn"
                   src="./assets/images/arrow.svg"
-                  onClick={this.moveToNextPlant}
+                  onClick={this.moveToPrePlant}
                 />
               )}
               <span>{this.state.currentPlant.hebTitle}</span>
@@ -180,7 +196,7 @@ export class Output extends Component<any, OutputState> {
                         : "toxin"
                     }
                   >
-                    {t.shortName}
+                    <span className="toxin-name">{t.shortName}</span>
                   </div>
                 ))}
               </div>
@@ -221,7 +237,27 @@ export class Output extends Component<any, OutputState> {
             שאלה הבאה
           </button>
         </div>
-        <button className="add-to-list-btn">הוספה לרשימה</button>
+        {!this.isOnShoppingCart() && (
+          <button onClick={this.addPlantToWishlist} className="add-to-list-btn">
+            הוספה לרשימה
+          </button>
+        )}
+        {this.isOnShoppingCart() && (
+          <button onClick={this.addPlantToWishlist} className="on-list-btn">
+            &#10003; נוסף לרשימה
+          </button>
+        )}
+        <div className="plants-navigation">
+          {this.state.plants.map((p) => (
+            <div
+              className={
+                this.state.currentPlant.id === p.id
+                  ? "plant-dot active"
+                  : "plant-dot"
+              }
+            ></div>
+          ))}
+        </div>
       </div>
     );
   }
