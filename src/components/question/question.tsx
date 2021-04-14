@@ -113,12 +113,24 @@ export class Question extends Component<QuestionProps, QuestionState> {
           <br />
 
           <div className="buttons-area">
-            <button className="no-btn"  onClick={this.keepOnSurvey}>לא</button>
+            <button className="no-btn" onClick={this.keepOnSurvey}>
+              לא
+            </button>
             <button className="yes-btn" onClick={this.handleUserAnswerYes}>
               כן
             </button>
           </div>
-          <NavLink className="why-does-it-matter" to="/">למה זה משנה?</NavLink>
+          <span
+            onClick={() =>
+              store.dispatch({
+                type: ActionType.changeDisplay,
+                payLoad: "explanation",
+              })
+            }
+            className="why-does-it-matter"
+          >
+            למה זה משנה?
+          </span>
         </div>
       </div>
     );

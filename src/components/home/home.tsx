@@ -28,7 +28,7 @@ export class Home extends Component {
            תחילת שאלון
           </NavLink>
 
-          <NavLink className="about-pollutions" to="/home">
+          <NavLink className="about-pollutions" to="/about-the-toxins">
               ספרו לי עוד על הרעלנים
           </NavLink>
         </div>

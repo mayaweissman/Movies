@@ -23,11 +23,13 @@
 }
 
 .about-link{
-    color: black;
+    color: #0058a3;
     text-decoration: none;
     right: 5vw;
     position: absolute;
+    font-size: 4vw;
     top: 3vw;
+    z-index: 99;
 }
 
 .top-txt{

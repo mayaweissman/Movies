@@ -1,10 +1,10 @@
-.about{
+.toxins-info{
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.about-top-area{
+.toxins-top-area{
     position: absolute;
     top: 0;
     background-color: #ffdb00;
@@ -13,7 +13,7 @@
     z-index: 0;
 }
 
-.about-bottom-area{
+.toxins-bottom-area{
     position: absolute;
     bottom: 0;
     height: 40%;
@@ -28,14 +28,14 @@
     text-align: right;
 }
 
-.about-title{
+.toxins-title{
     position: absolute;
     font-size: 7vw;
     font-weight: 700;
     top: 5vw;
 }
 
-.about-content{
+.toxins-content{
     position: absolute;
     font-size: 5vw;
     top: 15vw;

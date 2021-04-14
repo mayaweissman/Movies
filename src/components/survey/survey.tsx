@@ -9,6 +9,7 @@ import { QuestionModel } from "../../models/questionModel";
 import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
 import { Cart } from "../cart/cart";
+import { Explanation } from "../explanation/explanation";
 import { Output } from "../output/output";
 import { Question } from "../question/question";
 import "./survey.css";
@@ -77,6 +78,7 @@ export class Survey extends Component<any, SurveyState> {
           <Question question={this.state.currentQuestion} />
         )}
         {this.state.display === "output" && <Output />}
+        {this.state.display === "explanation" && <Explanation />}
         
       </div>
     );

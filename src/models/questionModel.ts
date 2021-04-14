@@ -7,6 +7,7 @@ export class QuestionModel {
       public engTitle?: string, 
       public outputId?: number,
       public infoId?: number,
+      public explanationId?: number,
     ) {}
   }
   
