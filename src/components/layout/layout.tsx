@@ -6,6 +6,7 @@ import { Home } from "../home/home";
 import { Question } from "../question/question";
 import { Survey } from "../survey/survey";
 import { TopMenu } from "../top-menu/top-menu";
+import { Toxin } from "../toxin/toxin";
 import { ToxinsInfo } from "../toxins-info/toxins-info";
 import "./layout.css";
 
@@ -24,7 +25,8 @@ export class Layout extends Component {
                             <Route path="/about" component={About} exact />
                             <Route path="/cart" component={Cart} exact />
                             <Route path="/about-the-toxins" component={ToxinsInfo} exact />
-                            <Redirect from="/" to="/home" exact />
+                            <Route path="/toxin/:toxinId" component={Toxin} />
+                            <Redirect from="/" to="/home"/>
                         </Switch>
                     {/* </main> */}
                     

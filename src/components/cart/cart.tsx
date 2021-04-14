@@ -4,7 +4,7 @@ import { Unsubscribe } from "redux";
 import { PlantModel } from "../../models/plantModel";
 import { store } from "../../redux/store";
 import { PrintPage } from "../list/list";
-import { Toxins } from "../toxins/toxins";
+import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./cart.css";
 
 interface cartState {
@@ -79,7 +79,7 @@ export class Cart extends Component<any, cartState> {
               <div className="right-area-on-item">
                 <span className="item-title"> {p.hebTitle}</span>
                 <div className="toxins-on-item">
-                  <Toxins plant={p} />
+                  <ToxinsIcons plant={p} />
                 </div>
                 <span className="size-item">{p.size}</span>
                 <span className="code-item">{p.code}</span>

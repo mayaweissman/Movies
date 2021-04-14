@@ -7,7 +7,7 @@ import { QuestionModel } from "../../models/questionModel";
 import { ToxinModel } from "../../models/toxinModel";
 import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
-import { Toxins } from "../toxins/toxins";
+import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./output.css";
 
 interface OutputState {
@@ -189,7 +189,7 @@ export class Output extends Component<any, OutputState> {
               </span>
               <div className="toxins-area">
                 <span>עוזר להפחית:</span>
-                <Toxins plant={this.state.currentPlant} />
+                <ToxinsIcons plant={this.state.currentPlant} />
               </div>
 
               <span className="plant-info">
@@ -216,7 +216,7 @@ export class Output extends Component<any, OutputState> {
               </span>
               <div className="toxins-area">
                 <span>עוזר להפחית:</span>
-                <Toxins plant={this.state.currentPlant} />
+                <ToxinsIcons plant={this.state.currentPlant} />
               </div>
 
               <span className="plant-info">

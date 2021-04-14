@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import { PlantModel } from "../../models/plantModel";
 import { ToxinModel } from "../../models/toxinModel";
 import { store } from "../../redux/store";
-import "./toxins.css";
+import "./toxins-icons.css";
 
-interface ToxinsProps {
+interface ToxinsIconsProps {
   plant: PlantModel;
 }
 
-interface ToxinsState {
+interface ToxinsIconsState {
   toxins: ToxinModel[];
 }
 
-export class Toxins extends Component<ToxinsProps, ToxinsState> {
-  public constructor(props: ToxinsProps) {
+export class ToxinsIcons extends Component<ToxinsIconsProps, ToxinsIconsState> {
+  public constructor(props: ToxinsIconsProps) {
     super(props);
     this.state = {
       toxins: [],
