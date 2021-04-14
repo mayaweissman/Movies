@@ -26,7 +26,7 @@ export class Layout extends Component {
                             <Route path="/cart" component={Cart} exact />
                             <Route path="/about-the-toxins" component={ToxinsInfo} exact />
                             <Route path="/toxin/:toxinId" component={Toxin} />
-                            <Redirect from="/" to="/home"/>
+                            <Redirect from="/" to="/home" />
                         </Switch>
                     {/* </main> */}
                     

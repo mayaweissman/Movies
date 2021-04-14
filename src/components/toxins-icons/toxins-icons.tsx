@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import { PlantModel } from "../../models/plantModel";
 import { ToxinModel } from "../../models/toxinModel";
 import { store } from "../../redux/store";
@@ -37,6 +38,7 @@ export class ToxinsIcons extends Component<ToxinsIconsProps, ToxinsIconsState> {
     return (
       <div className="toxins">
         {this.state.toxins.map((t) => (
+          <NavLink to={`/toxin/${t.id}`}>
           <div
             className={
               this.isHelpForToxin(t.id as number) ? "toxin active" : "toxin"
@@ -44,6 +46,7 @@ export class ToxinsIcons extends Component<ToxinsIconsProps, ToxinsIconsState> {
           >
             <span className="toxin-name">{t.shortName}</span>
           </div>
+          </NavLink>
         ))}
       </div>
     );

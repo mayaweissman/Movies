@@ -43,11 +43,7 @@ export class Survey extends Component<any, SurveyState> {
     });
   }
 
-  public componentDidUpdate(){
-    if(this.state.display === 'cart'){
-      this.props.history.push('/cart');
-    }
-  }
+
 
   public async componentDidMount() {
     try {
@@ -58,11 +54,19 @@ export class Survey extends Component<any, SurveyState> {
         this.setState({ display });
       });
 
+      const allQuestions = await store.getState().allQuestions;
+      this.setState({allQuestions});
       if (!this.state.currentQuestion.id) {
         store.dispatch({ type: ActionType.updateCurrentQuestion, payLoad: 1 });
       }
     } catch (err) {
       console.log(err.message);
+    }
+  }
+
+  public componentDidUpdate(){
+    if(this.state.display === 'cart'){
+      this.props.history.push('/cart');
     }
   }
 
