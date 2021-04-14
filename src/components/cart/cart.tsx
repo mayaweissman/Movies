@@ -1,3 +1,4 @@
+import jsPDF from "jspdf";
 import React, { Component } from "react";
 import { Unsubscribe } from "redux";
 import { PlantModel } from "../../models/plantModel";
@@ -34,6 +35,28 @@ export class Cart extends Component<any, cartState> {
     this.unsubscribeStore();
   }
 
+  public jsPdfGenerator = () => {
+    // Example From https://parall.ax/products/jspdf
+    var doc = new jsPDF("p", "pt");
+
+    doc.text("20", 30, 50);
+
+    doc.setFont("courier");
+    doc.text("20", 30, 40);
+
+    doc.setFont("times");
+    doc.text("20", 40, 10);
+
+    doc.setFont("helvetica");
+    doc.text("20", 50, 10);
+
+    doc.setFont("courier");
+    doc.text("20", 60, 20);
+
+    // Save the Data
+    doc.save(".pdf");
+  };
+
   public render() {
     return (
       <div className="cart">
@@ -42,6 +65,11 @@ export class Cart extends Component<any, cartState> {
           <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
         </header>
         <main>
+          {this.state.shoppingCart.length === 0 && (
+            <div className="empty-cart">
+              <span>עגלת הקניות שלך ריקה כרגע</span>
+            </div>
+          )}
           {this.state.shoppingCart.map((p) => (
             <div className="cart-item">
               <div className="left-area-on-item">
@@ -51,7 +79,7 @@ export class Cart extends Component<any, cartState> {
               <div className="right-area-on-item">
                 <span className="item-title"> {p.hebTitle}</span>
                 <div className="toxins-on-item">
-                <Toxins plant={p} />
+                  <Toxins plant={p} />
                 </div>
                 <span className="size-item">{p.size}</span>
                 <span className="code-item">{p.code}</span>
@@ -66,7 +94,9 @@ export class Cart extends Component<any, cartState> {
           ))}
         </main>
         <footer>
-          <button className="download-btn">הורד רשימה</button>
+          <button onClick={this.jsPdfGenerator} className="download-btn">
+            הורד רשימה
+          </button>
           <button className="share-btn">שתף</button>
         </footer>
       </div>

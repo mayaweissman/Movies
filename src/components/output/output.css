@@ -48,8 +48,8 @@
   color: white;
   width: 100%;
   position: absolute;
-  top: 52%;
-  z-index: 2 ;
+  bottom: 40%;
+  z-index: 2;
   left: 0;
   border: 0;
   font-size: 7vw;
@@ -62,9 +62,9 @@
   color: white;
   width: 100%;
   position: absolute;
-  top: 52%;
+  bottom: 40%;
   border: none;
-  z-index: 2 ;
+  z-index: 2;
   left: 0;
   font-size: 7vw;
   height: 17vw;
@@ -95,11 +95,8 @@
 }
 
 .back-to-survey-btn {
-  position: absolute;
-  bottom: 3vw;
+  position: relative;
   width: 93%;
-  left: 50%;
-  transform: translateX(-50%);
   border: 2px solid #0058a3;
   color: #0058a3;
   background-color: transparent;
@@ -107,6 +104,7 @@
   font-weight: 700;
   font-size: 8vw;
   outline: none;
+  top: 5vw;
 }
 
 .plant-info {
@@ -119,13 +117,17 @@
   display: none;
   position: relative;
   height: 100%;
-  bottom: 178vw;
+  bottom: 100%;
+}
+
+.toxins-area > span{
+  font-size: 5vw;
 }
 
 .plants-navigation{
   position: absolute;
   z-index: 1;
-  top: 83vw;
+  bottom: 20vw;
   right: 50%;
   transform: translateX(50%);
   display: flex;
@@ -170,7 +172,7 @@
 
 @keyframes CurrentSlideRight {
   0%{
-    transform: translateX(-150vw);
+    transform: translateX(-100vw);
   }
   100%{
     transform: translateX(0);
@@ -178,7 +180,7 @@
 }
 @-webkit-keyframes CurrentSlideRight {
   0%{
-    transform: translateX(-150vw);
+    transform: translateX(-100vw);
   }
   100%{
     transform: translateX(0);
@@ -190,7 +192,7 @@
     transform: translateX(0);
   }
   100%{
-    transform: translateX(150vw);
+    transform: translateX(100vw);
   }
 }
 
@@ -199,13 +201,13 @@
     transform: translateX(0);
   }
   100%{
-    transform: translateX(150vw);
+    transform: translateX(100vw);
   }
 }
 
 @keyframes CurrentSlideLeft {
   0%{
-    transform: translateX(150vw);
+    transform: translateX(100vw);
   }
   100%{
     transform: translateX(0);
@@ -213,7 +215,7 @@
 }
 @-webkit-keyframes CurrentSlideLeft {
   0%{
-    transform: translateX(150vw);
+    transform: translateX(100vw);
   }
   100%{
     transform: translateX(0);
@@ -225,7 +227,7 @@
     transform: translateX(0);
   }
   100%{
-    transform: translateX(-150vw);
+    transform: translateX(-100vw);
   }
 }
 
@@ -234,6 +236,6 @@
     transform: translateX(0);
   }
   100%{
-    transform: translateX(-150vw);
+    transform: translateX(-100vw);
   }
 }

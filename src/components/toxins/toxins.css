@@ -8,6 +8,7 @@
   left: 50%;
   top: 0;
   transform: translateX(-50%);
+  font-size: 5vw;
 }
 
 .toxin:before,

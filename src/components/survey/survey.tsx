@@ -42,6 +42,12 @@ export class Survey extends Component<any, SurveyState> {
     });
   }
 
+  public componentDidUpdate(){
+    if(this.state.display === 'cart'){
+      this.props.history.push('/cart');
+    }
+  }
+
   public async componentDidMount() {
     try {
       this.unsubscribeStore = store.subscribe(() => {

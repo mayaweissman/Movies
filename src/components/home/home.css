@@ -16,7 +16,7 @@
 
 .plants-bg{
     position: absolute;
-    width: 100%;
+    width: 100vw;
     top: 0;
     height: 100%;
     right: 0;
@@ -28,6 +28,10 @@
     right: 5vw;
     position: absolute;
     top: 3vw;
+}
+
+.top-txt{
+    position: relative;
 }
 
 .main-logo{
@@ -49,19 +53,20 @@
 .bottom-home{
     position: absolute;
     bottom: 0;
-    width: 84vw;
+    right: 50%;
+    width: 85vw;
     height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 8vw;
+    transform: translateX(50%);
 }
 
 .bottom-txt{
     position: relative;
     font-weight: bold;
-    margin-top: 5vw;
+    margin-top: 7vw;
 }
 
 .survey-link{
@@ -76,7 +81,6 @@
     align-items: center;
     margin-top: 4vw;
     position: relative;
-    top: 5vw;
 }
 
 .about-pollutions{
@@ -84,6 +88,5 @@
     text-decoration: none;
     font-size: 4vw;
     margin-top: 3vw;
-    position: absolute;
-    bottom: 5vw;
+    position: relative;
 }

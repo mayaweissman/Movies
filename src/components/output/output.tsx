@@ -170,6 +170,18 @@ export class Output extends Component<any, OutputState> {
                 />
               )}
               <span>{this.state.currentPlant.hebTitle}</span>
+
+              <div className="plants-navigation">
+                {this.state.plants.map((p) => (
+                  <div
+                    className={
+                      this.state.currentPlant.id === p.id
+                        ? "plant-dot active"
+                        : "plant-dot"
+                    }
+                  ></div>
+                ))}
+              </div>
             </div>
             <div className="bottom-plant-area">
               <span className="plant-title">
@@ -183,11 +195,20 @@ export class Output extends Component<any, OutputState> {
               <span className="plant-info">
                 {this.state.currentPlant.hebContent}
               </span>
+
+              <button
+                className="back-to-survey-btn"
+                onClick={this.keepOnSurvey}
+              >
+                שאלה הבאה
+              </button>
             </div>
           </div>
           <div className={"next-plant " + this.state.classes.next}>
             <div className="top-plant-area">
               <span>{this.state.nextPlant.hebTitle}</span>
+
+              
             </div>
             <div className="bottom-plant-area">
               <span className="plant-title">
@@ -203,31 +224,22 @@ export class Output extends Component<any, OutputState> {
               </span>
             </div>
           </div>
-
-          <button className="back-to-survey-btn" onClick={this.keepOnSurvey}>
-            שאלה הבאה
-          </button>
-        </div>
-        {!this.isOnShoppingCart() && (
-          <button onClick={this.addPlantToWishlist} className="add-to-list-btn">
-            הוספה לרשימה
-          </button>
-        )}
-        {this.isOnShoppingCart() && (
-          <button onClick={this.addPlantToWishlist} className="on-list-btn">
-            &#10003; נוסף לרשימה
-          </button>
-        )}
-        <div className="plants-navigation">
-          {this.state.plants.map((p) => (
-            <div
-              className={
-                this.state.currentPlant.id === p.id
-                  ? "plant-dot active"
-                  : "plant-dot"
-              }
-            ></div>
-          ))}
+          {!this.isOnShoppingCart() && (
+                <button
+                  onClick={this.addPlantToWishlist}
+                  className="add-to-list-btn"
+                >
+                  הוספה לרשימה
+                </button>
+              )}
+              {this.isOnShoppingCart() && (
+                <button
+                  onClick={this.addPlantToWishlist}
+                  className="on-list-btn"
+                >
+                  &#10003; נוסף לרשימה
+                </button>
+              )}
         </div>
       </div>
     );

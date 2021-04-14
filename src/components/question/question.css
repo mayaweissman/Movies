@@ -55,21 +55,23 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .question-title {
-  position: relative;
+  position: absolute;
   top: 5vw;
   font-size: 7vw;
 }
 
 .buttons-area {
-  position: absolute;
+  position: relative;
   display: flex;
   width: 90%;
-  right: 50%;
-  transform: translateX(50%);
-  bottom: 25vw;
+  top: 0vw;
 }
 
 
@@ -83,13 +85,11 @@
 }
 
 .why-does-it-matter{
-    position: absolute;
-    bottom: 10vw;
-    right: 50%;
-    transform: translateX(50%);
-    color: #0058A3;
-    direction: rtl;
-    text-decoration: none;
+  position: relative;
+  top: 15vw;
+  color: #0058A3;
+  direction: rtl;
+  text-decoration: none;
 }
 
 .yes-btn{

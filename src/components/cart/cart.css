@@ -17,6 +17,13 @@
     position: relative;
     z-index: 1;
 }
+
+.empty-cart{
+  position: relative;
+  height: 100%;
+  margin-top: 10vw;
+}
+
 .header-title{
     font-size: 5vw;
     position: absolute;
@@ -112,7 +119,7 @@
   }
 
   .cart > footer{
-    position: sticky;
+    position: absolute;
     bottom: 0;
     height: 15vw;
     z-index: 999;
@@ -137,3 +144,7 @@
     width: 30%;
     outline: 0;
   }
+
+
+
+  
