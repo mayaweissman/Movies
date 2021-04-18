@@ -42,6 +42,9 @@
 }
 .wishlist-icon {
   width: 7vw;
+  position: absolute;
+  top: 89%;
+  right: 7vw;
 }
 
 .back-to-home-icon {

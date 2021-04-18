@@ -12,7 +12,7 @@ import { ExplanationModel } from "../models/explanationModel";
 import { getAllExplanations } from "../data/explanations";
 
 export class AppState {
-  public display: string = "question";
+  public display: string = "home";
   public currentQuestion: QuestionModel = new QuestionModel();
   public allQuestions: QuestionModel[] = getAllQuestions();
   public allInfos: InfoModel[] = getAllInfo();
@@ -21,6 +21,7 @@ export class AppState {
   public allToxins: ToxinModel[] = getAllToxins();
   public allExplanations: ExplanationModel[] = getAllExplanations();
   public shoppingCart: PlantModel[] = [];
+  public displayCart: boolean = false;
 
   public constructor() {
     const json = sessionStorage.getItem("AppState");

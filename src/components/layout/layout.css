@@ -3,26 +3,11 @@
   height: 100%;
 }
 
-.mobile header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 20vw;
-  width: 100%;
-  z-index: 2;
-}
-
-.mobile main {
-  width: 100%;
-  margin-top: 20vw;
-  position: relative;
-  z-index: 1;
-}
 
 .ikea-logo {
   position: absolute;
-  top: 4vw;
-  left: 4vw;
+  top: 5vw;
+  left: 5vw;
   width: 20vw;
   z-index: 999;
 }

@@ -1,42 +1,217 @@
-.toxins-info{
-    position: relative;
-    width: 100%;
-    height: 100%;
+.toxins-info {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.toxins-top-area{
-    position: absolute;
-    top: 0;
-    background-color: #ffdb00;
-    width: 100%;
-    height: 60%;
-    z-index: 0;
+.toxins-top-area {
+  position: absolute;
+  top: 0;
+  background-color: #ffdb00;
+  width: 100%;
+  height: 109vw;
+  z-index: 0;
 }
 
-.toxins-bottom-area{
-    position: absolute;
-    bottom: 0;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    direction: rtl;
-    width: 90%;
-    right: 50%;
-    transform: translateX(50%);
-    text-align: right;
+.toxins-bottom-area {
+  position: absolute;
+  top: 110vw;
+  height: 67vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+  width: 90%;
+  right: 50%;
+  transform: translateX(50%);
+  text-align: right;
 }
 
-.toxins-title{
-    position: absolute;
-    font-size: 7vw;
-    font-weight: 700;
-    top: 5vw;
+.toxins-title {
+  position: absolute;
+  font-size: 6vw;
+  font-weight: 700;
+  top: 5vw;
 }
 
-.toxins-content{
-    position: absolute;
-    font-size: 5vw;
-    top: 15vw;
+.toxins-content {
+  position: absolute;
+  font-size: 4.3vw;
+  top: 15vw;
+  padding-bottom: 10vw;
+}
+
+.tree-area {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%);
+}
+
+.bucket {
+  position: absolute;
+  right: 50%;
+  top: 73vw;
+  transform: translateX(50%);
+  width: 25vw;
+}
+
+.leaf {
+  position: absolute;
+  width: 14vw;
+}
+
+.fh-leaf {
+  top: 44vw;
+  left: 32.5vw;
+  animation: scaleInFh 1.2s both;
+  transform-origin: right bottom;
+}
+
+.xy-leaf {
+  top: 26.2vw;
+  left: 32.5vw;
+  animation: scaleInXy 1.2s both;
+  transform-origin: right bottom;
+}
+
+.tr-leaf {
+  top: 53vw;
+  right: 32.5vw;
+  animation: scaleInTr 1.2s both;
+  transform-origin: left bottom;
+}
+
+.bz-leaf {
+  top: 35.5vw;
+  right: 32.5vw;
+  animation: scaleInBz 1.2s both;
+  transform-origin: left bottom;
+}
+
+.am-leaf {
+  right: 43vw;
+  top: 12vw;
+  animation: scaleInAm 1.2s both;
+  transform-origin: bottom;
+}
+
+.right-branch.first-branch {
+  right: 45vw;
+  top: 46vw;
+}
+
+.right-branch.second-branch {
+  right: 45vw;
+  top: 64vw;
+}
+
+.left-branch.first-branch {
+  left: 45vw;
+  top: 54.9vw;
+}
+
+.left-branch.second-branch {
+  left: 45vw;
+  top: 37vw;
+}
+
+.right-branch {
+  animation: scaleInRightBranch 1.2s both linear;
+  transform-origin: left;
+}
+
+.left-branch {
+  animation: scaleInLeftBranch 1.2s both linear;
+  transform-origin: right;
+}
+
+.tree {
+  position: absolute;
+  top: 27vw;
+  width: 1.3vw;
+  right: 50%;
+  transform: translateX(50%);
+  height: 46vw;
+}
+
+.first-branch,
+.second-branch {
+  position: absolute;
+  width: 5.5vw;
+}
+
+@keyframes scaleInAm {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleInXy {
+  0% {
+    transform: scale(0.4) translateX(4vw) translateY(-5vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+@keyframes scaleInBz {
+  0% {
+    transform: scale(0.3) translateX(-4vw) translateY(-5vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes scaleInFh {
+  0% {
+    transform: scale(0.2) translateX(4vw) translateY(-5vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes scaleInTr {
+  0% {
+    transform: scale(0.1) translateX(-4vw) translateY(-5vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes scaleInRightBranch {
+  0% {
+    transform: scale(0.1);
+    height: 3vw;
+  }
+  50% {
+    height: 3.5vw;
+  }
+  100% {
+    transform: scale(1);
+    height: 4vw;
+  }
+}
+
+@keyframes scaleInLeftBranch {
+  0% {
+    transform: scale(0.1);
+    height: 3vw;
+  }
+  50% {
+    height: 3.5vw;
+  }
+  100% {
+    transform: scale(1);
+    height: 4vw;
+  }
 }

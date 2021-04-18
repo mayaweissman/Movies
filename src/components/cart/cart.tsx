@@ -1,17 +1,19 @@
-import jsPDF from "jspdf";
 import React, { Component } from "react";
 import { Unsubscribe } from "redux";
 import { PlantModel } from "../../models/plantModel";
+import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
-import { PrintPage } from "../list/list";
 import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./cart.css";
+import jsPDF from "jspdf";
+import { Pdf } from "./pdf";
 
 interface cartState {
   shoppingCart: PlantModel[];
 }
 export class Cart extends Component<any, cartState> {
   private unsubscribeStore: Unsubscribe;
+  public cartRef = React.createRef<HTMLElement>();
 
   public constructor(props: any) {
     super(props);
@@ -36,25 +38,25 @@ export class Cart extends Component<any, cartState> {
   }
 
   public jsPdfGenerator = () => {
-    // Example From https://parall.ax/products/jspdf
-    var doc = new jsPDF("p", "pt");
+    const doc = new jsPDF("p", "pt");
 
-    doc.text("20", 30, 50);
+    const el = this.cartRef.current;
+    if (typeof (el) === 'object' && el !== null) {
+      const width = 170;
+      const elementHandlers = {
+        '#ignorePDF': (element: any, renderer: any) => {
+          return true
+        }
+      }
+      doc.fromHTML(el, 15, 15, { width, elementHandlers }, () => {
+        const pdf = doc.output('datauristring')
+        if (typeof (pdf) === 'string' && pdf.length > 0) {
+          doc.save(".pdf");
 
-    doc.setFont("courier");
-    doc.text("20", 30, 40);
+        }
+      })
+    }
 
-    doc.setFont("times");
-    doc.text("20", 40, 10);
-
-    doc.setFont("helvetica");
-    doc.text("20", 50, 10);
-
-    doc.setFont("courier");
-    doc.text("20", 60, 20);
-
-    // Save the Data
-    doc.save(".pdf");
   };
 
   public render() {
@@ -63,8 +65,9 @@ export class Cart extends Component<any, cartState> {
         <header>
           <span className="header-title">רשימת הצמחים שלי</span>
           <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
+          <img className="close-cart-icon" src="./assets/images/CLOSE_BT.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />
         </header>
-        <main>
+        <main ref={this.cartRef}>
           {this.state.shoppingCart.length === 0 && (
             <div className="empty-cart">
               <span>עגלת הקניות שלך ריקה כרגע</span>
@@ -73,11 +76,13 @@ export class Cart extends Component<any, cartState> {
           {this.state.shoppingCart.map((p) => (
             <div className="cart-item">
               <div className="left-area-on-item">
-                <img className="trash-icon" src="./assets/images/BACK_BT.svg" />
+                <img className="trash-icon" src="./assets/images/TRASH_1.svg" />
                 <div className="plant-img"></div>
               </div>
               <div className="right-area-on-item">
                 <span className="item-title"> {p.hebTitle}</span>
+                {/* <span className="price">{p.price}</span> */}
+                {/* <span className="amount">{p.amountOnShoppingCart}x</span> */}
                 <div className="toxins-on-item">
                   <ToxinsIcons plant={p} />
                 </div>
@@ -95,9 +100,9 @@ export class Cart extends Component<any, cartState> {
         </main>
         <footer>
           <button onClick={this.jsPdfGenerator} className="download-btn">
-            הורד רשימה
+            <img className="dowloand-icon" src="./assets/images/DOWNLOAD_ICON.svg" />הורד רשימה
           </button>
-          <button className="share-btn">שתף</button>
+          <button className="share-btn"> <img className="share-icon" src="./assets/images/SHARE_ICON.svg" /> שתף</button>
         </footer>
       </div>
     );

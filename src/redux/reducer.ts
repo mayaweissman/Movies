@@ -17,7 +17,21 @@ export function reducer(oldAppState: AppState, action: Action): AppState {
     case ActionType.addPlantToShoppingCart:
       const isExist = newAppState.shoppingCart.find(p => p.id === action.payLoad.id);
       if (!isExist) {
+        action.payLoad.amountOnShoppingCart = 1;
         newAppState.shoppingCart.push(action.payLoad);
+      }
+      else {
+        const index = newAppState.shoppingCart.findIndex(p => p.id === action.payLoad.id);
+        newAppState.shoppingCart[index].amountOnShoppingCart = newAppState.shoppingCart[index].amountOnShoppingCart as number + 1;
+      }
+      break;
+
+    case ActionType.changeDisplayForCart:
+      if (newAppState.displayCart === false) {
+        newAppState.displayCart = true;
+      }
+      else {
+        newAppState.displayCart = false;
       }
       break;
 
@@ -26,7 +40,9 @@ export function reducer(oldAppState: AppState, action: Action): AppState {
         newAppState.currentQuestion = newAppState.allQuestions.find(q => q.index === action.payLoad) as QuestionModel;
       }
       else {
-        newAppState.display = 'cart';
+        newAppState.displayCart = true;
+        newAppState.display = 'home';
+        newAppState.currentQuestion = newAppState.allQuestions.find(q => q.index === 1) as QuestionModel;
       }
       break;
 

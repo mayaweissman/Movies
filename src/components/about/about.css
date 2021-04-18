@@ -30,13 +30,14 @@
 
 .about-title{
     position: absolute;
-    font-size: 7vw;
+    font-size: 6vw;
     font-weight: 700;
     top: 5vw;
 }
 
 .about-content{
     position: absolute;
-    font-size: 5vw;
+    font-size: 4.3vw;
     top: 15vw;
+    padding-bottom: 10vw;
 }

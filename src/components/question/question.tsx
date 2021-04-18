@@ -1,6 +1,8 @@
 import { start } from "node:repl";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Unsubscribe } from "redux";
+import { PlantModel } from "../../models/plantModel";
 import { QuestionModel } from "../../models/questionModel";
 import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
@@ -15,9 +17,13 @@ interface QuestionState {
   move: number;
   class: string;
   allQuestions: QuestionModel[];
+  shoppingCart: PlantModel[]
 }
 
 export class Question extends Component<QuestionProps, QuestionState> {
+
+  private unsubscribeStore: Unsubscribe;
+
   public constructor(props: QuestionProps) {
     super(props);
     this.state = {
@@ -25,13 +31,25 @@ export class Question extends Component<QuestionProps, QuestionState> {
       move: 0,
       class: "",
       allQuestions: [],
+      shoppingCart: store.getState().shoppingCart
     };
+
+    this.unsubscribeStore = store.subscribe(() => {
+      const shoppingCart = store.getState().shoppingCart;
+      this.setState({ shoppingCart });
+    });
   }
 
   public componentDidMount() {
     const allQuestions = store.getState().allQuestions;
     this.setState({ allQuestions });
   }
+
+
+  public componentWillUnmount(): void {
+    this.unsubscribeStore();
+  }
+
 
   public handleUserAnswerYes = () => {
     store.dispatch({ type: ActionType.changeDisplay, payLoad: "output" });
@@ -82,6 +100,17 @@ export class Question extends Component<QuestionProps, QuestionState> {
     }
   };
 
+  public isOnLastQuestion = () => {
+    const allQuestionsLength = store.getState().allQuestions.length;
+    const currentQuestion = { ...this.props.question };
+    if (currentQuestion?.index as number === allQuestionsLength) {
+      return true;
+    }
+
+    return false;
+  }
+
+
   public render() {
     return (
       <div className="question">
@@ -101,21 +130,24 @@ export class Question extends Component<QuestionProps, QuestionState> {
               src="./assets/images/BACK_BT.svg"
             />
           </NavLink>
-          <NavLink className="wishlist-btn" to="/cart">
-            <img
-              className="wishlist-icon"
-              src="./assets/images/WISHLIST_ICON.svg"
-            />
-          </NavLink>
+
+          {this.state.shoppingCart.length > 0 && <img
+            className="wishlist-icon"
+            src="./assets/images/WISHLIST_ICON.svg"
+            onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })}
+          />}
         </div>
         <div className="bottom-question-area">
           <span className="question-title">{this.props.question.hebTitle}</span>
           <br />
 
           <div className="buttons-area">
-            <button className="no-btn" onClick={this.keepOnSurvey}>
+            {!this.isOnLastQuestion() && <button className="no-btn" onClick={this.keepOnSurvey}>
               לא
-            </button>
+            </button>}
+            {this.isOnLastQuestion() && <button className="no-btn" onClick={this.handleUserAnswerYes}>
+              לא
+            </button>}
             <button className="yes-btn" onClick={this.handleUserAnswerYes}>
               כן
             </button>

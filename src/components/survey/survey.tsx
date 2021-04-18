@@ -10,6 +10,7 @@ import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
 import { Cart } from "../cart/cart";
 import { Explanation } from "../explanation/explanation";
+import { Home } from "../home/home";
 import { Output } from "../output/output";
 import { Question } from "../question/question";
 import "./survey.css";
@@ -20,6 +21,7 @@ interface SurveyState {
   allQuestions: QuestionModel[];
   allOutputs: OutputModel[];
   allInfos: InfoModel[];
+  displayForCart: boolean
 }
 
 export class Survey extends Component<any, SurveyState> {
@@ -33,16 +35,18 @@ export class Survey extends Component<any, SurveyState> {
       allQuestions: [],
       allOutputs: [],
       allInfos: [],
+      displayForCart: store.getState().displayCart
     };
 
     this.unsubscribeStore = store.subscribe(() => {
       const display = store.getState().display;
       const currentQuestion = store.getState().currentQuestion;
+      const displayForCart = store.getState().displayCart;
+      this.setState({displayForCart});
       this.setState({ currentQuestion });
       this.setState({ display });
     });
   }
-
 
 
   public async componentDidMount() {
@@ -50,6 +54,8 @@ export class Survey extends Component<any, SurveyState> {
       this.unsubscribeStore = store.subscribe(() => {
         const display = store.getState().display;
         const currentQuestion = store.getState().currentQuestion;
+        const displayForCart = store.getState().displayCart;
+        this.setState({displayForCart});
         this.setState({ currentQuestion });
         this.setState({ display });
       });
@@ -61,12 +67,6 @@ export class Survey extends Component<any, SurveyState> {
       }
     } catch (err) {
       console.log(err.message);
-    }
-  }
-
-  public componentDidUpdate(){
-    if(this.state.display === 'cart'){
-      this.props.history.push('/cart');
     }
   }
 
@@ -83,6 +83,8 @@ export class Survey extends Component<any, SurveyState> {
         )}
         {this.state.display === "output" && <Output />}
         {this.state.display === "explanation" && <Explanation />}
+        {this.state.display === "home" && <Home />}
+        {this.state.displayForCart && <Cart />}
         
       </div>
     );

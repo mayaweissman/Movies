@@ -8,5 +8,45 @@ body{
   box-sizing: border-box;
   position: relative;
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Ikea Font Hebrew';
+}
+
+button{
+  font-family: 'Ikea Font Hebrew';
+}
+
+@font-face {
+  font-family: "Ikea Font Hebrew";
+  src: url(/src/fonts/NotoSansIKEAHebrew_Latin-Regular.woff) format("woff"),
+  url(/src/fonts/NotoSansIKEAHebrew_Latin-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Ikea Font Hebrew Bold";
+  src: url(/src/fonts/NotoSansIKEAHebrew_Latin-Bold.woff) format("woff"),
+  url(/src/fonts/NotoSansIKEAHebrew_Latin-Bold.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Nato Sans Light";
+  src: url(/src/fonts/NotoSans-Light.woff) format("woff"),
+  url(/src/fonts/NotoSans-Light.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Nato Sans Regular";
+  src: url(/src/fonts/NotoSans-Regular.woff) format("woff"),
+  url(/src/fonts/NotoSans-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Nato Sans Semi-Bold";
+  src: url(/src/fonts/NotoSans-SemiBold.woff) format("woff"),
+  url(/src/fonts/NotoSans-SemiBold.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Nato Sans Bold";
+  src: url(/src/fonts/NotoSans-Bold.woff) format("woff"),
+  url(/src/fonts/NotoSans-Bold.ttf) format("ttf");
 }

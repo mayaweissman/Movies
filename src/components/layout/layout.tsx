@@ -20,13 +20,11 @@ export class Layout extends Component {
                     </header>
                     <main> */}
                         <Switch>
-                            <Route path="/home" component={Home} exact />
                             <Route path="/survey" component={Survey} exact />
                             <Route path="/about" component={About} exact />
-                            <Route path="/cart" component={Cart} exact />
                             <Route path="/about-the-toxins" component={ToxinsInfo} exact />
                             <Route path="/toxin/:toxinId" component={Toxin} />
-                            <Redirect from="/" to="/home" />
+                            <Redirect from="/" to="/survey" />
                         </Switch>
                     {/* </main> */}
                     

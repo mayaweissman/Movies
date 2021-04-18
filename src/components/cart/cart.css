@@ -1,150 +1,199 @@
-.cart > header{
-    background-color: #ffdb00;
-    height: 18vw;
-    position: sticky;
+.cart > header {
+  background-color: #ffdb00;
+  height: 10%;
+  position: sticky;
 }
 
-.cart{
-    position: fixed;
-    width: 100%;
-    height: 100%;
+.cart {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  animation: SlideUp 1s both;
 }
 
-.cart > main{
-    max-height: 100%;
-    overflow: auto;
-    width: 100%;
-    position: relative;
-    z-index: 1;
+.cart > main {
+  height: 80%;
+  background-color: white;
+  max-height: 80%;
+  overflow: auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-.empty-cart{
+.close-cart-icon {
+  position: absolute;
+  top: 5vw;
+  right: 5vw;
+}
+
+.empty-cart {
   position: relative;
   height: 100%;
   margin-top: 10vw;
 }
 
-.header-title{
-    font-size: 5vw;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translateX(50%) translateY(-50%);
+.header-title {
+  font-size: 5vw;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
 }
 
 .cart > .ikea-logo {
-    position: absolute;
-    top: 5vw;
-    left: 5vw;
-    width: 20vw;
-    z-index: 999;
+  position: absolute;
+  top: 5vw;
+  left: 5vw;
+  width: 20vw;
+  z-index: 999;
 }
 
-.cart-item{
-    display: flex;
-    align-items: flex-start;
-    direction: rtl;
-    height: 60vw;
-    position: relative;
-  }
-
-  .toxins-on-item{
-    position: relative;
-    top: 5vw;
-    right: -2vw;
-  }
-
-  .bold-txt{
-    position: relative;
-    top: 14vw;
-    font-size: 4vw;
-    font-weight: bolder;
-  }
-
-  .best-goes-items{
-    display: flex;
-    top: 15vw;
-    position: relative;
-  }
-
-  .best-goes-items > .item{
-    content: "";
-    background-color: #ffded6;
-    margin-left: 4vw;
-    height: 13vw;
-    width: 12vw;
-  }
-
-  .size-item{
-    position: relative;
-    top: 10vw;
-    font-size: 4vw;
-  }
-
-  .code-item{
-    position: relative;
-    top: 12vw;
-    font-size: 4vw;
-  }
-
-  .cart-item::after{
-    content: "";
-    background-color: #ececec;
-    width: 90%;
-    height: 0.3vw;
-    right: 50%;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 3vw;
-    transform: translateX(50%);
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  direction: rtl;
+  height: 65vw;
+  position: relative;
+}
+.toxins-on-item {
+  position: relative;
+  top: 5vw;
+  right: -2vw;
 }
 
-  .right-area-on-item{
-    display: flex;
-    flex-direction: column;
-    padding: 2vw;
-    text-align: right;
+.bold-txt {
+  position: relative;
+  top: 14vw;
+  font-size: 4vw;
+  font-weight: bolder;
+}
+
+.best-goes-items {
+  display: flex;
+  top: 15vw;
+  position: relative;
+}
+
+.best-goes-items > .item {
+  content: "";
+  background-color: #ffded6;
+  margin-left: 4vw;
+  height: 13vw;
+  width: 12vw;
+}
+
+.size-item {
+  position: relative;
+  top: 10vw;
+  font-size: 4vw;
+}
+
+.code-item {
+  position: relative;
+  top: 12vw;
+  font-size: 4vw;
+}
+
+.cart-item::after {
+  content: "";
+  background-color: #ececec;
+  width: 90%;
+  height: 0.3vw;
+  right: 50%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3vw;
+  transform: translateX(50%);
+}
+
+.right-area-on-item {
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  text-align: right;
+}
+
+.left-area-on-item {
+  display: flex;
+}
+
+.plant-img {
+  background-color: #ffffff;
+  border: 1px solid #dcefdc;
+  height: 27vw;
+  margin: 1vw;
+  width: 16vw;
+}
+
+.cart > footer {
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  z-index: 999;
+  display: flex;
+  width: 100vw;
+}
+
+.download-btn {
+  background-color: #0057a3;
+  border: 0;
+  height: 100%;
+  width: 70%;
+  color: white;
+  font-size: 5.5vw;
+  outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trash-icon{
+  margin: 0 2vw 0 2vw;
+}
+.share-btn {
+  background-color: black;
+  color: white;
+  font-size: 5.5vw;
+  width: 30%;
+  outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price {
+  position: absolute;
+  top: 2vw;
+  left: 8vw;
+}
+.amount {
+  position: absolute;
+  left: 7vw;
+  top: 30vw;
+  color: #0058a3;
+  border: 1px solid #0058a3;
+  font-weight: bold;
+  line-height: 6vw;
+  width: 9vw;
+  text-align: center;
+}
+
+.share-icon {
+  width: 5vw;
+  margin-right: 3vw;
+}
+.dowloand-icon {
+  width: 5vw;
+  margin-right: 3vw;
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translateY(100%);
   }
-
-  .left-area-on-item{
-    display: flex;
+  100% {
+    transform: translateY(0);
   }
-
-  .plant-img{
-    background-color: #ffffff;
-    border: 1px solid #dcefdc;
-    height: 27vw;
-    margin: 1vw;
-    width: 16vw;
-  }
-
-  .cart > footer{
-    position: absolute;
-    bottom: 0;
-    height: 15vw;
-    z-index: 999;
-    display: flex;
-    width: 100vw;
-  }
-
-  .download-btn{
-    background-color: #0057a3;
-    border: 0;
-    height: 100%;
-    width: 70%;
-    color: white;
-    font-size: 5vw;
-    outline: 0;
-  }
-
-  .share-btn{
-    background-color: black;
-    color: white;
-    font-size: 5vw;
-    width: 30%;
-    outline: 0;
-  }
-
-
-
-  
+}

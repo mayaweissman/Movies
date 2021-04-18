@@ -1,95 +1,108 @@
-.toxin-page{
-    position: relative;
-    width: 100%;
-    height: 100%;
+.toxin-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.toxin-top-area{
-    position: absolute;
-    top: 0;
-    background-color: #ffdb00;
-    width: 100%;
-    height: 60%;
-    z-index: 0;
+.toxin-top-area {
+  position: absolute;
+  top: 0;
+  background-color: #ffdb00;
+  width: 100%;
+  height: 60%;
+  z-index: 0;
 }
 
-.toxin-bottom-area{
-    position: absolute;
-    bottom: 0;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    direction: rtl;
-    width: 90%;
-    right: 50%;
-    transform: translateX(50%);
-    text-align: right;
+.toxin-bottom-area {
+  position: absolute;
+  bottom: 0;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+  width: 90%;
+  right: 50%;
+  transform: translateX(50%);
+  text-align: right;
 }
 
-.toxin-title{
-    position: absolute;
-    font-size: 7vw;
-    font-weight: 700;
-    top: 5vw;
+.toxin-title {
+  position: absolute;
+  font-size: 6vw;
+  font-weight: 700;
+  top: 5vw;
 }
 
-.toxin-content{
-    position: absolute;
-    font-size: 5vw;
-    top: 15vw;
+.back-icon {
+  width: 7vw;
+  top: 90%;
+  position: absolute;
+  left: 5vw;
 }
 
-.short-name-on-hex{
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    font-size: 17vw;
-    font-weight: bold;
+.toxin-content {
+  position: absolute;
+  font-size: 4.3vw;
+  top: 15vw;
+  padding-bottom: 10vw;
 }
-.name-on-hex{
-    z-index: 1;
-    position: absolute;
-    top: 18vw;
-    font-size: 5vw;
+
+.short-name-on-hex {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  font-size: 17vw;
+  font-weight: bold;
+}
+
+.name-on-hex {
+  z-index: 1;
+  top: 7vw;
+  font-size: 4.1vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  left: 0.7vw;
 }
 .hexagon {
-    top: 50%;
-    right: 50%;
-    transform: translateX(50%) translateY(-50%);
-    position: absolute;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 42.8vw;
-    height: 26vw;
-    box-sizing: border-box;
-    transition: all 1s;
-    border: 0.4vh solid transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  position: absolute;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 42.8vw;
+  height: 26vw;
+  box-sizing: border-box;
+  transition: all 1s;
+  border: 0.4vh solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-  
-.hexagon:before, .hexagon:after {
-    content: "";
-    border: inherit;
-    position: absolute;
-    top: -0.5vh;
-    left: -0.5vh;
-    background-color: #fff;
-    border-radius: inherit;
-    height: 100%;
-    width: 100%;
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  border: inherit;
+  position: absolute;
+  top: -0.5vh;
+  left: -0.5vh;
+  background-color: #fff;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
 }
-  
+
 /* Align them in such a way
 that they form a hexagon */
 .hexagon:before {
-    transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 .hexagon:after {
-    transform: rotate(-60deg);
+  transform: rotate(-60deg);
 }
