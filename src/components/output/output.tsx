@@ -250,7 +250,7 @@ export class Output extends Component<any, OutputState> {
           )}
           {this.isOnShoppingCart() && (
             <button
-              onClick={this.addPlantToWishlist}
+              onClick={()=>store.dispatch({type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id})}
               className="on-list-btn"
             >
               &#10003; נוסף לרשימה

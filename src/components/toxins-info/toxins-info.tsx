@@ -25,7 +25,11 @@ export class ToxinsInfo extends Component<any>{
             <img className="right-branch first-branch" src="./assets/images/right-branch.svg" />
             <img className="right-branch second-branch" src="./assets/images/right-branch.svg" />
 
-            <div className="hexagone"></div>
+            <div className="hexagone hex-am"></div>
+            <div className="hexagone hex-bz"></div>
+            <div className="hexagone hex-fh"></div>
+            <div className="hexagone hex-xy"></div>
+            <div className="hexagone hex-tr"></div>
 
 
             <img onClick={this.navigation(3)} className="leaf fh-leaf" src="./assets/images/Fh.svg" />

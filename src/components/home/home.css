@@ -22,6 +22,13 @@
     right: 0;
 }
 
+.cart-icon{
+    position: absolute;
+    top: 3.5vw;
+    right: 27vw;
+    z-index: 10;
+}
+
 .about-link{
     color: #0058a3;
     text-decoration: none;

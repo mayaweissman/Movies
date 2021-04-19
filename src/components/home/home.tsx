@@ -5,6 +5,16 @@ import { store } from "../../redux/store";
 import "./home.css";
 
 export class Home extends Component {
+
+  public isShoppingCartEmpty = () => {
+
+    const shoppingCart = store.getState().shoppingCart;
+    if (shoppingCart.length === 0) {
+      return true;
+    }
+    return false;
+  }
+
   public render() {
     return (
       <div className="home">
@@ -12,13 +22,14 @@ export class Home extends Component {
           <NavLink className="about-link" to="/about">
             על הפרויקט
           </NavLink>
+          {!this.isShoppingCartEmpty() && <img className="cart-icon" src="./assets/images/WISHLIST_ICON.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />}
           {/* <img className="main-logo" src="./assets/images/home-main-logo.svg" />
           <img className="second-logo" src="./assets/images/home-logo.svg" />*/}
           <img className="plants-bg" src="./assets/images/plants-bg.png" />
 
           <div className="home-main-titles">
             <span className="glad-vaxt">GLAD VÄXT</span>
-            <br/>
+            <br />
             <span className="happy-plants">(Happy Plants)</span>
 
           </div>
@@ -33,7 +44,7 @@ export class Home extends Component {
             לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית מוסן מנת.
           </span>
 
-          <button onClick={()=>store.dispatch({type: ActionType.changeDisplay, payLoad: 'question'})} className="survey-link">
+          <button onClick={() => store.dispatch({ type: ActionType.changeDisplay, payLoad: 'question' })} className="survey-link">
             תחילת שאלון
           </button>
 

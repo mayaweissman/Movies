@@ -1,424 +1,395 @@
-// import { position } from "html2canvas/dist/types/css/property-descriptors/position";
-// import React, { Component } from "react";
-// import { Unsubscribe } from "redux";
-// import { OutputModel } from "../../models/outputModel";
-// import { PlantModel } from "../../models/plantModel";
-// import { QuestionModel } from "../../models/questionModel";
-// import { ToxinModel } from "../../models/toxinModel";
-// import { ActionType } from "../../redux/actionType";
-// import { store } from "../../redux/store";
-// import "./output.css";
+import React, { Component } from "react";
+import jsPDF from "jspdf";
 
-// interface OutputState {
-//   output: OutputModel;
-//   currentQuestion: QuestionModel;
-//   plants: PlantModel[];
-//   currentPlant: PlantModel;
-//   nextPlant: PlantModel;
-//   allToxins: ToxinModel[];
-//   startX: number;
-//   move: number;
-//   classes: { current: string; next: string };
-// }
+console.clear()
 
-// export class Output extends Component<any, OutputState> {
-//   private unsubscribeStore: Unsubscribe;
-
-//   public constructor(props: any) {
-//     super(props);
-//     this.state = {
-//       output: new OutputModel(),
-//       currentQuestion: store.getState().currentQuestion,
-//       plants: [],
-//       currentPlant: new PlantModel(),
-//       nextPlant: new PlantModel(),
-//       allToxins: [],
-//       startX: 0,
-//       move: 0,
-//       classes: { current: "", next: "" },
-//     };
-
-//     this.unsubscribeStore = store.subscribe(() => {
-//       const currentQuestion = store.getState().currentQuestion;
-//       this.setState({ currentQuestion });
-//     });
-//   }
-
-//   public async componentDidMount() {
-//     try {
-//       this.unsubscribeStore = store.subscribe(() => {
-//         const currentQuestion = store.getState().currentQuestion;
-//         this.setState({ currentQuestion });
-//       });
-//       const allOutputs: OutputModel[] = store.getState().allOutputs;
-//       const output: OutputModel = allOutputs.find(
-//         (o) => o.id === this.state.currentQuestion.outputId
-//       ) as OutputModel;
-//       this.setState({ output });
-
-//       const allPlants: PlantModel[] = await store.getState().allPlants;
-//       const plants = [];
-//       for (const id of output.plantsIds as []) {
-//         for (const p of allPlants) {
-//           if (p.id === id) {
-//             plants.push(p);
-//           }
-//         }
-//       }
-
-//       this.setState({ plants });
-
-//       const allToxins = store.getState().allToxins;
-//       this.setState({ allToxins });
-
-//       this.setState({ currentPlant: plants[0] });
-//       this.setState({ nextPlant: plants[1] });
-//     } catch (err) {
-//       console.log(err.message);
-//     }
-//   }
-
-//   public componentWillUnmount(): void {
-//     this.unsubscribeStore();
-//   }
-
-//   public keepOnSurvey = () => {
-//     store.dispatch({ type: ActionType.changeDisplay, payLoad: "question" });
-//     store.dispatch({
-//       type: ActionType.updateCurrentQuestion,
-//       payLoad: this.state.currentQuestion.index
-//         ? this.state.currentQuestion.index + 1
-//         : "",
-//     });
-//   };
-
-//   public isHelpForToxin = (toxinId: number) => {
-//     const tox = this.state.currentPlant.toxins?.find((t) => t === toxinId);
-//     if (tox) {
-//       return true;
-//     }
-//     return false;
-//   };
-
-//   public slide = (e: any) => {
-//     const move = e.targetTouches[0].pageX;
-//     const currentPlant = { ...this.state.currentPlant };
-//     const allPlants = [...this.state.plants];
-//     const index = allPlants.findIndex((p) => p.id === currentPlant.id);
-//     console.log(index);
-//     if (this.state.startX === 0) {
-//       this.setState({ startX: move });
-//       return;
-//     }
-//     if (move > this.state.startX) {
-//       if (index > 0) {
-//         const classes = { ...this.state.classes };
-//         classes.next = "current-slide-out";
-//         this.setState({ classes });
-//         this.setState({ nextPlant: this.state.currentPlant });
-//         const prePlant = allPlants[index - 1];
-//         setTimeout(() => {
-//           this.setState({ currentPlant: prePlant });
-//         }, 500);
-//       }
-//     } else {
-//       if (index !== allPlants.length - 1) {
-//         const classes = { ...this.state.classes };
-//         classes.next = "next-slide-in";
-//         this.setState({ classes });
-//         setTimeout(() => {
-//           classes.next = "";
-//           this.setState({ classes });
-//           const nextPlant = allPlants[index + 1];
-//           this.setState({ currentPlant: nextPlant });
-//           if (index < allPlants.length - 2) {
-//             const nextNextPlant = allPlants[index + 2];
-//             this.setState({ nextPlant: nextNextPlant });
-//           }
-//         }, 1500);
-//       }
-//     }
-//   };
-
-//   public render() {
-//     return (
-//       <div className="output">
-//         <div className="plants">
-//           <div className={"current-plant " + this.state.classes.current}>
-//             <div
-//               className="top-plant-area"
-//               onTouchEnd={() => this.setState({ startX: 0 })}
-//               onTouchMove={this.slide}
-//             >
-//               <span>{this.state.currentPlant.hebTitle}</span>
-//             </div>
-//           </div>
-//           <div className={"next-plant " + this.state.classes.next}>
-//             <div
-//               className="top-plant-area"
-//               onTouchEnd={() => this.setState({ startX: 0 })}
-//               onTouchMove={this.slide}
-//             >
-//               <span>{this.state.nextPlant.hebTitle}</span>
-//             </div>
-//           </div>
-//           <div className="next-plant">
-//             <div
-//               className="top-plant-area"
-//               onTouchEnd={() => this.setState({ startX: 0 })}
-//               onTouchMove={this.slide}
-//             >
-//               <span>{this.state.nextPlant.hebTitle}</span>
-//             </div>
-//           </div>
-//           {/* {this.state.plants.map((p) => (
-//             <div
-//               className="plant"
-//               style={{ right: `${this.getPosition(p.id as number)}vw` }}
-//             >
-//               <div
-//                 className="top-plant-area"
-//                 onTouchEnd={() => this.setState({ startX: 0 })}
-//                 onTouchMove={this.slide}
-//               >
-//                 <h1>{p.hebTitle}</h1>
-//               </div>
-//             </div>
-//           ))} */}
-//         </div>
-
-//         <div className="bottom-plant-area">
-//           <span className="plant-title">
-//             {this.state.currentPlant.hebTitle}
-//           </span>
-//           <div className="toxins">
-//             <span>עוזר להפחית:</span>
-//             {this.state.allToxins.map((t) => (
-//               <div
-//                 className={
-//                   this.isHelpForToxin(t.id as number) ? "toxin active" : "toxin"
-//                 }
-//               >
-//                 {t.shortName}
-//               </div>
-//             ))}
-//           </div>
-
-//           <span className="plant-info">
-//             {this.state.currentPlant.hebContent}
-//           </span>
-
-//           <button className="back-to-survey-btn" onClick={this.keepOnSurvey}>
-//             שאלה הבאה
-//           </button>
-//         </div>
-//         <button className="add-to-list-btn">הוספה לרשימה</button>
-//       </div>
-//     );
-//   }
-// }
-
-css:
-
-
-.output {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-  display: flex;
+interface BoilerplateState {
+  state: {}
 }
 
-.current-plant {
-  width: 70vw;
-  position: relative;
-  height: 60%;
-  left: 0;
-}
-.next-plant {
-  width: 79vw;
-  position: relative;
-  height: 60%;
-}
-
-.top-plant-area {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #ffdb00;
-}
-
-.plants {
-  position: absolute;
-  top: 0;
-  display: flex;
-  height: 100%;
-}
-
-
-.next-plant>.top-plant-area::before {
-  content: "";
-  background-color: white;
-  height: 100%;
-  width: 2vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.next-plant>.top-plant-area::after {
-  content: "";
-  background-color: white;
-  height: 100%;
-  width: 2vw;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.add-to-list-btn {
-  background-color: #0058a3;
-  color: white;
-  width: 100%;
-  position: absolute;
-  top: 52%;
-  z-index: 2 ;
-  left: 0;
-  font-size: 7vw;
-  height: 17vw;
-}
-
-.bottom-plant-area {
-  position: absolute;
-  bottom: 0;
-  width: 92%;
-  right: 50%;
-  display: flex;
-  height: 40%;
-  flex-direction: column;
-  align-items: flex-start;
-  direction: rtl;
-  transform: translateX(50%);
-}
-.plant-title {
-  font-weight: 600;
-  margin-top: 7vw;
-  margin-bottom: 3vw;
-  font-size: 8vw;
-}
-
-.back-to-survey-btn {
-  position: absolute;
-  bottom: 3vw;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 2px solid #0058a3;
-  color: #0058a3;
-  background-color: transparent;
-  height: 15vw;
-  font-weight: 700;
-  font-size: 8vw;
-  outline: none;
-}
-
-.toxins {
-  display: flex;
-}
-
-.plant-info {
-  text-align: right;
-  margin-top: 5vw;
-  font-size: 4.5vw;
-}
-
-.toxin.active {
-  background-color: #000000;
-}
-
-.toxin {
-  position: relative;
-  width: 9vw;
-  height: 5vw;
-  margin-right: 1.5vw;
-  background-color: #d4d4d4;
-  color: white;
-}
-
-.toxin:before,
-.toxin:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 4.5vw solid transparent;
-  right: 0;
-  border-right: 4.5vw solid transparent;
-}
-
-.toxin:before {
-  bottom: 100%;
-  border-bottom: 2.7vw solid #d4d4d4;
-}
-
-.toxin:after {
-  top: 100%;
-  width: 0;
-  border-top: 2.7vw solid #d4d4d4;
-}
-
-.toxin.active:before {
-  bottom: 100%;
-  border-bottom: 2.7vw solid #000000;
-}
-
-.toxin.active:after {
-  top: 100%;
-  width: 0;
-  border-top: 2.7vw solid #000000;
-}
-
-.next-plant.next-slide-in{
-  animation: nextSlideIn 1.5s both;
-}
-
-.next-plant.current-slide-out{
-  animation: currentSlideOut 1.5s both;
-}
-
-@keyframes nextSlideIn{
-  0%{
-    position: absolute;
-    z-index: 1;
-    right: 2vw;
+export class Boilerplate extends Component<any, BoilerplateState> {
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      state: {}
+    }
   }
-  100%{
-    position: absolute;
-    z-index: 1;
-    right: 77vw;
-  }
-}
-@-webkit-keyframes nextSlideIn{
-  0%{
-    position: absolute;
-    z-index: 1;
-    right: 2vw;
-  }
-  100%{
-    position: absolute;
-    z-index: 1;
-    right: 77vw;
+  render() {
+    return (
+      <div>
+
+      </div>
+    )
   }
 }
 
-@keyframes currentSlideOut{
-  0%{
-    position: absolute;
-    z-index: 1;
-    left: 0;
+const data = {
+  firstName: 'john',
+  lastName: 'donohue',
+  email: 'john.donohue@trendcycle.co',
+}
+
+interface PdfState {
+  state: {}
+}
+
+export class Pdf extends Component<any, PdfState>{
+
+  public doc = new jsPDF();
+
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      state: {}
+    }
   }
-  100%{
-    position: absolute;
-    z-index: 1;
-    left: 70vw;
+  componentDidMount() {
+    this.setup()
+  }
+  download = (event: any) => {
+    this.doc.save('sample.pdf')
+  }
+
+  setup() {
+    const el = document.getElementById('content')
+    if (typeof (el) === 'object' && el !== null) {
+      const width = 170
+      const elementHandlers = {
+        '#ignorePDF': (element:any, renderer:any) => {
+          return true
+        }
+      }
+      this.doc.fromHTML(el, 15, 15, { width, elementHandlers }, () => {
+        const pdf = this.doc.output('datauristring')
+        if (typeof (pdf) === 'string' && pdf.length > 0) {
+          this.setState({ state:pdf })
+        }
+      })
+    }
+    this.doc = this.doc;
+  }
+  renderPreview() {
+    const  pdf  = this.state.state;
+    if (typeof (pdf) === 'string' && pdf.length > 0) {
+      return (
+        <div style={{
+          height: '650px',
+          position: 'relative',
+          zIndex: 999,
+          border: '1px solid #000',
+        }}>
+          <embed className="pdfobject" src={pdf} type="application/pdf" style={{
+            overflow: 'auto',
+            width: '100%',
+            height: '100%',
+          }} id="30"></embed>
+          {/*
+            <iframe title="preview" src={pdf} style={{
+                width: '100%',
+                height: '700px',
+              }} frameBorder="0"></iframe>
+          */}
+        </div>
+      )
+    }
+    return null
+  }
+  renderData() {
+    const keys = Object.keys(data)
+    return (
+      <div className="row">
+        {
+          keys.map((e, i) => (
+            <div className="col">
+              <label>{e}</label>
+              <div className="data">ss</div>
+            </div>
+          ))
+        }
+      </div>
+    )
+  }
+  render() {
+    return (
+      <div className="container">
+        <h1>ReactJS: jsPDF</h1>
+
+        <div className="row">
+          <div className="col-6">
+            <div className="mb-3">
+              <button className="btn btn-outline-primary" onClick={this.download}>Save as PDF</button>
+            </div>
+            <div id="content">
+              <h2>Title</h2>
+              <p className="lead">Lead</p>
+              {this.renderData()}
+            </div>
+          </div>
+          <div className="col-6">
+            {this.renderPreview()}
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+
+import React, { Component } from "react";
+import { Unsubscribe } from "redux";
+import { PlantModel } from "../../models/plantModel";
+import { ActionType } from "../../redux/actionType";
+import { store } from "../../redux/store";
+import { ToxinsIcons } from "../toxins-icons/toxins-icons";
+import "./cart.css";
+import jsPDF from "jspdf";
+import { Pdf } from "../pdf/pdf";
+
+interface BoilerplateState {
+  state: {}
+}
+
+export class Boilerplate extends Component<any, BoilerplateState> {
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      state: {}
+    }
+  }
+  render() {
+    return (
+      <div>
+
+      </div>
+    )
+  }
+}
+
+interface cartState {
+  shoppingCart: PlantModel[];
+  state: {}
+}
+
+const data = {
+  firstName: 'john',
+  lastName: 'donohue',
+  email: 'john.donohue@trendcycle.co',
+}
+
+export class Cart extends Component<any, cartState> {
+  private unsubscribeStore: Unsubscribe;
+  public cartRef = React.createRef<HTMLElement>();
+  public doc = new jsPDF();
+
+
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      shoppingCart: store.getState().shoppingCart,
+      state: {}
+    };
+    this.unsubscribeStore = store.subscribe(() => {
+      const shoppingCart = store.getState().shoppingCart;
+      this.setState({ shoppingCart });
+    });
+  }
+
+  public componentDidMount() {
+    this.unsubscribeStore = store.subscribe(() => {
+      const shoppingCart = store.getState().shoppingCart;
+      this.setState({ shoppingCart });
+    });
+
+    this.setup()
+
+  }
+
+
+  public componentWillUnmount(): void {
+    this.unsubscribeStore();
+  }
+
+  download = (event: any) => {
+    this.doc.save('sample.pdf')
+  }
+
+  setup() {
+    const el = document.getElementById('content')
+    if (typeof (el) === 'object' && el !== null) {
+      const width = 170
+      const elementHandlers = {
+        '#ignorePDF': (element: any, renderer: any) => {
+          return true
+        }
+      }
+      this.doc.fromHTML(el, 15, 15, { width, elementHandlers }, () => {
+        const pdf = this.doc.output('datauristring')
+        if (typeof (pdf) === 'string' && pdf.length > 0) {
+          this.setState({ state: pdf })
+        }
+      })
+    }
+    this.doc = this.doc;
+    console.log(this.state.state);
+  }
+  // renderPreview() {
+  //   const pdf = this.state.state;
+  //   if (typeof (pdf) === 'string' && pdf.length > 0) {
+  //     return (
+  //       <div style={{
+  //         height: '650px',
+  //         position: 'relative',
+  //         zIndex: 999,
+  //         border: '1px solid #000',
+  //       }}>
+  //         <embed className="pdfobject" src={pdf} type="application/pdf" style={{
+  //           overflow: 'auto',
+  //           width: '100%',
+  //           height: '100%',
+  //         }} id="30"></embed>
+  //         {/*
+  //           <iframe title="preview" src={pdf} style={{
+  //               width: '100%',
+  //               height: '700px',
+  //             }} frameBorder="0"></iframe>
+  //         */}
+  //       </div>
+  //     )
+  //   }
+  //   return null
+  // }
+  // renderData() {
+  //   return (
+  //     <main>
+  //       {this.state.shoppingCart.map((p) => (
+  //         <div className="cart-item">
+  //           <div className="left-area-on-item">
+  //             <img className="trash-icon" src="./assets/images/TRASH_1.svg" />
+  //             <div className="plant-img"></div>
+  //           </div>
+  //           <div className="right-area-on-item">
+  //             <span className="item-title"> {p.hebTitle}</span>
+  //             {/* <span className="price">{p.price}</span> */}
+  //             {/* <span className="amount">{p.amountOnShoppingCart}x</span> */}
+  //             <div className="toxins-on-item">
+  //               <ToxinsIcons plant={p} />
+  //             </div>
+  //             <span className="size-item">{p.size}</span>
+  //             <span className="code-item">{p.code}</span>
+  //             <span className="bold-txt">הולך עם:</span>
+  //             <div className="best-goes-items">
+  //               <div className="item"></div>
+  //               <div className="item"></div>
+  //               <div className="item"></div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       ))}
+  //     </main>
+  //   )
+  // }
+
+  renderData() {
+    let div = '';
+    for (const s of this.state.shoppingCart) {
+      div += `
+        <div className="row">
+
+          <div className="col">
+            <label>${s.hebTitle}</label>
+            <div className="data">${s.hebContent}</div>
+          </div>
+
+        </div>
+      `
+
+    }
+    console.log(div);
+    return div;
+  }
+
+  public jsPdfGenerator = () => {
+    const doc = new jsPDF("p", "pt");
+
+    const el = this.cartRef.current;
+    if (typeof (el) === 'object' && el !== null) {
+      const width = 170;
+      const elementHandlers = {
+        '#ignorePDF': (element: any, renderer: any) => {
+          return true
+        }
+      }
+      doc.fromHTML(el, 15, 15, { width, elementHandlers }, () => {
+        const pdf = doc.output('datauristring')
+        if (typeof (pdf) === 'string' && pdf.length > 0) {
+          doc.save(".pdf");
+
+        }
+      })
+    }
+
+  };
+
+
+
+
+  public render() {
+    return (
+      <div className="cart">
+        <div className="row">
+          <div className="col-6">
+            <div className="mb-3">
+            </div>
+            <div id="content" dangerouslySetInnerHTML={{ __html: this.renderData() }}>
+            </div>
+          </div>
+          <div className="col-6">
+            {/* {this.renderPreview()} */}
+          </div>
+        </div>
+        <header>
+          <span className="header-title">רשימת הצמחים שלי</span>
+          <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
+          <img className="close-cart-icon" src="./assets/images/CLOSE_BT.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />
+        </header>
+        <main className="content" ref={this.cartRef}>
+          {this.state.shoppingCart.length === 0 && (
+            <div className="empty-cart">
+              <span>עגלת הקניות שלך ריקה כרגע</span>
+            </div>
+          )}
+          {this.state.shoppingCart.map((p) => (
+            <div className="cart-item">
+              <div className="left-area-on-item">
+                <img className="trash-icon" src="./assets/images/TRASH_1.svg" />
+                <div className="plant-img"></div>
+              </div>
+              <div className="right-area-on-item">
+                <span className="item-title"> {p.hebTitle}</span>
+                {/* <span className="price">{p.price}</span> */}
+                {/* <span className="amount">{p.amountOnShoppingCart}x</span> */}
+                <div className="toxins-on-item">
+                  <ToxinsIcons plant={p} />
+                </div>
+                <span className="size-item">{p.size}</span>
+                <span className="code-item">{p.code}</span>
+                <span className="bold-txt">הולך עם:</span>
+                <div className="best-goes-items">
+                  <div className="item"></div>
+                  <div className="item"></div>
+                  <div className="item"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </main>
+        <footer>
+          <button onClick={this.download} className="download-btn">
+            <img className="dowloand-icon" src="./assets/images/DOWNLOAD_ICON.svg" />הורד רשימה
+          </button>
+          <button className="share-btn"> <img className="share-icon" src="./assets/images/SHARE_ICON.svg" /> שתף</button>
+        </footer>
+      </div>
+    );
   }
 }

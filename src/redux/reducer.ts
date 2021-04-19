@@ -26,6 +26,11 @@ export function reducer(oldAppState: AppState, action: Action): AppState {
       }
       break;
 
+    case ActionType.removeFromShoppingCart:
+      const index = newAppState.shoppingCart.findIndex(p => p.id === action.payLoad);
+      newAppState.shoppingCart.splice(index, 1);
+      break;
+
     case ActionType.changeDisplayForCart:
       if (newAppState.displayCart === false) {
         newAppState.displayCart = true;

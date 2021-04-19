@@ -108,6 +108,10 @@
   transform: translateX(50%);
 }
 
+.trash-icon:hover{
+  cursor: pointer;
+}
+
 .right-area-on-item {
   display: flex;
   flex-direction: column;
@@ -117,6 +121,8 @@
 
 .left-area-on-item {
   display: flex;
+  top: 2vw;
+  position: relative;
 }
 
 .plant-img {
