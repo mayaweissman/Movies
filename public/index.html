@@ -57,7 +57,7 @@
   <script>
     function getPDF(selector) {
       kendo.drawing.drawDOM($(selector)).then(function (group) {
-        kendo.drawing.pdf.saveAs(group, "Invoice.pdf");
+        kendo.drawing.pdf.saveAs(group, "list.pdf");
       });
     }
 

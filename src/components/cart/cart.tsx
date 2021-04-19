@@ -7,24 +7,22 @@ import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./cart.css";
 import jsPDF from "jspdf";
 import { url } from "node:inspector";
-
+import { Pdf } from "../pdf/pdf";
 
 interface cartState {
   shoppingCart: PlantModel[];
-  state: {}
+  state: {};
 }
-
 
 export class Cart extends Component<any, cartState> {
   private unsubscribeStore: Unsubscribe;
   public cartRef = React.createRef<HTMLElement>();
 
-
   public constructor(props: any) {
     super(props);
     this.state = {
       shoppingCart: store.getState().shoppingCart,
-      state: {}
+      state: {},
     };
     this.unsubscribeStore = store.subscribe(() => {
       const shoppingCart = store.getState().shoppingCart;
@@ -39,59 +37,50 @@ export class Cart extends Component<any, cartState> {
     });
 
     const cart = document.getElementById("download-btn");
-    
+
     if (cart) {
-     cart.setAttribute("onclick", "getPDF('#cart')");
+      cart.setAttribute("onclick", "getPDF('#page')");
     }
-
-
   }
-
 
   public componentWillUnmount(): void {
     this.unsubscribeStore();
   }
 
-  public jsPdfGenerator = () => {
-    const doc = new jsPDF("p", "pt");
-
-    const el = this.cartRef.current;
-    if (typeof (el) === 'object' && el !== null) {
-      const width = 170;
-      const elementHandlers = {
-        '#ignorePDF': (element: any, renderer: any) => {
-          return true
-        }
-      }
-      doc.fromHTML(el, 15, 15, { width, elementHandlers }, () => {
-        const pdf = doc.output('datauristring')
-        if (typeof (pdf) === 'string' && pdf.length > 0) {
-          doc.text('aa', 10, 10);
-          doc.save(".pdf");
-
-        }
-      })
-    }
-
-  };
-
   public getPdf = () => {
     // onload="getPDF('#root')"
     const cart = document.getElementById("cart");
     console.log(cart);
+  };
 
-  }
+  public share = () => {
+    
+    let shareData = {
+      title: "MDN",
+      text: "Learn web development on MDN!",
+      url: "https://developer.mozilla.org",
+    };
 
-
-
+    navigator
+      .share(shareData)
+      .then(() => console.log("MDN shared successfully"))
+      .catch((e) => console.log(e));
+  };
 
   public render() {
     return (
       <div className="cart">
+        <Pdf />
         <header>
           <span className="header-title">רשימת הצמחים שלי</span>
           <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
-          <img className="close-cart-icon" src="./assets/images/CLOSE_BT.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />
+          <img
+            className="close-cart-icon"
+            src="./assets/images/CLOSE_BT.svg"
+            onClick={() =>
+              store.dispatch({ type: ActionType.changeDisplayForCart })
+            }
+          />
         </header>
         <main id="cart" ref={this.cartRef}>
           {this.state.shoppingCart.length === 0 && (
@@ -102,8 +91,22 @@ export class Cart extends Component<any, cartState> {
           {this.state.shoppingCart.map((p) => (
             <div className="cart-item">
               <div className="left-area-on-item">
-                <img className="trash-icon" src="./assets/images/TRASH_1.svg" onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: p.id })} />
-                <div className="plant-img-on-cart" style={{ backgroundImage: `url(./assets/images/${p.imgSrc})` }}></div>
+                <img
+                  className="trash-icon"
+                  src="./assets/images/TRASH_1.svg"
+                  onClick={() =>
+                    store.dispatch({
+                      type: ActionType.removeFromShoppingCart,
+                      payLoad: p.id,
+                    })
+                  }
+                />
+                <div
+                  className="plant-img-on-cart"
+                  style={{
+                    backgroundImage: `url(./assets/images/${p.imgSrc})`,
+                  }}
+                ></div>
               </div>
               <div className="right-area-on-item">
                 <span className="item-title"> {p.hebTitle}</span>
@@ -126,9 +129,20 @@ export class Cart extends Component<any, cartState> {
         </main>
         <footer>
           <button id="download-btn" className="download-btn">
-            <img className="dowloand-icon" src="./assets/images/DOWNLOAD_ICON.svg" />הורד רשימה
+            <img
+              className="dowloand-icon"
+              src="./assets/images/DOWNLOAD_ICON.svg"
+            />
+            הורד רשימה
           </button>
-          <button className="share-btn"> <img className="share-icon" src="./assets/images/SHARE_ICON.svg" /> שתף</button>
+          <button className="share-btn" onClick={this.share}>
+            {" "}
+            <img
+              className="share-icon"
+              src="./assets/images/SHARE_ICON.svg"
+            />{" "}
+            שתף
+          </button>
         </footer>
       </div>
     );
@@ -137,4 +151,3 @@ export class Cart extends Component<any, cartState> {
 function getPDF(arg0: string) {
   throw new Error("Function not implemented.");
 }
-

@@ -5,7 +5,6 @@ import { Cart } from "../cart/cart";
 import { Home } from "../home/home";
 import { Question } from "../question/question";
 import { Survey } from "../survey/survey";
-import { TopMenu } from "../top-menu/top-menu";
 import { Toxin } from "../toxin/toxin";
 import { ToxinsInfo } from "../toxins-info/toxins-info";
 import "./layout.css";
