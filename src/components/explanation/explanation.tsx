@@ -50,6 +50,19 @@ export class Explanation extends Component<any, ExplanationState> {
     this.unsubscribeStore();
   }
 
+  public getImgSrc = (toxinId: number) => {
+    let imgSrc = `toxin-${toxinId}-stroke.svg`;
+    if (this.state.explanation.toxins) {
+      for (const t of this.state.explanation.toxins) {
+        if (t === toxinId) {
+          imgSrc = `toxin-${toxinId}.svg`;
+        }
+      }
+    }
+
+    return imgSrc;
+  }
+
   public render() {
     return (
       <div className="explanation">
@@ -64,10 +77,17 @@ export class Explanation extends Component<any, ExplanationState> {
               })
             }
           />
+          <img className="wood-exp" src="./assets/images/tree-branch.svg" />
+          <img className="bucket-exp" src="./assets/images/bucket.svg" />
+          <img className="exp-bz exp-leaf" src={"./assets/images/" + this.getImgSrc(1)} />
+          <img className="exp-tr exp-leaf" src={"./assets/images/" + this.getImgSrc(2)} />
+          <img className="exp-fh exp-leaf" src={"./assets/images/" + this.getImgSrc(3)} />
+          <img className="exp-xy exp-leaf" src={"./assets/images/" + this.getImgSrc(4)} />
+          <img className="exp-am exp-leaf" src={"./assets/images/" + this.getImgSrc(5)} />
         </div>
         <div className="explanation-bottom-area">
           <span className="explanation-title">
-            {this.state.explanation.hebTitle}
+          למה זה משנה?
           </span>
           <span className="explanation-content">
             {this.state.explanation.hebContent}

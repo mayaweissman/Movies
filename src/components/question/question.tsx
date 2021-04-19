@@ -115,6 +115,7 @@ export class Question extends Component<QuestionProps, QuestionState> {
     return (
       <div className="question">
         <div className="top-question-area">
+          <video autoPlay muted loop className="question-video" src={"./assets/videos/" + this.props.question.mobileVideoSrc}/>
           <div className="navigation">
             {this.state.allQuestions.map((q) => (
               <div
@@ -131,11 +132,11 @@ export class Question extends Component<QuestionProps, QuestionState> {
             />
           </NavLink>
 
-          {this.state.shoppingCart.length > 0 && <img
+          {/* {this.state.shoppingCart.length > 0 && <img
             className="wishlist-icon"
             src="./assets/images/WISHLIST_ICON.svg"
             onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })}
-          />}
+          />} */}
         </div>
         <div className="bottom-question-area">
           <span className="question-title">{this.props.question.hebTitle}</span>

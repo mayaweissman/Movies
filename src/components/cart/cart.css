@@ -96,6 +96,12 @@
   font-size: 4vw;
 }
 
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
 .cart-item::after {
   content: "";
   background-color: #ececec;
@@ -125,13 +131,6 @@
   position: relative;
 }
 
-.plant-img {
-  background-color: #ffffff;
-  border: 1px solid #dcefdc;
-  height: 27vw;
-  margin: 1vw;
-  width: 16vw;
-}
 
 .cart > footer {
   position: absolute;
@@ -195,6 +194,15 @@
   margin-right: 3vw;
 }
 
+.plant-img-on-cart{
+  position: relative;
+  top: 1vw;
+  width: 19vw;
+  height: 32vw;
+  background-size: cover;
+  background-position-x: -3vw;
+}
+
 @keyframes SlideUp {
   0% {
     transform: translateY(100%);
@@ -203,3 +211,4 @@
     transform: translateY(0);
   }
 }
+

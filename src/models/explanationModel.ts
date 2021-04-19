@@ -5,6 +5,7 @@ export class ExplanationModel {
     public engTitle?: string,
     public hebContent?: string,
     public engContent?: string,
+    public toxins?: number[]
   ) { }
 }
 

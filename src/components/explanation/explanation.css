@@ -9,14 +9,14 @@
   top: 0;
   background-color: #ffdb00;
   width: 100%;
-  height: 60%;
+  height: 107vw;
   z-index: 0;
 }
 
 .explanation-bottom-area {
   position: absolute;
-  bottom: 0;
-  height: 40%;
+  top: 109vw;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,7 @@
 .explanation-content {
   position: absolute;
   font-size: 5vw;
-  top: 19vw;
+  top: 14vw;
   padding-bottom: 10vw;
 }
 
@@ -47,4 +47,50 @@
   bottom: 7vw;
   left: 6vw;
   width: 7vw;
+}
+
+.wood-exp {
+  position: absolute;
+  top: 27vw;
+  right: 50%;
+  width: 8.5vw;
+  transform: translateX(50%);
+}
+
+.exp-leaf {
+  width: 15vw;
+  position: absolute;
+}
+
+.exp-bz {
+  top: 34.4vw;
+  right: 31.2vw;
+}
+
+.exp-tr {
+  top: 52.4vw;
+  right: 31.2vw;
+}
+
+.exp-fh {
+  top: 43.4vw;
+  left: 31.5vw;
+}
+
+.exp-xy {
+  top: 25.4vw;
+  left: 31.5vw;
+}
+
+.exp-am {
+  top: 10.4vw;
+  right: 42.2vw;
+}
+
+.bucket-exp {
+  position: absolute;
+  width: 25vw;
+  top: 73vw;
+  right: 50%;
+  transform: translateX(50%);
 }

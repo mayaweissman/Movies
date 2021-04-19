@@ -28,21 +28,21 @@
 }
 
 .toxin:before {
-  top: -2.5vw;
+  top: -2.4vw;
   border-top: solid 2px #000000;
   border-right: solid 2px #000000;
   right: 0.9vw;
 }
 
 .toxin:after {
-  bottom: -2.8vw;
+  bottom: -2.4vw;
   border-bottom: solid 2px #000000;
   border-left: solid 2px #000000;
 }
 
 .toxin {
   position: relative;
-  width: 6.8vw;
+  width: 6.6vw;
   margin-right: 1.5vw;
   height: 4vw;
   background-color: #ffffff;

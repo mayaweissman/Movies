@@ -20,36 +20,34 @@ export class Home extends Component {
       <div className="home">
         <div className="main-home">
           <NavLink className="about-link" to="/about">
-            על הפרויקט
+            אודות הפרויקט
           </NavLink>
           {!this.isShoppingCartEmpty() && <img className="cart-icon" src="./assets/images/WISHLIST_ICON.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />}
-          {/* <img className="main-logo" src="./assets/images/home-main-logo.svg" />
-          <img className="second-logo" src="./assets/images/home-logo.svg" />*/}
           <img className="plants-bg" src="./assets/images/plants-bg.png" />
 
           <div className="home-main-titles">
             <span className="glad-vaxt">GLAD VÄXT</span>
             <br />
-            <span className="happy-plants">(Happy Plants)</span>
+            <span className="happy-plants">Happy Plants</span>
 
           </div>
         </div>
 
         <div className="bottom-home">
+        <span className="title-on-top">איקאה מציגה: <span className="bold-title"> GLAD VAXT</span></span>
+
           <span className="top-txt">
-            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית מוסן מנת. להאמית
-            קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורך.
+            סדרת הצמחים שלא רק נראים טוב, אלא גם עוזרים לכם לשמור על אוויר נקי בבית על ידי ספיחת מזהמים שנמצאים באוויר.
           </span>
           <span className="bottom-txt">
-            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית מוסן מנת.
-          </span>
+            ענו על כמה שאלות כדי למצוא את הצמחים שהכי מתאימים לכם          </span>
 
           <button onClick={() => store.dispatch({ type: ActionType.changeDisplay, payLoad: 'question' })} className="survey-link">
-            תחילת שאלון
+            לחיפוש צמחים
           </button>
 
           <NavLink className="about-pollutions" to="/about-the-toxins">
-            ספרו לי עוד על הרעלנים
+            עוד על המזהמים שנמצאים בבית
           </NavLink>
         </div>
       </div>

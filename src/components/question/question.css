@@ -3,7 +3,7 @@
   top: 0;
   background-color: #ffdb00;
   width: 100%;
-  height: 60%;
+  height: 114.6vw;
   z-index: 0;
 }
 
@@ -53,8 +53,8 @@
 
 .bottom-question-area {
   position: absolute;
-  bottom: 0;
-  height: 40%;
+  top: 120vw;
+  height: auto;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -64,17 +64,26 @@
   align-items: center;
 }
 
-.question-title {
+.question-video {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.question-title {
   top: 5vw;
-  font-size: 7vw;
+  font-size: 3vh;
+  direction: rtl;
+  width: 90vw;
 }
 
 .buttons-area {
   position: relative;
   display: flex;
   width: 90%;
-  top: 0vw;
+  top: 5vw;
 }
 
 

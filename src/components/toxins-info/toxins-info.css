@@ -264,21 +264,21 @@
   right: 27.7vw;
   top: 50.7vw;
   animation: Pulse 6.5s infinite linear;
-  animation-delay: 4.5s;
+  animation-delay: 6s;
 }
 
 .hex-xy {
   left: 27.9vw;
   top: 24.2vw;
   animation: Pulse 6.5s infinite linear;
-  animation-delay: 3.5s;
+  animation-delay: 4.5s;
 }
 
 .hex-bz {
   right: 28.1vw;
   top: 33.5vw;
   animation: Pulse 6.5s infinite linear;
-  animation-delay: 6s;
+  animation-delay: 3.5s;
 }
 
 .hex-fh {

@@ -85,6 +85,21 @@ export class Output extends Component<any, OutputState> {
     });
   };
 
+  //Disabled button if no plant was choosen
+  public isUserChoosePlant = () => {
+    const shoppingCart = store.getState().shoppingCart;
+    const plants = [...this.state.plants];
+    let isChoose = false;
+    for (const plant of plants) {
+      for (const plantOnCart of shoppingCart) {
+        if (plant.id === plantOnCart.id) {
+          isChoose = true;
+        }
+      }
+    }
+    return isChoose;
+  }
+
   public moveToNextPlant = () => {
     const plants = this.state.plants;
     const index = plants.findIndex((p) => p.id === this.state.currentPlant.id);
@@ -179,7 +194,7 @@ export class Output extends Component<any, OutputState> {
                     onClick={this.moveToPrePlant}
                   />
                 )}
-              <span>{this.state.currentPlant.hebTitle}</span>
+              <img className="plant-img" src={"./assets/images/" + this.state.currentPlant?.imgSrc} />
 
             </div>
             <div className="bottom-plant-area">
@@ -198,12 +213,14 @@ export class Output extends Component<any, OutputState> {
               {!this.isOnLastQuestion() && <button
                 className="back-to-survey-btn"
                 onClick={this.keepOnSurvey}
+                disabled={!this.isUserChoosePlant()}
               >
                 שאלה הבאה
               </button>}
               {this.isOnLastQuestion() && <button
                 className="back-to-survey-btn"
                 onClick={this.keepOnSurvey}
+                disabled={!this.isUserChoosePlant()}
               >
                 לרשימת הצמחים שלי
               </button>}
@@ -211,7 +228,8 @@ export class Output extends Component<any, OutputState> {
           </div>
           <div className={"next-plant " + this.state.classes.next}>
             <div className="top-plant-area">
-              <span>{this.state.nextPlant.hebTitle}</span>
+              <img className="plant-img" src={"./assets/images/" + this.state.nextPlant?.imgSrc} />
+
 
 
             </div>
@@ -250,7 +268,7 @@ export class Output extends Component<any, OutputState> {
           )}
           {this.isOnShoppingCart() && (
             <button
-              onClick={()=>store.dispatch({type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id})}
+              onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id })}
               className="on-list-btn"
             >
               &#10003; נוסף לרשימה

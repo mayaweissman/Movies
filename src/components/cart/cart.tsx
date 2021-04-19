@@ -6,6 +6,7 @@ import { store } from "../../redux/store";
 import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./cart.css";
 import jsPDF from "jspdf";
+import { url } from "node:inspector";
 
 
 interface cartState {
@@ -37,6 +38,13 @@ export class Cart extends Component<any, cartState> {
       this.setState({ shoppingCart });
     });
 
+    const cart = document.getElementById("download-btn");
+    
+    if (cart) {
+     cart.setAttribute("onclick", "getPDF('#cart')");
+    }
+
+
   }
 
 
@@ -67,6 +75,13 @@ export class Cart extends Component<any, cartState> {
 
   };
 
+  public getPdf = () => {
+    // onload="getPDF('#root')"
+    const cart = document.getElementById("cart");
+    console.log(cart);
+
+  }
+
 
 
 
@@ -78,7 +93,7 @@ export class Cart extends Component<any, cartState> {
           <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
           <img className="close-cart-icon" src="./assets/images/CLOSE_BT.svg" onClick={() => store.dispatch({ type: ActionType.changeDisplayForCart })} />
         </header>
-        <main className="content" ref={this.cartRef}>
+        <main id="cart" ref={this.cartRef}>
           {this.state.shoppingCart.length === 0 && (
             <div className="empty-cart">
               <span>עגלת הקניות שלך ריקה כרגע</span>
@@ -88,7 +103,7 @@ export class Cart extends Component<any, cartState> {
             <div className="cart-item">
               <div className="left-area-on-item">
                 <img className="trash-icon" src="./assets/images/TRASH_1.svg" onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: p.id })} />
-                <div className="plant-img"></div>
+                <div className="plant-img-on-cart" style={{ backgroundImage: `url(./assets/images/${p.imgSrc})` }}></div>
               </div>
               <div className="right-area-on-item">
                 <span className="item-title"> {p.hebTitle}</span>
@@ -110,7 +125,7 @@ export class Cart extends Component<any, cartState> {
           ))}
         </main>
         <footer>
-          <button onClick={this.jsPdfGenerator} className="download-btn">
+          <button id="download-btn" className="download-btn">
             <img className="dowloand-icon" src="./assets/images/DOWNLOAD_ICON.svg" />הורד רשימה
           </button>
           <button className="share-btn"> <img className="share-icon" src="./assets/images/SHARE_ICON.svg" /> שתף</button>
@@ -119,3 +134,7 @@ export class Cart extends Component<any, cartState> {
     );
   }
 }
+function getPDF(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+

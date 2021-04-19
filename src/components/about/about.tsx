@@ -8,14 +8,15 @@ export class About extends Component {
       <div className="about">
         <img className="ikea-logo" src="./assets/images/IKEA_LOGO.svg" />
         <div className="about-top-area">
-          <NavLink className="back-to-home-btn" to="/home">
+         
+        </div>
+        <div className="about-bottom-area">
+        <NavLink className="back-to-home-btn-about" to="/home">
             <img
-              className="back-to-home-icon"
+              className="back-to-home-icon-about"
               src="./assets/images/BACK_BT.svg"
             />
           </NavLink>
-        </div>
-        <div className="about-bottom-area">
           <span className="about-title">על הפרויקט</span>
           <span className="about-content">
             האוויר שאנחנו נושמים בתוך הבית, עלול להיות מזוהם יותר מהאוויר בחוץ,

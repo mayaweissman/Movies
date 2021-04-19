@@ -22,6 +22,18 @@
     right: 0;
 }
 
+.title-on-top{
+    position: relative;
+    display: flex;
+    direction: rtl;
+    margin-bottom: 2vw;
+}
+
+.bold-title{
+    font-weight: bold;
+    margin-right: 1vw;
+}
+
 .cart-icon{
     position: absolute;
     top: 3.5vw;
@@ -69,13 +81,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2.6vh;
     transform: translateX(50%);
 }
 
 .bottom-txt{
     position: relative;
     font-weight: bold;
-    margin-top: 7vw;
+    margin-top: 3vw;
 }
 
 .survey-link{
@@ -118,6 +131,6 @@
 }
 
 .happy-plants{
-    font-size: 7vw;
+    font-size: 10vw;
     font-family: "Nato Sans Regular";
 }

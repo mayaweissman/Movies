@@ -41,7 +41,23 @@
   background-color: #ffdb00;
 }
 
+.plant-img{
+  position: absolute;
+  top: 43%;
+  width: auto;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  height: 78vw;
 
+}
+
+.back-to-survey-btn:disabled{
+  border: 2px solid #0058a370;
+  color: #0058a370;
+}
 
 .add-to-list-btn {
   background-color: #0058a3;
