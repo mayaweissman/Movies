@@ -1,10 +1,10 @@
-.toxins-info {
+.mobile .toxins-info {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.toxins-top-area {
+.mobile .toxins-top-area {
   position: absolute;
   top: 0;
   background-color: #ffdb00;
@@ -13,7 +13,7 @@
   z-index: 0;
 }
 
-.toxins-bottom-area {
+.mobile .toxins-bottom-area {
   position: absolute;
   top: 110vw;
   height: 67vw;
@@ -28,21 +28,21 @@
   text-align: right;
 }
 
-.toxins-title {
+.mobile .toxins-title {
   position: absolute;
   font-size: 6vw;
   font-weight: 700;
   top: 5vw;
 }
 
-.toxins-content {
+.mobile .toxins-content {
   position: absolute;
   font-size: 4.3vw;
   top: 15vw;
   padding-bottom: 10vw;
 }
 
-.tree-area {
+.mobile .tree-area {
   position: absolute;
   top: 50%;
   height: 100%;
@@ -51,7 +51,7 @@
   transform: translateY(-50%) translateX(50%);
 }
 
-.bucket {
+.mobile .bucket {
   position: absolute;
   right: 50%;
   top: 73vw;
@@ -59,77 +59,77 @@
   width: 25vw;
 }
 
-.leaf {
+.mobile .leaf {
   position: absolute;
   width: 14vw;
 }
 
-.fh-leaf {
+.mobile .fh-leaf {
   top: 44vw;
   left: 32.5vw;
   animation: scaleInFh 1.2s both;
   transform-origin: right bottom;
 }
 
-.xy-leaf {
+.mobile .xy-leaf {
   top: 26.2vw;
   left: 32.5vw;
   animation: scaleInXy 1.2s both;
   transform-origin: right bottom;
 }
 
-.tr-leaf {
+.mobile .tr-leaf {
   top: 53vw;
   right: 32.5vw;
   animation: scaleInTr 1.2s both;
   transform-origin: left bottom;
 }
 
-.bz-leaf {
+.mobile .bz-leaf {
   top: 35.5vw;
   right: 32.5vw;
   animation: scaleInBz 1.2s both;
   transform-origin: left bottom;
 }
 
-.am-leaf {
+.mobile .am-leaf {
   right: 43vw;
   top: 12vw;
   animation: scaleInAm 1.2s both;
   transform-origin: bottom;
 }
 
-.right-branch.first-branch {
+.mobile .right-branch.first-branch {
   right: 45vw;
   top: 46vw;
 }
 
-.right-branch.second-branch {
+.mobile .right-branch.second-branch {
   right: 45vw;
   top: 64vw;
 }
 
-.left-branch.first-branch {
+.mobile .left-branch.first-branch {
   left: 45vw;
   top: 54.9vw;
 }
 
-.left-branch.second-branch {
+.mobile .left-branch.second-branch {
   left: 45vw;
   top: 37vw;
 }
 
-.right-branch {
+.mobile .right-branch {
   animation: scaleInRightBranch 1.2s both linear;
   transform-origin: left;
 }
 
-.left-branch {
+.mobile .left-branch {
   animation: scaleInLeftBranch 1.2s both linear;
   transform-origin: right;
 }
 
-.tree {
+.mobile .tree {
   position: absolute;
   top: 27vw;
   width: 1.3vw;
@@ -138,8 +138,8 @@
   height: 46vw;
 }
 
-.first-branch,
-.second-branch {
+.mobile .first-branch,
+.mobile .second-branch {
   position: absolute;
   width: 5.5vw;
 }
@@ -161,6 +161,7 @@
     transform: scale(1) translateX(0) translateY(0);
   }
 }
+
 @keyframes scaleInBz {
   0% {
     transform: scale(0.3) translateX(-4vw) translateY(-5vw);
@@ -216,7 +217,7 @@
   }
 }
 
-.hex-pulse {
+.mobile .hex-pulse {
   overflow: hidden;
   display: inline-block;
   margin: 4em 0;
@@ -225,25 +226,28 @@
   transform: rotate(-30deg) skewX(30deg);
   border-radius: 0.5em;
 }
-.hex-pulse *,
-.hex-pulse *:before {
+
+.mobile .hex-pulse *,
+.mobile .hex-pulse *:before {
   display: block;
   overflow: hidden;
   width: inherit;
   height: inherit;
   border-radius: inherit;
 }
-.hex-inner {
+
+.mobile .hex-inner {
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   cursor: pointer;
 }
-.hex-pulse:first-child .hex-inner:before {
+
+.mobile .hex-pulse:first-child .hex-inner:before {
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   background: rgb(0 0 0 / 35%);
   content: "";
 }
 
-.hexagone {
+.mobile .hexagone {
   display: inline-block;
   width: 23vw;
   color: rgba(0, 0, 0, 0.527);
@@ -253,42 +257,42 @@
   opacity: 0;
 }
 
-.hex-am {
+.mobile .hex-am {
   right: 38.4vw;
   top: 9.7vw;
   animation: Pulse 6.5s infinite linear;
   animation-delay: 1.2s;
 }
 
-.hex-tr {
+.mobile .hex-tr {
   right: 27.7vw;
   top: 50.7vw;
   animation: Pulse 6.5s infinite linear;
   animation-delay: 6s;
 }
 
-.hex-xy {
+.mobile .hex-xy {
   left: 27.9vw;
   top: 24.2vw;
   animation: Pulse 6.5s infinite linear;
   animation-delay: 4.5s;
 }
 
-.hex-bz {
+.mobile .hex-bz {
   right: 28.1vw;
   top: 33.5vw;
   animation: Pulse 6.5s infinite linear;
   animation-delay: 3.5s;
 }
 
-.hex-fh {
+.mobile .hex-fh {
   left: 27.8vw;
   top: 41.7vw;
   animation: Pulse 6.5s infinite linear;
   animation-delay: 2s;
 }
 
-.hexagone::before {
+.mobile .hexagone::before {
   content: "";
   display: block;
   padding-top: 86.6%;
@@ -309,13 +313,13 @@
     transform: scale(1.2) rotate(90deg);
     opacity: 0;
   }
-  60%{
+  60% {
     opacity: 0;
   }
-  80%{
+  80% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }

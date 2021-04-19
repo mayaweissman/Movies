@@ -1,4 +1,4 @@
-.top-question-area {
+.mobile .top-question-area {
   position: absolute;
   top: 0;
   background-color: #ffdb00;
@@ -7,7 +7,7 @@
   z-index: 0;
 }
 
-.navigation {
+.mobile .navigation {
   position: absolute;
   top: 4vw;
   right: 4vw;
@@ -15,7 +15,7 @@
   display: flex;
 }
 
-.dot {
+.mobile .dot {
   content: "";
   width: 2.5vw;
   height: 2.5vw;
@@ -25,33 +25,34 @@
   border-radius: 50%;
 }
 
-.dot.active {
+.mobile .dot.active {
   animation: fillCircle 1.25s both;
 }
 
-.wishlist-btn {
+.mobile .wishlist-btn {
   position: absolute;
   top: 90%;
   right: 7vw;
 }
 
-.back-to-home-btn {
+.mobile .back-to-home-btn {
   position: absolute;
   top: 90%;
   left: 7vw;
 }
-.wishlist-icon {
+
+.mobile .wishlist-icon {
   width: 7vw;
   position: absolute;
   top: 89%;
   right: 7vw;
 }
 
-.back-to-home-icon {
+.mobile .back-to-home-icon {
   width: 7vw;
 }
 
-.bottom-question-area {
+.mobile .bottom-question-area {
   position: absolute;
   top: 120vw;
   height: auto;
@@ -64,7 +65,7 @@
   align-items: center;
 }
 
-.question-video {
+.mobile .question-video {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -72,81 +73,80 @@
   top: 0;
 }
 
-.question-title {
+.mobile .question-title {
   top: 5vw;
   font-size: 3vh;
   direction: rtl;
   width: 90vw;
 }
 
-.buttons-area {
+.mobile .buttons-area {
   position: relative;
   display: flex;
   width: 90%;
   top: 5vw;
 }
 
-
-.no-btn {
-    background-color: #9a9b9f;
-    border: 0;
-    height: 15vw;
-    color: white;
-    font-size: 5vw;
-    width: 50%;
+.mobile .no-btn {
+  background-color: #9a9b9f;
+  border: 0;
+  height: 15vw;
+  color: white;
+  font-size: 5vw;
+  width: 50%;
 }
 
-.why-does-it-matter{
+.mobile .why-does-it-matter {
   position: relative;
   top: 15vw;
-  color: #0058A3;
+  color: #0058a3;
   direction: rtl;
   text-decoration: none;
 }
 
-.yes-btn{
-    background-color: #0058A3;
-    border: 0;
-    height: 15vw;
-    color: white;
-    font-size: 5vw;
-    width: 50%;
+.mobile .yes-btn {
+  background-color: #0058a3;
+  border: 0;
+  height: 15vw;
+  color: white;
+  font-size: 5vw;
+  width: 50%;
 }
 
-.yes-btn.slide-right {
+.mobile .yes-btn.slide-right {
   animation: SlideRightForYesBtn 1s both;
 }
 
-.no-btn.slide-right {
+.mobile .no-btn.slide-right {
   animation: SlideRightForNoBtn 0.5s both;
 }
 
-.yes-btn.slide-left {
+.mobile .yes-btn.slide-left {
   animation: SlideLeftForYesBtn 1s both;
 }
 
-.no-btn.slide-left {
+.mobile .no-btn.slide-left {
   animation: SlideLeftForNoBtn 0.5s both;
 }
 
-.after-yes {
+.mobile .after-yes {
   opacity: 0;
   animation: 1s fadeIn both;
   animation-delay: 1s;
 }
 
-.yes-btn.back-from-right {
+.mobile .yes-btn.back-from-right {
   animation: BackFromRightForYesBtn 1s both;
 }
-.no-btn.back-from-right {
+.mobile .no-btn.back-from-right {
   animation: BackFromRightForNoBtn 1s both;
 }
 
-.no-btn.back-from-left {
+.mobile .no-btn.back-from-left {
   animation: BackFromLeftForNoBtn 1s both;
 }
 
-.yes-btn.back-from-left {
+.mobile .yes-btn.back-from-left {
   animation: BackFromLeftForYesBtn 1s both;
 }
 
@@ -200,6 +200,7 @@
     right: 13vw;
   }
 }
+
 @keyframes BackFromLeftForYesBtn {
   0% {
     right: 20vw;
@@ -239,7 +240,6 @@
     transform: scale(1);
   }
 }
-
 @keyframes SlideRight {
   0% {
     right: 20vw;

@@ -1,10 +1,10 @@
-.cart > header {
+.mobile .cart > header {
   background-color: #ffdb00;
   height: 10%;
   position: sticky;
 }
 
-.cart {
+.mobile .cart {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -12,7 +12,7 @@
   animation: SlideUp 1s both;
 }
 
-.cart > main {
+.mobile .cart > main {
   height: 80%;
   background-color: white;
   max-height: 80%;
@@ -22,19 +22,19 @@
   z-index: 1;
 }
 
-.close-cart-icon {
+.mobile .close-cart-icon {
   position: absolute;
   top: 5vw;
   right: 5vw;
 }
 
-.empty-cart {
+.mobile .empty-cart {
   position: relative;
   height: 100%;
   margin-top: 10vw;
 }
 
-.header-title {
+.mobile .header-title {
   font-size: 5vw;
   position: absolute;
   top: 50%;
@@ -42,7 +42,7 @@
   transform: translateX(50%) translateY(-50%);
 }
 
-.cart > .ikea-logo {
+.mobile .cart > .ikea-logo {
   position: absolute;
   top: 5vw;
   left: 5vw;
@@ -50,33 +50,34 @@
   z-index: 999;
 }
 
-.cart-item {
+.mobile .cart-item {
   display: flex;
   align-items: flex-start;
   direction: rtl;
   height: 65vw;
   position: relative;
 }
-.toxins-on-item {
+
+.mobile .toxins-on-item {
   position: relative;
   top: 5vw;
   right: -2vw;
 }
 
-.bold-txt {
+.mobile .bold-txt {
   position: relative;
   top: 14vw;
   font-size: 4vw;
   font-weight: bolder;
 }
 
-.best-goes-items {
+.mobile .best-goes-items {
   display: flex;
   top: 15vw;
   position: relative;
 }
 
-.best-goes-items > .item {
+.mobile .best-goes-items > .item {
   content: "";
   background-color: #ffded6;
   margin-left: 4vw;
@@ -84,25 +85,23 @@
   width: 12vw;
 }
 
-.size-item {
+.mobile .size-item {
   position: relative;
   top: 10vw;
   font-size: 4vw;
 }
 
-.code-item {
+.mobile .code-item {
   position: relative;
   top: 12vw;
   font-size: 4vw;
 }
 
-.App {
+.mobile .App {
   font-family: sans-serif;
   text-align: center;
 }
-
-
-.cart-item::after {
+.mobile .cart-item::after {
   content: "";
   background-color: #ececec;
   width: 90%;
@@ -114,25 +113,23 @@
   transform: translateX(50%);
 }
 
-.trash-icon:hover{
+.mobile .trash-icon:hover {
   cursor: pointer;
 }
 
-.right-area-on-item {
+.mobile .right-area-on-item {
   display: flex;
   flex-direction: column;
   padding: 2vw;
   text-align: right;
 }
 
-.left-area-on-item {
+.mobile .left-area-on-item {
   display: flex;
   top: 2vw;
   position: relative;
 }
-
-
-.cart > footer {
+.mobile .cart > footer {
   position: absolute;
   bottom: 0;
   height: 10%;
@@ -141,7 +138,7 @@
   width: 100vw;
 }
 
-.download-btn {
+.mobile .download-btn {
   background-color: #0057a3;
   border: 0;
   height: 100%;
@@ -154,10 +151,10 @@
   align-items: center;
 }
 
-.trash-icon{
+.mobile .trash-icon {
   margin: 0 2vw 0 2vw;
 }
-.share-btn {
+.mobile .share-btn {
   background-color: black;
   color: white;
   font-size: 5.5vw;
@@ -168,12 +165,13 @@
   align-items: center;
 }
 
-.price {
+.mobile .price {
   position: absolute;
   top: 2vw;
   left: 8vw;
 }
-.amount {
+
+.mobile .amount {
   position: absolute;
   left: 7vw;
   top: 30vw;
@@ -185,16 +183,17 @@
   text-align: center;
 }
 
-.share-icon {
-  width: 5vw;
-  margin-right: 3vw;
-}
-.dowloand-icon {
+.mobile .share-icon {
   width: 5vw;
   margin-right: 3vw;
 }
 
-.plant-img-on-cart{
+.mobile .dowloand-icon {
+  width: 5vw;
+  margin-right: 3vw;
+}
+
+.mobile .plant-img-on-cart {
   position: relative;
   top: 1vw;
   width: 19vw;
@@ -211,4 +210,3 @@
     transform: translateY(0);
   }
 }
-

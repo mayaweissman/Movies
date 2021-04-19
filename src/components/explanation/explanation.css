@@ -1,10 +1,10 @@
-.explanation {
+.mobile .explanation {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.explanation-top-area {
+.mobile .explanation-top-area {
   position: absolute;
   top: 0;
   background-color: #ffdb00;
@@ -13,7 +13,7 @@
   z-index: 0;
 }
 
-.explanation-bottom-area {
+.mobile .explanation-bottom-area {
   position: absolute;
   top: 109vw;
   height: auto;
@@ -28,28 +28,28 @@
   text-align: right;
 }
 
-.explanation-title {
+.mobile .explanation-title {
   position: absolute;
   font-size: 5vw;
   font-weight: 700;
   top: 5vw;
 }
 
-.explanation-content {
+.mobile .explanation-content {
   position: absolute;
   font-size: 5vw;
   top: 14vw;
   padding-bottom: 10vw;
 }
 
-.back-to-question-icon {
+.mobile .back-to-question-icon {
   position: absolute;
   bottom: 7vw;
   left: 6vw;
   width: 7vw;
 }
 
-.wood-exp {
+.mobile .wood-exp {
   position: absolute;
   top: 27vw;
   right: 50%;
@@ -57,40 +57,40 @@
   transform: translateX(50%);
 }
 
-.exp-leaf {
+.mobile .exp-leaf {
   width: 15vw;
   position: absolute;
 }
 
-.exp-bz {
+.mobile .exp-bz {
   top: 34.4vw;
   right: 31.2vw;
 }
 
-.exp-tr {
+.mobile .exp-tr {
   top: 52.4vw;
   right: 31.2vw;
 }
 
-.exp-fh {
+.mobile .exp-fh {
   top: 43.4vw;
   left: 31.5vw;
 }
 
-.exp-xy {
+.mobile .exp-xy {
   top: 25.4vw;
   left: 31.5vw;
 }
 
-.exp-am {
+.mobile .exp-am {
   top: 10.4vw;
   right: 42.2vw;
 }
 
-.bucket-exp {
+.mobile .bucket-exp {
   position: absolute;
   width: 25vw;
   top: 73vw;
   right: 50%;
   transform: translateX(50%);
-}
+} 

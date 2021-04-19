@@ -1,4 +1,4 @@
-.home {
+.mobile .home {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -6,7 +6,7 @@
   display: contents;
 }
 
-.main-home {
+.mobile .main-home {
   background-color: #ffdb00;
   height: 60%;
   width: 100%;
@@ -14,123 +14,122 @@
   top: 0;
 }
 
-.plants-bg{
-    position: absolute;
-    width: 100vw;
-    top: 0;
-    height: 100%;
-    right: 0;
+.mobile .plants-bg {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  height: 100%;
+  right: 0;
 }
 
-.title-on-top{
-    position: relative;
-    display: flex;
-    direction: rtl;
-    margin-bottom: 2vw;
+.mobile .title-on-top {
+  position: relative;
+  display: flex;
+  direction: rtl;
+  margin-bottom: 2vw;
 }
 
-.bold-title{
-    font-weight: bold;
-    margin-right: 1vw;
+.mobile .bold-title {
+  font-weight: bold;
+  margin-right: 1vw;
 }
 
-.cart-icon{
-    position: absolute;
-    top: 3.5vw;
-    right: 27vw;
-    z-index: 10;
+.mobile .cart-icon {
+  position: absolute;
+  top: 3.5vw;
+  right: 27vw;
+  z-index: 10;
 }
 
-.about-link{
-    color: #0058a3;
-    text-decoration: none;
-    right: 5vw;
-    position: absolute;
-    font-size: 4vw;
-    top: 3vw;
-    z-index: 99;
+.mobile .about-link {
+  color: #0058a3;
+  text-decoration: none;
+  right: 5vw;
+  position: absolute;
+  font-size: 4vw;
+  top: 3vw;
+  z-index: 99;
 }
 
-.top-txt{
-    position: relative;
+.mobile .top-txt {
+  position: relative;
 }
 
-.main-logo{
-    position: absolute;
-    top: 30vw;
-    right: 50%;
-    transform: translateX(50%);
-    z-index: 1;
+.mobile .main-logo {
+  position: absolute;
+  top: 30vw;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
 }
 
-.second-logo{
-    position: absolute;
-    top: 80vw;
-    right: 50%;
-    transform: translateX(50%);
-    z-index: 1;
+.mobile .second-logo {
+  position: absolute;
+  top: 80vw;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
 }
 
-.bottom-home{
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    width: 85vw;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.6vh;
-    transform: translateX(50%);
+.mobile .bottom-home {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 85vw;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.6vh;
+  transform: translateX(50%);
 }
 
-.bottom-txt{
-    position: relative;
-    font-weight: bold;
-    margin-top: 3vw;
+.mobile .bottom-txt {
+  position: relative;
+  font-weight: bold;
+  margin-top: 3vw;
 }
 
-.survey-link{
-    background-color: #0058a3;
-    width: 100%;
-    color: white;
-    font-size: 6vw;
-    height: 15vw;
-    display: flex;
-    text-decoration: none;
-    border: 0;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4vw;
-    position: relative;
-    outline: none;
+.mobile .survey-link {
+  background-color: #0058a3;
+  width: 100%;
+  color: white;
+  font-size: 6vw;
+  height: 15vw;
+  display: flex;
+  text-decoration: none;
+  border: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vw;
+  position: relative;
+  outline: none;
 }
 
-.about-pollutions{
-    color: #0058a3;
-    text-decoration: none;
-    font-size: 4vw;
-    margin-top: 3vw;
-    position: relative;
+.mobile .about-pollutions {
+  color: #0058a3;
+  text-decoration: none;
+  font-size: 4vw;
+  margin-top: 3vw;
+  position: relative;
 }
 
-
-.home-main-titles{
-    color: white;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translateY(-50%) translateX(50%);
+.mobile .home-main-titles {
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%);
 }
 
-.glad-vaxt{
-    font-size: 25vw;
-    font-family: "Nato Sans Bold";
-    line-height: 25vw;
+.mobile .glad-vaxt {
+  font-size: 25vw;
+  font-family: "Nato Sans Bold";
+  line-height: 25vw;
 }
 
-.happy-plants{
-    font-size: 10vw;
-    font-family: "Nato Sans Regular";
+.mobile .happy-plants {
+  font-size: 10vw;
+  font-family: "Nato Sans Regular";
 }

@@ -1,8 +1,8 @@
-.toxins {
+.mobile .toxins {
   display: flex;
 }
 
-.toxin-name {
+.mobile .toxin-name {
   z-index: 9;
   position: absolute;
   left: 50%;
@@ -14,7 +14,7 @@
   letter-spacing: 0.3vw;
 }
 
-.toxin:before, .toxin:after {
+.mobile .toxin:before, .mobile .toxin:after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -27,20 +27,20 @@
   left: 0.9vw;
 }
 
-.toxin:before {
+.mobile .toxin:before {
   top: -2.4vw;
   border-top: solid 2px #000000;
   border-right: solid 2px #000000;
   right: 0.9vw;
 }
 
-.toxin:after {
+.mobile .toxin:after {
   bottom: -2.4vw;
   border-bottom: solid 2px #000000;
   border-left: solid 2px #000000;
 }
 
-.toxin {
+.mobile .toxin {
   position: relative;
   width: 6.6vw;
   margin-right: 1.5vw;
@@ -52,7 +52,7 @@
   font-family: "Nato Sans Regular";
 }
 
-.toxin.active {
+.mobile .toxin.active {
   position: relative;
   width: 7.3vw;
   height: 4vw;
@@ -64,8 +64,8 @@
   border-left: 2px solid;
 }
 
-.toxin.active:before,
-.toxin.active:after {
+.mobile .toxin.active:before,
+.mobile .toxin.active:after {
   content: "";
   position: absolute;
   width: 0;
@@ -78,14 +78,14 @@
   left: unset;
 }
 
-.toxin.active:before {
+.mobile .toxin.active:before {
   bottom: 100%;
   border-bottom: 2vw solid #000000;
   border-top: unset;
   top: unset;
 }
 
-.toxin.active:after {
+.mobile .toxin.active:after {
   top: 100%;
   width: 0;
   border-top: 2vw solid #000000;

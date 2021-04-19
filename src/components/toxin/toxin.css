@@ -1,10 +1,10 @@
-.toxin-page {
+.mobile .toxin-page {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.toxin-top-area {
+.mobile .toxin-top-area {
   position: absolute;
   top: 0;
   background-color: #ffdb00;
@@ -13,7 +13,7 @@
   z-index: 0;
 }
 
-.toxin-bottom-area {
+.mobile .toxin-bottom-area {
   position: absolute;
   bottom: 0;
   height: 40%;
@@ -28,28 +28,28 @@
   text-align: right;
 }
 
-.toxin-title {
+.mobile .toxin-title {
   position: absolute;
   font-size: 6vw;
   font-weight: 700;
   top: 5vw;
 }
 
-.back-icon {
+.mobile .back-icon {
   width: 7vw;
   top: 90%;
   position: absolute;
   left: 5vw;
 }
 
-.toxin-content {
+.mobile .toxin-content {
   position: absolute;
   font-size: 4.3vw;
   top: 15vw;
   padding-bottom: 10vw;
 }
 
-.short-name-on-hex {
+.mobile .short-name-on-hex {
   z-index: 1;
   position: absolute;
   top: 0;
@@ -57,7 +57,7 @@
   font-weight: bold;
 }
 
-.name-on-hex {
+.mobile .name-on-hex {
   z-index: 1;
   top: 7vw;
   font-size: 4.1vw;
@@ -66,7 +66,8 @@
   position: relative;
   left: 0.7vw;
 }
-.hexagon {
+
+.mobile .hexagon {
   top: 50%;
   right: 50%;
   transform: translateX(50%) translateY(-50%);
@@ -85,8 +86,8 @@
   align-items: center;
 }
 
-.hexagon:before,
-.hexagon:after {
+.mobile .hexagon:before,
+.mobile .hexagon:after {
   content: "";
   border: inherit;
   position: absolute;
@@ -98,11 +99,9 @@
   width: 100%;
 }
 
-/* Align them in such a way
-that they form a hexagon */
-.hexagon:before {
+.mobile .hexagon:before {
   transform: rotate(60deg);
 }
-.hexagon:after {
+.mobile .hexagon:after {
   transform: rotate(-60deg);
 }

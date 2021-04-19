@@ -1,4 +1,4 @@
-.output {
+.mobile .output {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -6,34 +6,32 @@
   display: flex;
 }
 
-.plants{
+.mobile .plants {
   width: 100%;
   position: relative;
 }
 
-.next-btn{
+.mobile .next-btn {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
 }
 
-.pre-btn{
+.mobile .pre-btn {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%) rotate(180deg);
 }
 
-
-
-.current-plant {
+.mobile .current-plant {
   position: relative;
   height: 100%;
   left: 0;
 }
 
-.top-plant-area {
+.mobile .top-plant-area {
   position: absolute;
   top: 0;
   height: 60%;
@@ -41,7 +39,7 @@
   background-color: #ffdb00;
 }
 
-.plant-img{
+.mobile .plant-img {
   position: absolute;
   top: 43%;
   width: auto;
@@ -51,15 +49,14 @@
   border: 0;
   outline: none;
   height: 78vw;
-
 }
 
-.back-to-survey-btn:disabled{
+.mobile .back-to-survey-btn:disabled {
   border: 2px solid #0058a370;
   color: #0058a370;
 }
 
-.add-to-list-btn {
+.mobile .add-to-list-btn {
   background-color: #0058a3;
   color: white;
   width: 100%;
@@ -73,8 +70,8 @@
   outline: none;
 }
 
-.on-list-btn {
-  background-color: #16A300;
+.mobile .on-list-btn {
+  background-color: #16a300;
   color: white;
   width: 100%;
   position: absolute;
@@ -87,7 +84,7 @@
   outline: none;
 }
 
-.bottom-plant-area {
+.mobile .bottom-plant-area {
   position: absolute;
   bottom: 0;
   width: 92%;
@@ -99,18 +96,19 @@
   direction: rtl;
   transform: translateX(50%);
 }
-.plant-title {
+
+.mobile .plant-title {
   font-weight: 600;
   margin-top: 7vw;
   margin-bottom: 3vw;
   font-size: 6.5vw;
 }
 
-.toxins-area{
+.mobile .toxins-area {
   display: flex;
 }
 
-.back-to-survey-btn {
+.mobile .back-to-survey-btn {
   position: relative;
   width: 93%;
   border: 2px solid #0058a3;
@@ -125,24 +123,24 @@
   transform: translateX(50%);
 }
 
-.plant-info {
+.mobile .plant-info {
   text-align: right;
   margin-top: 5vw;
   font-size: 4vw;
 }
 
-.next-plant{
+.mobile .next-plant {
   display: none;
   position: relative;
   height: 100%;
   bottom: 100%;
 }
 
-.toxins-area > span{
+.mobile .toxins-area > span {
   font-size: 4.5vw;
 }
 
-.plants-navigation{
+.mobile .plants-navigation {
   position: absolute;
   z-index: 1;
   bottom: 52%;
@@ -153,9 +151,9 @@
   align-items: center;
 }
 
-.plant-dot{
+.mobile .plant-dot {
   content: "";
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 2vw;
   width: 2vw;
   margin: 2vw;
@@ -163,97 +161,97 @@
   position: relative;
 }
 
-.plant-dot.active{
+.mobile .plant-dot.active {
   width: 3.5vw;
   height: 3.5vw;
   position: relative;
-
 }
 
-.current-plant.slide-right{
+.mobile .current-plant.slide-right {
   animation: CurrentSlideRight 1s both;
 }
 
-.next-plant.slide-right{
+.mobile .next-plant.slide-right {
   animation: NextSlideRight 1s both;
   display: block;
 }
 
-.current-plant.slide-left{
+.mobile .current-plant.slide-left {
   animation: CurrentSlideLeft 1s both;
 }
 
-.next-plant.slide-left{
+.mobile .next-plant.slide-left {
   animation: NextSlideLeft 1s both;
   display: block;
 }
 
 @keyframes CurrentSlideRight {
-  0%{
+  0% {
     transform: translateX(-100vw);
   }
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
+
 @-webkit-keyframes CurrentSlideRight {
-  0%{
+  0% {
     transform: translateX(-100vw);
   }
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
 
 @keyframes NextSlideRight {
-  0%{
+  0% {
     transform: translateX(0);
   }
-  100%{
+  100% {
     transform: translateX(100vw);
   }
 }
 
 @-webkit-keyframes NextSlideRight {
-  0%{
+  0% {
     transform: translateX(0);
   }
-  100%{
+  100% {
     transform: translateX(100vw);
   }
 }
 
 @keyframes CurrentSlideLeft {
-  0%{
+  0% {
     transform: translateX(100vw);
   }
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
 @-webkit-keyframes CurrentSlideLeft {
-  0%{
+  0% {
     transform: translateX(100vw);
   }
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
 
 @keyframes NextSlideLeft {
-  0%{
+  0% {
     transform: translateX(0);
   }
-  100%{
+  100% {
     transform: translateX(-100vw);
   }
 }
 
 @-webkit-keyframes NextSlideLeft {
-  0%{
+  0% {
     transform: translateX(0);
   }
-  100%{
+  100% {
     transform: translateX(-100vw);
   }
 }
