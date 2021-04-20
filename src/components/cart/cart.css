@@ -12,6 +12,7 @@
   height: 100%;
   z-index: 9999;
   animation: SlideUp 1s both;
+  overflow: unset;
 }
 
 .mobile .cart > main {
@@ -22,11 +23,13 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  margin-top: unset;
 }
 
 .mobile .close-cart-icon {
   position: absolute;
   top: 5vw;
+  width: 5vw;
   right: 5vw;
 }
 
@@ -58,6 +61,14 @@
   direction: rtl;
   height: 65vw;
   position: relative;
+  margin-bottom: unset;
+  width: unset;
+  left: unset;
+  overflow: unset !important;
+  border: unset;
+  border-bottom: unset;
+  flex-direction: unset;
+  justify-content: unset;
 }
 
 .mobile .toxins-on-item {
@@ -124,13 +135,23 @@
   flex-direction: column;
   padding: 2vw;
   text-align: right;
+  width: unset;
+  height: unset;
+  justify-content: unset;
+  align-items: unset;
 }
 
 .mobile .left-area-on-item {
   display: flex;
   top: 2vw;
   position: relative;
+  width: unset;
+  height: unset;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: unset;
 }
+
 .mobile .cart > footer {
   position: absolute;
   bottom: 0;
@@ -138,6 +159,11 @@
   z-index: 999;
   display: flex;
   width: 100vw;
+  right: unset;
+  transform: unset;
+  border-top: unset;
+  justify-content: unset;
+  align-items: unset;
 }
 
 .mobile .download-btn {
@@ -155,7 +181,9 @@
 
 .mobile .trash-icon {
   margin: 0 2vw 0 2vw;
+  width: 5vw;
 }
+
 .mobile .share-btn {
   background-color: black;
   color: white;
@@ -165,6 +193,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  
 }
 
 .mobile .price {
@@ -200,6 +230,7 @@
   top: 1vw;
   width: 19vw;
   height: 32vw;
+  background-position: unset;
   background-size: cover;
   background-position-x: -3vw;
 }

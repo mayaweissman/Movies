@@ -115,7 +115,7 @@ export class Cart extends Component<any, cartState> {
                 <div className="toxins-on-item">
                   <ToxinsIcons plant={p} size={'8vw'}/>
                 </div>
-                <span className="size-item">{p.size}</span>
+                {/* <span className="size-item">{p.size}</span> */}
                 <span className="code-item">{p.code}</span>
                 <span className="bold-txt">הולך עם:</span>
                 <div className="best-goes-items">

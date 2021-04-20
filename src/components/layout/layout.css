@@ -3,7 +3,7 @@
 }
 
 .mobile .only-desktop{
-  display: none;
+  display: none !important;
 }
 
 .only-mobile{

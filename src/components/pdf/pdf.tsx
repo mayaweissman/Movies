@@ -34,7 +34,7 @@ export class Pdf extends Component<any, PdfState> {
           {this.state.shoppingCart.map((p) => (
             <tr>
               <td className="img-item">
-                <img className="img-pdf" src={"./assets/images/" + p.imgSrc} />
+                <img className="img-pdf" src={"./assets/images/" + p.mobileImgSrc} />
               </td>
               <td className="pdf-item-details">
                 <span className="pdf-title">{p.hebTitle?.split('').reverse().join('')}</span>
