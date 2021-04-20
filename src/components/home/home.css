@@ -1,3 +1,5 @@
+/* Mobile design */
+
 .mobile .home {
   padding: 0;
   margin: 0;
@@ -132,4 +134,120 @@
 .mobile .happy-plants {
   font-size: 10vw;
   font-family: "Nato Sans Regular";
+}
+
+/* Desktop design */
+.home {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.main-home {
+  background-color: #ffdb00;
+  height: 100%;
+  width: 60vw;
+}
+
+.bottom-home {
+  width: 40vw;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 1.2vw;
+  justify-content: center;
+}
+
+.flowers-bg {
+  position: absolute;
+  left: 0;
+  top: 1vw;
+  width: 60vw;
+  outline: none;
+  z-index: 1;
+}
+
+.glad-vaxt {
+  z-index: 2;
+  color: white;
+  font-size: 11.5vw;
+  position: absolute;
+  left: 11vw;
+  font-weight: bold;
+  width: 38vw;
+  line-height: 12vw;
+  top: 11vw;
+  font-family: "Nato Sans Bold";
+}
+
+.happy-plants {
+  position: absolute;
+  top: 34vw;
+  color: white;
+  z-index: 2;
+  font-size: 4.7vw;
+  left: 15vw;
+  font-weight: bold;
+}
+
+.about-link {
+  position: absolute;
+  right: 7.5vw;
+  top: 1.5vw;
+  text-decoration: none;
+  color: #0058a3;
+  font-size: 1.3vw;
+}
+
+.title-on-top,
+.top-txt,
+.about-pollutions,
+.survey-link,
+.bottom-txt {
+  position: relative;
+  direction: rtl;
+  right: 7.5vw;
+  width: 24vw;
+}
+
+
+.bold-title{
+  font-weight: bold;
+}
+
+.survey-link{
+  border: 0;
+  outline: 0;
+  background-color: #0058a3;
+  height: 4vw;
+  color: white;
+  font-size: 1.2vw;
+  margin-top: 1.5vw;
+}
+
+.survey-link:hover{
+  cursor: pointer;
+}
+
+.top-txt{
+  width: 21vw;
+  margin-top: 1.5vw;
+}
+
+.bottom-txt{
+  width: 16vw;
+  margin-top: 1.5vw;
+}
+
+.about-pollutions{
+  color: #0058a3;
+  text-decoration: none;
+  top: 12vw;
 }

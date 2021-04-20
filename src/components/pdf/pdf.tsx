@@ -38,7 +38,7 @@ export class Pdf extends Component<any, PdfState> {
               </td>
               <td className="pdf-item-details">
                 <span className="pdf-title">{p.hebTitle?.split('').reverse().join('')}</span>
-                <span className="pdf-title">{p.size}</span>
+                {/* <span className="pdf-title">{p.size}</span> */}
                 <span className="pdf-code-item">{p.code}</span>
                 <span className="bold-txt-pdf">{'הולך עם:'.split('').reverse().join('')}</span>
                 <div className="pdf-best-goes-items">

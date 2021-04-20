@@ -1,3 +1,5 @@
+/* Mobile Design */
+
 .mobile .explanation {
   position: relative;
   width: 100%;
@@ -93,4 +95,102 @@
   top: 73vw;
   right: 50%;
   transform: translateX(50%);
-} 
+}
+
+/* Desktop Design */
+
+.explanation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.explanation-top-area {
+  background-color: #ffdb00;
+  width: 60vw;
+  height: 100%;
+}
+
+.explanation-bottom-area {
+  background-color: white;
+  width: 28vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+  flex-direction: column;
+  font-size: 1.2vw;
+  padding: 0 6vw;
+  text-align: right;
+}
+
+.bucket-exp {
+  position: absolute;
+  top: 31vw;
+  width: 8vw;
+  left: 20vw;
+}
+
+.wood-exp {
+  position: absolute;
+  width: 2.9vw;
+  top: 15.2vw;
+  left: 22.7vw;
+  height: 16vw;
+}
+
+.exp-leaf {
+  width: 4.8vw;
+  position: absolute;
+}
+
+.exp-am {
+  top: 10vw;
+  left: 21.7vw;
+}
+
+.exp-xy {
+  top: 15vw;
+  left: 18.1vw;
+}
+
+.exp-fh {
+  top: 21vw;
+  left: 18.1vw;
+}
+
+.exp-tr {
+  top: 24.1vw;
+  left: 25.4vw;
+}
+
+.exp-bz {
+  top: 18vw;
+  left: 25.4vw;
+}
+
+.back-to-question-icon {
+  position: absolute;
+  right: 3vw;
+  top: 2vw;
+  width: 1.5vw;
+  transform: rotate(180deg);
+}
+
+.back-to-question-icon:hover{
+  cursor: pointer;
+}
+
+
+.explanation-content{
+  margin-top: 2vw;
+}
+
+.explanation-title{
+  font-weight: bold;
+  width: 22vw;
+}

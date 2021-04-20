@@ -21,7 +21,7 @@ export class AppState {
   public allToxins: ToxinModel[] = getAllToxins();
   public allExplanations: ExplanationModel[] = getAllExplanations();
   public shoppingCart: PlantModel[] = [];
-  public displayCart: boolean = false;
+  public displayCart: boolean = true;
 
   public constructor() {
     const json = sessionStorage.getItem("AppState");

@@ -194,16 +194,21 @@ export class Output extends Component<any, OutputState> {
                     onClick={this.moveToPrePlant}
                   />
                 )}
-              <img className="plant-img" src={"./assets/images/" + this.state.currentPlant?.imgSrc} />
+              <img className="plant-img only-mobile" src={"./assets/images/" + this.state.nextPlant?.mobileImgSrc} />
+              <img className="plant-img only-desktop" src={"./assets/images/" + this.state.nextPlant?.desktopImgSrc} />
 
             </div>
             <div className="bottom-plant-area">
               <span className="plant-title">
                 {this.state.currentPlant.hebTitle}
               </span>
-              <div className="toxins-area">
+              <div className="toxins-area only-mobile">
                 <span>עוזר להפחית:</span>
-                <ToxinsIcons plant={this.state.currentPlant} />
+                <ToxinsIcons size='10vw' plant={this.state.currentPlant} />
+              </div>
+              <div className="toxins-area only-desktop">
+                <span>עוזר להפחית: </span>
+                <ToxinsIcons size='2.8vw' plant={this.state.currentPlant} />
               </div>
 
               <span className="plant-info">
@@ -228,7 +233,8 @@ export class Output extends Component<any, OutputState> {
           </div>
           <div className={"next-plant " + this.state.classes.next}>
             <div className="top-plant-area">
-              <img className="plant-img" src={"./assets/images/" + this.state.nextPlant?.imgSrc} />
+              <img className="plant-img only-mobile" src={"./assets/images/" + this.state.nextPlant?.mobileImgSrc} />
+              <img className="plant-img only-desktop" src={"./assets/images/" + this.state.nextPlant?.desktopImgSrc} />
 
 
 
@@ -237,9 +243,13 @@ export class Output extends Component<any, OutputState> {
               <span className="plant-title">
                 {this.state.nextPlant.hebTitle}
               </span>
-              <div className="toxins-area">
+              <div className="toxins-area only-mobile">
                 <span>עוזר להפחית:</span>
-                <ToxinsIcons plant={this.state.currentPlant} />
+                <ToxinsIcons size='10vw' plant={this.state.currentPlant} />
+              </div>
+              <div className="toxins-area only-desktop">
+                <span>עוזר להפחית: </span>
+                <ToxinsIcons size='2.8vw' plant={this.state.currentPlant} />
               </div>
 
               <span className="plant-info">
@@ -264,6 +274,7 @@ export class Output extends Component<any, OutputState> {
               className="add-to-list-btn"
             >
               הוספה לרשימה
+              <img className="add-icon" src="./assets/images/add.svg"/>
             </button>
           )}
           {this.isOnShoppingCart() && (
@@ -271,7 +282,7 @@ export class Output extends Component<any, OutputState> {
               onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id })}
               className="on-list-btn"
             >
-              &#10003; נוסף לרשימה
+              &#10003; {"נשמר בהצלחה"}
             </button>
           )}
 

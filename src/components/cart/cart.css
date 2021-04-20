@@ -1,3 +1,5 @@
+/*Mobile design*/
+
 .mobile .cart > header {
   background-color: #ffdb00;
   height: 10%;
@@ -209,4 +211,149 @@
   100% {
     transform: translateY(0);
   }
+}
+
+/*Desktop design*/
+.cart {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  z-index: 9;
+  background-color: white;
+  overflow: hidden;
+}
+
+header,
+main,
+footer {
+  z-index: 2;
+}
+
+header {
+  background-color: #ffdb00;
+  height: 6.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  font-size: 1.2vw;
+}
+
+footer {
+  background-color: white;
+  width: 60vw;
+  border: 0;
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  height: 5.5vw;
+  transform: translateX(50%);
+  border-top: 1px solid gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-btn {
+  width: 13vw;
+  border: 2px solid #0057a3;
+  color: #0057a3;
+  font-size: 1.2vw;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5vw;
+}
+
+.share-btn {
+  width: 10vw;
+  border: none;
+  color: #0057a3;
+  font-size: 1.2vw;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5vw;
+}
+
+.share-btn:hover,
+.download-btn:hover {
+  cursor: pointer;
+}
+
+.share-icon,
+.dowloand-icon {
+  width: 1vw;
+  margin-right: 0.5vw;
+}
+
+.close-cart-icon {
+  width: 1.4vw;
+  position: absolute;
+  right: 5vw;
+}
+
+.close-cart-icon:hover {
+  cursor: pointer;
+}
+
+main {
+  overflow: auto;
+  max-height: 34.8vw;
+  margin-top: 8.5vw;
+}
+
+.cart-item {
+  height: 13vw;
+  position: relative;
+  margin-bottom: 3vw;
+  width: 60vw;
+  left: 20vw;
+  overflow: auto !important;
+  border: 0;
+  border-bottom: 2px solid gainsboro;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.left-area-on-item {
+  width: 20vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.right-area-on-item {
+  width: 40vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.plant-img-on-cart {
+  content: "";
+  height: 13vw;
+  width: 10vw;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.trash-icon{
+  width: 1.3vw;
+}
+
+
+.trash-icon:hover{
+  cursor: pointer;
 }

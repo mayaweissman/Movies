@@ -1,6 +1,7 @@
 .pdf-page{
     position: absolute;
     z-index: -1;
+    transform: translateX(4000px);
     top: 0;
     background-color: white;
     height: 1500px;
@@ -32,6 +33,7 @@
 .img-item{
     width: 10%;
 }
+
 .pdf-item-details{
     display: flex;
     flex-direction: column;

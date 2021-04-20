@@ -7,6 +7,7 @@ import "./toxins-icons.css";
 
 interface ToxinsIconsProps {
   plant: PlantModel;
+  size: string
 }
 
 interface ToxinsIconsState {
@@ -39,13 +40,7 @@ export class ToxinsIcons extends Component<ToxinsIconsProps, ToxinsIconsState> {
       <div className="toxins">
         {this.state.toxins.map((t) => (
           <NavLink to={`/toxin/${t.id}`}>
-          <div
-            className={
-              this.isHelpForToxin(t.id as number) ? "toxin active" : "toxin"
-            }
-          >
-            <span className="toxin-name">{t.shortName}</span>
-          </div>
+            <img style={{width: this.props.size}} className="hex" src={this.isHelpForToxin(t.id as number) ? `./assets/images/toxin-${t.id}.svg` : `./assets/images/toxin-${t.id}-stroke.svg` }/>
           </NavLink>
         ))}
       </div>

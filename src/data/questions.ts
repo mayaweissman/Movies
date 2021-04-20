@@ -7,7 +7,8 @@ export function getAllQuestions() {
             outputId: 1,
             infoId: 2,
             explanationId: 1,
-            mobileVideoSrc: 'cigarette_mobile.mp4'
+            mobileVideoSrc: 'cigarette_mobile.mp4',
+            desktopVideoSrc: 'cigarette_desktop.mp4'
         },
         {
             id: 2,
@@ -16,7 +17,8 @@ export function getAllQuestions() {
             outputId: 2,
             infoId: 2,
             explanationId: 2,
-            mobileVideoSrc:"roller_mobile.mp4"
+            mobileVideoSrc:"roller_mobile.mp4",
+            desktopVideoSrc: 'roller_desktop.mp4'
         },
         {
             id: 3,
@@ -25,7 +27,8 @@ export function getAllQuestions() {
             outputId: 2,
             infoId: 3,
             explanationId: 3,
-            mobileVideoSrc:"spray_mobile.mp4"
+            mobileVideoSrc:"spray_mobile.mp4",
+            desktopVideoSrc: 'spray_desktop.mp4'
         },
         {
             id: 4,
@@ -34,7 +37,8 @@ export function getAllQuestions() {
             outputId: 2,
             infoId: 4,
             explanationId: 4,
-            mobileVideoSrc:"dog_mobile.mp4"
+            mobileVideoSrc:"dog_mobile.mp4",
+            desktopVideoSrc: 'dog_desktop.mp4'
         },
         {
             id: 5,
@@ -43,7 +47,8 @@ export function getAllQuestions() {
             outputId: 2,
             infoId: 5,
             explanationId: 5,
-            mobileVideoSrc:""
+            mobileVideoSrc:"",
+            desktopVideoSrc: ''
         },
 
     ];

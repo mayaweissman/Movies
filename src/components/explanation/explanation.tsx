@@ -68,7 +68,7 @@ export class Explanation extends Component<any, ExplanationState> {
       <div className="explanation">
         <div className="explanation-top-area">
           <img
-            className="back-to-question-icon"
+            className="back-to-question-icon only-mobile"
             src="./assets/images/BACK_BT.svg"
             onClick={() =>
               store.dispatch({
@@ -86,8 +86,18 @@ export class Explanation extends Component<any, ExplanationState> {
           <img className="exp-am exp-leaf" src={"./assets/images/" + this.getImgSrc(5)} />
         </div>
         <div className="explanation-bottom-area">
+        <img
+            className="back-to-question-icon only-desktop"
+            src="./assets/images/BACK_BT.svg"
+            onClick={() =>
+              store.dispatch({
+                type: ActionType.changeDisplay,
+                payLoad: "question",
+              })
+            }
+          />
           <span className="explanation-title">
-          למה זה משנה?
+          {this.state.explanation.hebTitle}
           </span>
           <span className="explanation-content">
             {this.state.explanation.hebContent}

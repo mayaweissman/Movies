@@ -1,3 +1,5 @@
+/* Mobile Design */
+
 .mobile .top-question-area {
   position: absolute;
   top: 0;
@@ -54,8 +56,8 @@
 
 .mobile .bottom-question-area {
   position: absolute;
-  top: 120vw;
-  height: auto;
+  top: 114vw;
+  height: 68vw;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -74,7 +76,8 @@
 }
 
 .mobile .question-title {
-  top: 5vw;
+  position: relative;
+  top: -5vw;
   font-size: 3vh;
   direction: rtl;
   width: 90vw;
@@ -84,7 +87,7 @@
   position: relative;
   display: flex;
   width: 90%;
-  top: 5vw;
+  top: -2vw;
 }
 
 .mobile .no-btn {
@@ -98,7 +101,7 @@
 
 .mobile .why-does-it-matter {
   position: relative;
-  top: 15vw;
+  top: 3vw;
   color: #0058a3;
   direction: rtl;
   text-decoration: none;
@@ -355,4 +358,115 @@
   100% {
     background-color: black;
   }
+}
+
+/* Desktop Design */
+
+.question {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.top-question-area {
+  background-color: #ffdb00;
+  width: 58vw;
+  height: 100%;
+}
+
+.bottom-question-area {
+  width: 30vw;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-end;
+  text-align: right;
+  font-size: 1.2vw;
+  direction: rtl;
+  padding: 0 6vw;
+}
+
+.question-video {
+  object-fit: cover;
+  position: relative;
+  outline: none;
+}
+
+.navigation {
+  position: absolute;
+  left: 7vw;
+  z-index: 999;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dot {
+  content: "";
+  width: 0.5vw;
+  height: 0.5vw;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 0.5vw;
+}
+
+.dot.active {
+  background-color: black;
+  animation: 0.5s fillCircle;
+}
+
+.buttons-area {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2vw;
+  position: relative;
+}
+
+.buttons-area > button {
+  height: 6.5vw;
+  width: 13.5vw;
+  color: white;
+  font-size: 1.2vw;
+  border: 0;
+  outline: 0;
+}
+
+.buttons-area > button:hover {
+  cursor: pointer;
+}
+
+.yes-btn {
+  background-color: #0058a3;
+}
+
+.no-btn {
+  background-color: #9a9b9f;
+}
+
+.why-does-it-matter {
+  color: #0058a3;
+  position: relative;
+  top: 15vw;
+}
+
+.why-does-it-matter:hover {
+  cursor: pointer;
+}
+
+.back-to-home-btn {
+  position: absolute;
+  right: 5vw;
+  top: 2vw;
+  width: 1.5vw;
+  transform: rotate(180deg);
+}
+
+.back-to-home-icon {
+  width: 1.1vw;
 }

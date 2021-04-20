@@ -110,22 +110,34 @@ export class Question extends Component<QuestionProps, QuestionState> {
     return false;
   }
 
+  public isDotActiove = (index: number) => {
+    const currentIndex = this.props.question.index;
+    if (currentIndex) {
+      if (index <= currentIndex) {
+        return true;
+      }
+      return false;
+    }
+
+  }
+
 
   public render() {
     return (
       <div className="question">
         <div className="top-question-area">
-          <video autoPlay muted loop className="question-video" src={"./assets/videos/" + this.props.question.mobileVideoSrc}/>
+          <video autoPlay muted loop className="question-video only-mobile" src={"./assets/videos/" + this.props.question.mobileVideoSrc} />
+          <video autoPlay muted loop className="question-video only-desktop" src={"./assets/videos/" + this.props.question.desktopVideoSrc} />
           <div className="navigation">
             {this.state.allQuestions.map((q) => (
               <div
                 className={
-                  q.index === this.props.question.index ? "dot active" : "dot"
+                  this.isDotActiove(q.index as number) ? "dot active" : "dot"
                 }
               ></div>
             ))}
           </div>
-          <NavLink className="back-to-home-btn" to="/home">
+          <NavLink className="back-to-home-btn only-mobile" to="/home">
             <img
               className="back-to-home-icon"
               src="./assets/images/BACK_BT.svg"
@@ -139,10 +151,17 @@ export class Question extends Component<QuestionProps, QuestionState> {
           />} */}
         </div>
         <div className="bottom-question-area">
+          <NavLink className="back-to-home-btn only-desktop" to="/home">
+            <img
+              className="back-to-home-icon"
+              src="./assets/images/BACK_BT.svg"
+            />
+          </NavLink>
           <span className="question-title">{this.props.question.hebTitle}</span>
           <br />
 
           <div className="buttons-area">
+
             {!this.isOnLastQuestion() && <button className="no-btn" onClick={this.keepOnSurvey}>
               לא
             </button>}

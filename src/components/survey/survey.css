@@ -1,3 +1,11 @@
 .survey{
     height: 100%;
 }
+
+.ikea-logo{
+    z-index: 99999;
+    position: absolute;
+    width: 7vw;
+    left: 7vw;
+    top: 2vw;
+}

@@ -104,7 +104,7 @@ export class Cart extends Component<any, cartState> {
                 <div
                   className="plant-img-on-cart"
                   style={{
-                    backgroundImage: `url(./assets/images/${p.imgSrc})`,
+                    backgroundImage: `url(./assets/images/${p.mobileImgSrc})`,
                   }}
                 ></div>
               </div>
@@ -113,7 +113,7 @@ export class Cart extends Component<any, cartState> {
                 {/* <span className="price">{p.price}</span> */}
                 {/* <span className="amount">{p.amountOnShoppingCart}x</span> */}
                 <div className="toxins-on-item">
-                  <ToxinsIcons plant={p} />
+                  <ToxinsIcons plant={p} size={'8vw'}/>
                 </div>
                 <span className="size-item">{p.size}</span>
                 <span className="code-item">{p.code}</span>
@@ -130,7 +130,11 @@ export class Cart extends Component<any, cartState> {
         <footer>
           <button id="download-btn" className="download-btn">
             <img
-              className="dowloand-icon"
+              className="dowloand-icon only-mobile"
+              src="./assets/images/DOWNLOAD_ICON _desktop.svg"
+            />
+            <img
+              className="dowloand-icon only-desktop"
               src="./assets/images/DOWNLOAD_ICON.svg"
             />
             הורד רשימה
@@ -138,7 +142,11 @@ export class Cart extends Component<any, cartState> {
           <button className="share-btn" onClick={this.share}>
             {" "}
             <img
-              className="share-icon"
+              className="share-icon only-mobile"
+              src="./assets/images/SHARE_ICON _desktop.svg"
+            />{" "}
+            <img
+              className="share-icon only-desktop"
               src="./assets/images/SHARE_ICON.svg"
             />{" "}
             שתף
