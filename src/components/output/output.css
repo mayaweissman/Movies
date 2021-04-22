@@ -1,5 +1,3 @@
-
-
 .mobile .react-multi-carousel-list {
   display: flex;
   align-items: center;
@@ -10,7 +8,7 @@
   width: 100%;
 }
 
- .output {
+.output {
   width: 100%;
   height: 100%;
   display: flex;
@@ -90,7 +88,7 @@
   align-items: flex-start;
 }
 
-.mobile .mobile-plant-image{
+.mobile .mobile-plant-image {
   width: 80vw;
   top: 9vw;
   position: absolute;
@@ -118,8 +116,8 @@
   border-radius: 50%;
   opacity: 1;
   padding: 5px 5px 5px 5px;
-  box-shadow: none; 
-   border-width: 2px;
+  box-shadow: none;
+  border-width: 2px;
   border-style: solid;
   border-color: rgb(255, 255, 255) !important;
   padding: 0;
@@ -129,7 +127,6 @@
   cursor: pointer;
   background-color: white !important;
 }
-
 
 .mobile .react-multi-carousel-dot--active button {
   background: #fff !important;
@@ -255,7 +252,6 @@
   outline: none;
 }
 
-
 .mobile .bottom-plant-area {
   position: absolute;
   bottom: 0;
@@ -284,8 +280,6 @@
   display: flex !important;
   align-items: center;
 }
-
-
 
 .mobile .plant-info {
   text-align: right;
@@ -336,11 +330,11 @@
 
 /*Desktop design*/
 
-.output{
+.output {
   overflow: hidden;
 }
 
-.all-outputs{
+.all-outputs {
   width: 100%;
   height: 100%;
   display: flex;
@@ -357,30 +351,30 @@
   background-color: #ffdb00;
 }
 
-.right-area::-webkit-scrollbar ,
+.right-area::-webkit-scrollbar,
 .left-area::-webkit-scrollbar {
   width: 0;
 }
 
 /* Track */
-.right-area::-webkit-scrollbar-track ,
+.right-area::-webkit-scrollbar-track,
 .left-area::-webkit-scrollbar-track {
   background: #f1f1f100;
 }
 
 /* Handle */
-.right-area::-webkit-scrollbar-thumb ,
+.right-area::-webkit-scrollbar-thumb,
 .left-area::-webkit-scrollbar-thumb {
   background: rgba(136, 136, 136, 0);
 }
 
 /* Handle on hover */
-.right-area::-webkit-scrollbar-thumb:hover ,
+.right-area::-webkit-scrollbar-thumb:hover,
 .left-area::-webkit-scrollbar-thumb:hover {
   background: rgba(85, 85, 85, 0);
 }
 
-.right-area{
+.right-area {
   position: absolute;
   height: 100vw;
   width: 40%;
@@ -390,27 +384,100 @@
   background-color: #ffffff;
 }
 
-
-.details-container{
-  width: 40vw;
-  height: 100%;
+.details-container {
+  font-family: "Ikea Font Hebrew Bold";
+  width: 28vw;
+  height: 50vw;
   position: relative;
+  padding: 0 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  font-size: 1.2vw;
+  direction: rtl;
 }
 
-.img-container{
-  width: 40vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-
+.toxins-area.only-desktop {
+  display: flex;
+  align-items: center;
 }
 
-.plant-container{
+.plant-title {
+  font-size: 1.6vw;
+  font-weight: bold;
+  margin-bottom: 1vw;
+}
+
+.plant-info {
+  width: 20vw;
+  margin: 1vw 0;
+}
+
+.add-to-list-btn {
+  width: 18vw;
+  position: relative;
+  margin: 0 10vw;
+  top: 36vw;
+  height: 4vw;
+  background-color: #0058a3;
+  color: white;
+  font-size: 1.2vw;
+  border: 0;
+  outline: none;
+  text-align: center;
+  line-height: 4vw;
+  z-index: 999999;
+}
+
+.on-list-btn {
+  width: 18vw;
+  position: relative;
+  margin: 0 10vw;
+  top: 36vw;
+  height: 4vw;
+  background-color: #16a300;
+  color: white;
+  font-size: 1.2vw;
+  outline: none;
+  border: 0;
+  z-index: 999999;
+}
+
+.on-list-btn:hover,
+.add-to-list-btn:hover {
+  cursor: pointer;
+}
+
+.add-icon {
+  width: 2vw;
+  position: relative;
+  top: 0.4vw;
+  margin-right: 0.5vw;
+}
+
+.back-to-survey-btn {
+  width: 24vw;
+  height: 4.5vw;
+  border: 2px solid #0058a3;
+  color: #0058a3;
+  background-color: transparent;
+  font-size: 1.4vw;
+}
+
+.back-to-survey-btn:hover {
+  cursor: pointer;
+}
+
+.plant-container {
   width: 60vw;
+  background-size: 44vw;
   position: relative;
+  background-repeat: no-repeat;
+  font-size: 1.2vw;
 }
 
-.plant-container::after{
+.plant-container::before {
   content: "";
   background-color: white;
   height: 100vw;
@@ -418,3 +485,193 @@
   position: absolute;
   top: 0;
 }
+
+.right-arrow,
+.left-arrow {
+  width: 3vw;
+  position: fixed;
+  z-index: 2;
+  top: 16vw;
+}
+
+.right-arrow:hover,
+.left-arrow:hover {
+  cursor: pointer;
+}
+
+.left-arrow {
+  transform: rotate(180deg);
+  left: 22vw;
+}
+
+.right-arrow {
+  right: 40.6vw;
+}
+
+.right-arrow.end-arrow {
+  right: 62.7vw;
+}
+
+.slide-right {
+  animation: slideRightForText 1s both;
+}
+
+.slide-left {
+  animation: slideLeftForText 1s both;
+}
+
+@keyframes slideRightForText {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeftForText {
+  0% {
+    opacity: 0;
+    transform: translateX(-10vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.plants-navigation {
+  position: fixed;
+  top: 43vw;
+  display: flex;
+  left: 40vw;
+  align-items: center;
+}
+
+.plant-dot {
+  content: "";
+  width: 0.5vw;
+  height: 0.5vw;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 0.5vw;
+}
+
+.plant-dot.active {
+  width: 0.8vw;
+  height: 0.8vw;
+}
+
+.output-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0000008e;
+  height: 100%;
+  z-index: 999;
+  opacity: 1;
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+.white_close {
+  width: 1.5vw;
+  position: absolute;
+  right: 3vw;
+  top: 3vw;
+}
+
+.first-section {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 12.2vw;
+  left: 22.7vw;
+  font-size: 1.2vw;
+}
+
+.second-section {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 27vw;
+  width: 18vw;
+  left: 39vw;
+  font-size: 1.2vw;
+}
+
+.third-section {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 36vw;
+  width: 18vw;
+  left: 64vw;
+  font-size: 1.2vw;
+}
+
+.bottom-arrow {
+  width: 3.4vw;
+  transform: scaleX(-1);
+  position: absolute;
+  right: 18.4vw;
+  top: 3.7vw;
+}
+
+.top-arrow {
+  width: 3.4vw;
+  transform: scaleX(-1);
+  position: absolute;
+  left: 18.4vw;
+  top: -0.3vw;
+}
+
+.hor-arrow {
+  width: 35.9vw;
+}
+
+.number-icon {
+  width: 1.5vw;
+  height: 1.5vw;
+  color: white;
+  line-height: 1.5vw;
+  border: 3px solid white;
+  border-radius: 50%;
+  margin-bottom: 0.5vw;
+}
+
+.white_close:hover {
+  cursor: pointer;
+}
+
+.transperent {
+  width: 24vw;
+  height: 4.3vw;
+  top: -6.4vw;
+  border: 2px solid #0058a3;
+  background-color: white;
+  color: #0058a3;
+  font-size: 1.4vw;
+  position: absolute;
+  left: 5.7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

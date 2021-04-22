@@ -425,6 +425,7 @@
   object-fit: cover;
   position: relative;
   outline: none;
+  width: 100%;
 }
 
 .navigation {
