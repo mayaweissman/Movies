@@ -1,4 +1,5 @@
 export class PlantModel {
+  [x: string]: any;
   public constructor(
     public id?: number,
     public mobileImgSrc?: string,

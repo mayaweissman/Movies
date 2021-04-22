@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { About } from "../about/about";
 import { Cart } from "../cart/cart";
 import { Home } from "../home/home";
+import { List } from "../list/list";
 import { Question } from "../question/question";
 import { Survey } from "../survey/survey";
 import { Toxin } from "../toxin/toxin";
@@ -22,6 +23,7 @@ export class Layout extends Component {
                             <Route path="/survey" component={Survey} exact />
                             <Route path="/about" component={About} exact />
                             <Route path="/about-the-toxins" component={ToxinsInfo} exact />
+                            <Route path="/my-list/:hash" component={List}/>
                             <Route path="/toxin/:toxinId" component={Toxin} />
                             <Redirect from="/" to="/survey" />
                         </Switch>

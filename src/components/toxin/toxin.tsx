@@ -36,7 +36,7 @@ export class Toxin extends Component<any, ToxinState> {
         <img className="ikea-logo" src="../assets/images/IKEA_LOGO.svg" />
         <div className="toxin-top-area">
           <img
-            className="back-icon"
+            className="back-icon only-mobile"
             src="../assets/images/BACK_BT.svg"
             onClick={() => this.props.history.goBack()}
           />
@@ -53,6 +53,11 @@ export class Toxin extends Component<any, ToxinState> {
           </div>
         </div>
         <div className="toxin-bottom-area">
+        <img
+            className="back-icon only-desktop"
+            src="../assets/images/BACK_BT.svg"
+            onClick={() => this.props.history.goBack()}
+          />
           <span className="toxin-title">{this.state.toxin.hebTitle}</span>
           <span className="toxin-content">{this.state.toxin.hebContent}</span>
         </div>

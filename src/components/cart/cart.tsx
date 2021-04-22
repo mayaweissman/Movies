@@ -9,6 +9,9 @@ import jsPDF from "jspdf";
 import { url } from "node:inspector";
 import { Pdf } from "../pdf/pdf";
 
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
+
 interface cartState {
   shoppingCart: PlantModel[];
   state: {};
@@ -54,11 +57,23 @@ export class Cart extends Component<any, cartState> {
   };
 
   public share = () => {
-    
+    let url = window.location.origin + '/my-list/';
+    let route = ``;
+    for (const p of this.state.shoppingCart) {
+      if (this.state.shoppingCart.indexOf(p) !== this.state.shoppingCart.length - 1) {
+        route += `${p.id}-`;
+      }
+      else {
+        route += `${p.id}`;
+      }
+    }
+    const encryptedString = cryptr.encrypt(route);
+    url += encryptedString;
+
     let shareData = {
-      title: "MDN",
-      text: "Learn web development on MDN!",
-      url: "https://developer.mozilla.org",
+      title: "GLAD VAXT (Happy Plants)",
+      text: "איקאה מציגה: GLAD VAXT סדרת הצמחים שלא רק נראים טוב, אלא גם עוזרים לכם לשמור על אוויר נקי בבית על ידי ספיחת מזהמים שנמצאים באוויר.",
+      url: url,
     };
 
     navigator
@@ -112,16 +127,22 @@ export class Cart extends Component<any, cartState> {
                 <span className="item-title"> {p.hebTitle}</span>
                 {/* <span className="price">{p.price}</span> */}
                 {/* <span className="amount">{p.amountOnShoppingCart}x</span> */}
-                <div className="toxins-on-item">
-                  <ToxinsIcons plant={p} size={'8vw'}/>
+                <div className="toxins-on-item only-mobile">
+                  <ToxinsIcons src="." plant={p} size={'8vw'} />
+                </div>
+                <div className="toxins-on-item only-desktop">
+                  <ToxinsIcons src="." plant={p} size={'3vw'} />
                 </div>
                 {/* <span className="size-item">{p.size}</span> */}
                 <span className="code-item">{p.code}</span>
-                <span className="bold-txt">הולך עם:</span>
                 <div className="best-goes-items">
-                  <div className="item"></div>
-                  <div className="item"></div>
-                  <div className="item"></div>
+                  <span className="bold-txt">הולך טוב עם:</span>
+                  <div className="items">
+                    <div className="item"></div>
+                    <div className="item"></div>
+                    <div className="item"></div>
+                  </div>
+
                 </div>
               </div>
             </div>

@@ -29,7 +29,10 @@ export class Pdf extends Component<any, PdfState> {
   public render() {
     return (
       <div id="page" className="pdf-page">
-          <img className="pdf-logo" src="./assets/images/IKEA_LOGO.svg"/>
+        <div className="pdf-header">
+          <img className="pdf-logo" src="./assets/images/IKEA_LOGO.svg" />
+          {'רשימת הצמחים שלי'.split('').reverse().join('')}
+          </div>
         <table>
           {this.state.shoppingCart.map((p) => (
             <tr>
@@ -38,13 +41,17 @@ export class Pdf extends Component<any, PdfState> {
               </td>
               <td className="pdf-item-details">
                 <span className="pdf-title">{p.hebTitle?.split('').reverse().join('')}</span>
-                {/* <span className="pdf-title">{p.size}</span> */}
+                <div className="toxins-pdf">
+                <ToxinsIcons plant={p} size="40px" src="."/>
+                </div>
                 <span className="pdf-code-item">{p.code}</span>
-                <span className="bold-txt-pdf">{'הולך עם:'.split('').reverse().join('')}</span>
+              </td>
+              <td className="best-goes-td">
+              <span className="bold-txt-pdf">{'הולך עם:'.split('').reverse().join('')}</span>
                 <div className="pdf-best-goes-items">
-                    <div className="pdf-item"></div>
-                    <div className="pdf-item"></div>
-                    <div className="pdf-item"></div>
+                  <div className="pdf-item"></div>
+                  <div className="pdf-item"></div>
+                  <div className="pdf-item"></div>
                 </div>
               </td>
             </tr>

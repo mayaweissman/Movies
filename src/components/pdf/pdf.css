@@ -1,7 +1,7 @@
 .pdf-page{
     position: absolute;
     z-index: -1;
-    transform: translateX(4000px);
+    transform: translateX(-1000px);
     top: 0;
     background-color: white;
     height: 1500px;
@@ -10,15 +10,19 @@
 
 .pdf-page > table{
     direction: rtl;
-    width: 60%;
-    position: relative;
+    width: 100%;
     margin: auto;
-    padding-top: 20px;
-    border-collapse: collapse; 
+    position: relative;
+    top: 130px;
+    border-collapse: collapse;
 }
 
 .pdf-logo{
     margin-bottom: 20px;
+    position: absolute;
+    width: 128px;
+    left: 35px;
+    top: 20px;
 }
 
 .pdf-page > table > tr{
@@ -32,15 +36,17 @@
 
 .img-item{
     width: 10%;
+    height: 200px;
 }
 
 .pdf-item-details{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
     direction: rtl;
     text-align: right;
     font-size: 20px;
+    height: 200px;
 }
 
 .img-pdf{
@@ -57,4 +63,38 @@
     margin: 10px;
     height: 50px;
     background-color: rgb(151, 179, 151);
+}
+
+.pdf-header{
+    position: absolute;
+    top: 0%;
+    height: 100px;
+    width: 100%;
+    background-color: #ffdb00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.toxins-pdf{
+    position: relative;
+    top: 30px;
+}
+
+.pdf-title{
+    font-size: 28px;
+}
+
+.pdf-code-item{
+    font-size: 25px;
+    position: relative;
+    top: 40px;
+}
+
+.best-goes-td{
+    text-align: initial;
+    font-size: 25px;
+    height: 200px;
+    width: 40%;
 }

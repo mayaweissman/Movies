@@ -40,6 +40,7 @@
   font-size: 4.3vw;
   top: 15vw;
   padding-bottom: 10vw;
+  width: unset;
 }
 
 .mobile .tree-area {
@@ -293,6 +294,343 @@
 }
 
 .mobile .hexagone::before {
+  content: "";
+  display: block;
+  padding-top: 86.6%;
+  background: currentColor;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@keyframes Pulse {
+  0% {
+    transform: scale(0) rotate(90deg);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(0.8) rotate(90deg);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.2) rotate(90deg);
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*Desktop design*/
+
+.toxins-info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.toxins-top-area {
+  position: absolute;
+  top: 0;
+  background-color: #ffdb00;
+  width: 60vw;
+  height: 100%;
+  z-index: 0;
+}
+
+.leaf:hover{
+  cursor: pointer;
+}
+
+.toxins-bottom-area {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+  width: 28vw;
+  right: 0;
+  transform: unset;
+  padding: 0 6vw;
+  text-align: right;
+}
+
+.toxins-title {
+  position: relative;
+  font-size: 1.4vw;
+  font-weight: 700;
+  top: -2vw;
+}
+
+.toxins-content {
+  position: relative;
+  font-size: 1.2vw;
+  top: unset;
+  padding-bottom: unset;
+  width: 25vw;
+}
+
+.tree-area {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%);
+}
+
+.bucket {
+  position: absolute;
+  right: 50%;
+  top: 33vw;
+  transform: translateX(50%);
+  width: 8vw;
+}
+
+.leaf {
+  position: absolute;
+  width: 4.8vw;
+}
+
+.fh-leaf {
+  top: 22.6vw;
+  left: 23.9vw;
+  animation: DesktopScaleInFh 1.2s both;
+  transform-origin: right bottom;
+}
+
+.xy-leaf {
+  top: 14.5vw;
+  left: 24vw;
+  animation: DesktopScaleInXy 1.2s both;
+  transform-origin: right bottom;
+}
+
+.tr-leaf {
+  top: 26.6vw;
+  right: 23.9vw;
+  animation: DesktopScaleInTr 1.2s both;
+  transform-origin: left bottom;
+}
+
+.bz-leaf {
+  top: 18.7vw;
+  right: 24vw;
+  animation: DesktopScaleInBz 1.2s both;
+  transform-origin: left bottom;
+}
+
+.am-leaf {
+  right: 27.6vw;
+  top: 9.8vw;
+  animation: DesktopScaleInAm 1.2s both;
+  transform-origin: bottom;
+}
+
+.right-branch.first-branch {
+  right: 28.5vw;
+  top: 29vw;
+}
+
+.right-branch.second-branch {
+  right: 28.5vw;
+  top: 21vw;
+}
+
+.left-branch.first-branch {
+  left: 28.5vw;
+  top: 16.9vw;
+}
+
+.left-branch.second-branch {
+  left: 28.5vw;
+  top: 25vw;
+}
+
+.right-branch {
+  animation: scaleInRightBranch 1.2s both linear;
+  transform-origin: left;
+}
+
+.left-branch {
+  animation: scaleInLeftBranch 1.2s both linear;
+  transform-origin: right;
+}
+
+.tree {
+  position: absolute;
+  top: 15vw;
+  width: 1.3vw;
+  right: 50%;
+  transform: translateX(50%);
+  height: 18vw;
+}
+
+.first-branch,
+.second-branch {
+  position: absolute;
+  width: 1.5vw;
+}
+
+@keyframes DesktopScaleInAm {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes DesktopScaleInXy {
+  0% {
+    transform: scale(0.4) translateX(2vw) translateY(-2vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+
+@keyframes DesktopScaleInBz {
+  0% {
+    transform: scale(0.3) translateX(-2vw) translateY(-2vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes DesktopScaleInFh {
+  0% {
+    transform: scale(0.2) translateX(2vw) translateY(-2vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes DesktopScaleInTr {
+  0% {
+    transform: scale(0.1) translateX(-2vw) translateY(-2vw);
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+@keyframes scaleInRightBranch {
+  0% {
+    transform: scale(0.1);
+    height: 3vw;
+  }
+  50% {
+    height: 3.5vw;
+  }
+  100% {
+    transform: scale(1);
+    height: 4vw;
+  }
+}
+
+@keyframes scaleInLeftBranch {
+  0% {
+    transform: scale(0.1);
+    height: 3vw;
+  }
+  50% {
+    height: 3.5vw;
+  }
+  100% {
+    transform: scale(1);
+    height: 4vw;
+  }
+}
+
+.hex-pulse {
+  overflow: hidden;
+  display: inline-block;
+  margin: 4em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 0.5em;
+}
+
+.hex-pulse *,
+.hex-pulse *:before {
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+
+.hex-inner {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  cursor: pointer;
+}
+
+.hex-pulse:first-child .hex-inner:before {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: rgb(0 0 0 / 35%);
+  content: "";
+}
+
+.hexagone {
+  display: inline-block;
+  width: 7.5vw;
+  color: rgba(0, 0, 0, 0.527);
+  /* margin: 20px; */
+  filter: url(#round);
+  position: absolute;
+  opacity: 0;
+}
+
+.hex-am {
+  right: 26.3vw;
+  top: 9.2vw;
+  animation: Pulse 6.5s infinite linear;
+  animation-delay: 1.2s;
+}
+
+.hex-tr {
+  right: 22.6vw;
+  top: 26.1vw;
+  animation: Pulse 6.5s infinite linear;
+  animation-delay: 6s;
+}
+
+.hex-xy {
+  left: 22.6vw;
+  top: 14vw;
+  animation: Pulse 6.5s infinite linear;
+  animation-delay: 4.5s;
+}
+
+.hex-bz {
+  right: 22.6vw;
+  top: 18.2vw;
+  animation: Pulse 6.5s infinite linear;
+  animation-delay: 3.5s;
+}
+
+.hex-fh {
+  left: 22.6vw;
+  top: 22.1vw;
+  animation: Pulse 6.5s infinite linear;
+  animation-delay: 2s;
+}
+
+.hexagone::before {
   content: "";
   display: block;
   padding-top: 86.6%;

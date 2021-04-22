@@ -9,6 +9,8 @@ import { ActionType } from "../../redux/actionType";
 import { store } from "../../redux/store";
 import { ToxinsIcons } from "../toxins-icons/toxins-icons";
 import "./output.css";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 interface OutputState {
   output: OutputModel;
@@ -100,59 +102,16 @@ export class Output extends Component<any, OutputState> {
     return isChoose;
   }
 
-  public moveToNextPlant = () => {
-    const plants = this.state.plants;
-    const index = plants.findIndex((p) => p.id === this.state.currentPlant.id);
-    if (index !== this.state.plants.length - 1) {
-      this.setState({ nextPlant: this.state.currentPlant });
-      const currentPlant = plants[index + 1];
-      this.setState({ currentPlant });
-
-      const classes = { ...this.state.classes };
-      classes.current = "slide-left";
-      classes.next = "slide-left";
-      this.setState({ classes });
-      setTimeout(() => {
-        const classes = { ...this.state.classes };
-        classes.current = "";
-        classes.next = "";
-        this.setState({ classes });
-      }, 1000);
-    }
-  };
-
-  public moveToPrePlant = () => {
-    const plants = this.state.plants;
-    const index = plants.findIndex((p) => p.id === this.state.currentPlant.id);
-    if (index !== 0) {
-      const classes = { ...this.state.classes };
-      classes.current = "slide-right";
-      classes.next = "slide-right";
-      this.setState({ classes });
-
-      this.setState({ nextPlant: this.state.currentPlant });
-      const currentPlant = plants[index - 1];
-      this.setState({ currentPlant });
-
-      setTimeout(() => {
-        const classes = { ...this.state.classes };
-        classes.current = "";
-        classes.next = "";
-        this.setState({ classes });
-      }, 1000);
-    }
-  };
-
-  public addPlantToWishlist = () => {
+  public addPlantToWishlist = (plant: PlantModel) => (event: any) => {
     store.dispatch({
       type: ActionType.addPlantToShoppingCart,
-      payLoad: this.state.currentPlant,
+      payLoad: plant,
     });
   };
 
-  public isOnShoppingCart = () => {
+  public isOnShoppingCart = (p: PlantModel) => {
     const shoppingCart: PlantModel[] = store.getState().shoppingCart;
-    const plant = shoppingCart.find((s) => s.id === this.state.currentPlant.id);
+    const plant = shoppingCart.find((s) => s.id === p.id);
     if (plant) {
       return true;
     }
@@ -169,125 +128,166 @@ export class Output extends Component<any, OutputState> {
     return false;
   }
 
+  public responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
+
+  public isCurrentPlant = (p: PlantModel) => (event: any) => {
+    const container = document.getElementById("right-area-container");
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const index = this.state.plants.indexOf(p);
+    const imageSize = vw / 100 * 40;
+    if (container) {
+      const scroll = Math.abs(container?.scrollLeft);
+      console.log(imageSize * index);
+      console.log(scroll);
+      if (imageSize * index === scroll
+        || ((imageSize * index) > scroll && (imageSize * index) < (scroll + 100))
+        || ((imageSize * index) < scroll && (imageSize * index) > (scroll - 100))) {
+        console.log('is current');
+        this.setState({ currentPlant: p });
+      }
+
+    }
+
+
+  }
+
   public render() {
     return (
       <div className="output">
-        <div className="plants">
-          <div className={"current-plant " + this.state.classes.current}>
-            <div className="top-plant-area">
-              {this.state.plants.findIndex(
-                (p) => p.id == this.state.currentPlant.id
-              ) !==
-                this.state.plants.length - 1 && (
-                  <img
-                    className="next-btn"
-                    src="./assets/images/arrow.svg"
-                    onClick={this.moveToNextPlant}
-                  />
+
+        <Carousel
+          swipeable={true}
+          draggable={true}
+          showDots={true}
+          responsive={this.responsive}
+          ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          autoPlay={false}
+          keyBoardControl={true}
+          customTransition="transform 300ms ease-in-out"
+          transitionDuration={1000}
+          containerClass="carousel-container only-mobile"
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+        >
+          {this.state.plants.map(p =>
+            <div className="plant">
+              <div className="main-plant-area">
+                <img className="mobile-plant-img" src={"./assets/images/" + p.mobileImgSrc} />
+
+                {!this.isOnShoppingCart(p) && (
+                  <button
+                    onClick={this.addPlantToWishlist(p as PlantModel)}
+                    className="add-to-list-btn"
+                  >
+                    הוספה לרשימה
+                    <img className="add-icon" src="./assets/images/add.svg" />
+                  </button>
                 )}
-              {this.state.plants.findIndex(
-                (p) => p.id == this.state.currentPlant.id
-              ) !== 0 && (
-                  <img
-                    className="pre-btn"
-                    src="./assets/images/arrow.svg"
-                    onClick={this.moveToPrePlant}
-                  />
+                {this.isOnShoppingCart(p) && (
+                  <button
+                    onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id })}
+                    className="on-list-btn"
+                  >
+                    &#10003; {"נשמר בהצלחה"}
+                  </button>
                 )}
-              <img className="plant-img only-mobile" src={"./assets/images/" + this.state.nextPlant?.mobileImgSrc} />
-              <img className="plant-img only-desktop" src={"./assets/images/" + this.state.nextPlant?.desktopImgSrc} />
-
-            </div>
-            <div className="bottom-plant-area">
-              <span className="plant-title">
-                {this.state.currentPlant.hebTitle}
-              </span>
-              <div className="toxins-area only-mobile">
-                <span>עוזר להפחית:</span>
-                <ToxinsIcons size='10vw' plant={this.state.currentPlant} />
               </div>
-              <div className="toxins-area only-desktop">
-                <span>עוזר להפחית: </span>
-                <ToxinsIcons size='2.8vw' plant={this.state.currentPlant} />
-              </div>
+              <div className="details-plant-area">
+                <span className="plant-title">
+                  {p.hebTitle}
+                </span>
+                <div className="toxins-area only-mobile">
+                  <span>עוזר להפחית:</span>
+                  <ToxinsIcons src="." size='10vw' plant={p} />
+                </div>
+                <div className="toxins-area only-desktop">
+                  <span>עוזר להפחית: </span>
+                  <ToxinsIcons src="." size='2.8vw' plant={p} />
+                </div>
 
-              <span className="plant-info">
-                {this.state.currentPlant.hebContent}
-              </span>
+                <span className="plant-info">
+                  {p.hebContent}
+                </span>
 
-              {!this.isOnLastQuestion() && <button
-                className="back-to-survey-btn"
-                onClick={this.keepOnSurvey}
-                disabled={!this.isUserChoosePlant()}
-              >
-                שאלה הבאה
+                {!this.isOnLastQuestion() && <button
+                  className="back-to-survey-btn"
+                  onClick={this.keepOnSurvey}
+                >
+                  שאלה הבאה
               </button>}
-              {this.isOnLastQuestion() && <button
-                className="back-to-survey-btn"
-                onClick={this.keepOnSurvey}
-                disabled={!this.isUserChoosePlant()}
-              >
-                לרשימת הצמחים שלי
+                {this.isOnLastQuestion() && <button
+                  className="back-to-survey-btn"
+                  onClick={this.keepOnSurvey}
+                >
+                  לרשימת הצמחים שלי
               </button>}
-            </div>
-          </div>
-          <div className={"next-plant " + this.state.classes.next}>
-            <div className="top-plant-area">
-              <img className="plant-img only-mobile" src={"./assets/images/" + this.state.nextPlant?.mobileImgSrc} />
-              <img className="plant-img only-desktop" src={"./assets/images/" + this.state.nextPlant?.desktopImgSrc} />
 
-
-
-            </div>
-            <div className="bottom-plant-area">
-              <span className="plant-title">
-                {this.state.nextPlant.hebTitle}
-              </span>
-              <div className="toxins-area only-mobile">
-                <span>עוזר להפחית:</span>
-                <ToxinsIcons size='10vw' plant={this.state.currentPlant} />
               </div>
-              <div className="toxins-area only-desktop">
-                <span>עוזר להפחית: </span>
-                <ToxinsIcons size='2.8vw' plant={this.state.currentPlant} />
-              </div>
-
-              <span className="plant-info">
-                {this.state.nextPlant.hebContent}
-              </span>
             </div>
-          </div>
-          <div className="plants-navigation">
-            {this.state.plants.map((p) => (
-              <div
-                className={
-                  this.state.currentPlant.id === p.id
-                    ? "plant-dot active"
-                    : "plant-dot"
-                }
-              ></div>
-            ))}
-          </div>
-          {!this.isOnShoppingCart() && (
-            <button
-              onClick={this.addPlantToWishlist}
-              className="add-to-list-btn"
-            >
-              הוספה לרשימה
-              <img className="add-icon" src="./assets/images/add.svg"/>
-            </button>
           )}
-          {this.isOnShoppingCart() && (
-            <button
-              onClick={() => store.dispatch({ type: ActionType.removeFromShoppingCart, payLoad: this.state.currentPlant.id })}
-              className="on-list-btn"
-            >
-              &#10003; {"נשמר בהצלחה"}
-            </button>
-          )}
+        </Carousel>
 
+        <div className="all-outputs only-desktop">
+          <div id="right-area-container" className="left-area">
+
+            {this.state.plants.map(p =>
+
+              <div id={`plant-${p.id}`} className="plant-container" onClick={this.isCurrentPlant(p)}>
+                <img className="img-container" src={"./assets/images/" + p.desktopImgSrc} />
+                {this.isCurrentPlant(p)}
+              </div>
+            )}
+          </div>
+          <div className="right-area">
+            {this.state.plants.map(p =>
+
+              <div className="details-container">
+                <span className="plant-title">
+                  {p.hebTitle}
+                </span>
+                <div className="toxins-area only-desktop">
+                  <span>עוזר להפחית: </span>
+                  <ToxinsIcons src="." size='2.8vw' plant={p} />
+                </div>
+
+                <span className="plant-info">
+                  {p.hebContent}
+                </span>
+
+                {!this.isOnLastQuestion() && <button
+                  className="back-to-survey-btn"
+                  onClick={this.keepOnSurvey}
+                >
+                  שאלה הבאה
+              </button>}
+                {this.isOnLastQuestion() && <button
+                  className="back-to-survey-btn"
+                  onClick={this.keepOnSurvey}
+                >
+                  לרשימת הצמחים שלי
+              </button>}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

@@ -26,6 +26,7 @@
   right: 50%;
   transform: translateX(50%);
   text-align: right;
+  padding: unset;
 }
 
 .mobile .toxin-title {
@@ -40,6 +41,7 @@
   top: 90%;
   position: absolute;
   left: 5vw;
+  transform: unset;
 }
 
 .mobile .toxin-content {
@@ -105,3 +107,123 @@
 .mobile .hexagon:after {
   transform: rotate(-60deg);
 }
+
+/*Desktop design*/
+
+.toxin-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.toxin-top-area {
+  position: absolute;
+  top: 0;
+  background-color: #ffdb00;
+  width: 60vw;
+  height: 100%;
+  z-index: 0;
+}
+
+.toxin-bottom-area {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+  width: 28vw;
+  right: 0;
+  transform: unset;
+  text-align: right;
+  padding: 0 6vw;
+}
+
+.toxin-title {
+  position: relative;
+  font-size: 1.4vw;
+  font-weight: 700;
+  top: 0;
+}
+
+.back-icon {
+  width: 1.5vw;
+  top: 5vw;
+  position: absolute;
+  left: unset;
+  transform: rotate(
+180deg
+);
+}
+.toxin-content {
+  position: relative;
+  font-size: 1.2vw;
+  top: 2vw;
+  padding-bottom: 10vw;
+}
+
+.short-name-on-hex {
+  z-index: 1;
+  position: absolute;
+  top: 3vw;
+  font-size: 7vw;
+  font-weight: bold;
+}
+
+.name-on-hex {
+  z-index: 1;
+  top: 2vw;
+  font-size: 2.1vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  left: 0;
+}
+
+.back-icon:hover{
+  cursor: pointer;
+}
+
+.hexagon {
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  position: absolute;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 11.8vw;
+  height: 20vw;
+  box-sizing: border-box;
+  transition: all 1s;
+  border: 0.4vh solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  border: inherit;
+  position: absolute;
+  top: -0.5vh;
+  left: -0.5vh;
+  background-color: #fff;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+.hexagon:before {
+  transform: rotate(60deg);
+}
+.hexagon:after {
+  transform: rotate(-60deg);
+}
+
+

@@ -121,6 +121,16 @@ export class Question extends Component<QuestionProps, QuestionState> {
 
   }
 
+  public backToPreQuestion = () => {
+    const index = this.props.question.index;
+    if (index && index > 1) {
+      store.dispatch({ type: ActionType.updateCurrentQuestion, payLoad: index - 1 });
+
+    }
+    else {
+      store.dispatch({ type: ActionType.changeDisplay, payLoad: 'home' })
+    }
+  }
 
   public render() {
     return (
@@ -155,6 +165,7 @@ export class Question extends Component<QuestionProps, QuestionState> {
             <img
               className="back-to-home-icon"
               src="./assets/images/BACK_BT.svg"
+              onClick={this.backToPreQuestion}
             />
           </NavLink>
           <span className="question-title">{this.props.question.hebTitle}</span>

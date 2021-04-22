@@ -39,7 +39,7 @@ export class ToxinsInfo extends Component<any>{
             <img onClick={this.navigation(5)} className="leaf am-leaf" src="./assets/images/Am.svg" />
           </div>
 
-          <NavLink className="back-to-home-btn" to="/home">
+          <NavLink className="back-to-home-btn only-mobile" to="/home">
             <img
               className="back-to-home-icon"
               src="./assets/images/BACK_BT.svg"
@@ -47,6 +47,14 @@ export class ToxinsInfo extends Component<any>{
           </NavLink>
         </div>
         <div className="toxins-bottom-area">
+
+          <NavLink className="back-to-home-btn only-desktop" to="/home">
+            <img
+              className="back-to-home-icon"
+              src="./assets/images/BACK_BT.svg"
+            />
+          </NavLink>
+          
           <span className="toxins-title">זיהום בבית</span>
           <span className="toxins-content">
             כולם מודעים לזיהום האוויר שנמצא בחוץ, עשן רכבים ומפעלים. אבל רובנו

@@ -403,12 +403,12 @@
 
 .top-question-area {
   background-color: #ffdb00;
-  width: 58vw;
+  width: 60vw;
   height: 100%;
 }
 
 .bottom-question-area {
-  width: 30vw;
+  width: 28vw;
   height: 100%;
   background-color: white;
   display: flex;
