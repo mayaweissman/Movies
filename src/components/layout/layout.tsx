@@ -1,34 +1,19 @@
 import React, { Component } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { About } from "../about/about";
-import { Cart } from "../cart/cart";
 import { Home } from "../home/home";
-import { List } from "../list/list";
-import { Question } from "../question/question";
-import { Survey } from "../survey/survey";
-import { Toxin } from "../toxin/toxin";
-import { ToxinsInfo } from "../toxins-info/toxins-info";
-import "./layout.css";
+import { Login } from "../login/login";
+import "./layout.scss";
 
 export class Layout extends Component {
     public render() {
         return (
             <div className="layout">
                 <BrowserRouter>
-                    {/* <header>
-                        <TopMenu />
-                    </header>
-                    <main> */}
                         <Switch>
-                            <Route path="/survey" component={Survey} exact />
-                            <Route path="/about" component={About} exact />
-                            <Route path="/about-the-toxins" component={ToxinsInfo} exact />
-                            <Route path="/my-list/:hash" component={List}/>
-                            <Route path="/toxin/:toxinId" component={Toxin} />
-                            <Redirect from="/" to="/survey" />
-                        </Switch>
-                    {/* </main> */}
-                    
+                            <Route path="/login" component={Login} exact />
+                            <Route path="/movies" component={Home} exact />
+                            <Redirect from="/" to="/movies" />
+                        </Switch>                    
                 </BrowserRouter>
             </div>
         )

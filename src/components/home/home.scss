@@ -1,0 +1,203 @@
+$dark-blue: #12232e;
+$lighter-Blue: #007cc7;
+$lightest-blue: #4da8da;
+$Shadow-of-dark-blue: #203647;
+$Shadow-of-light-blue: #eefbfb;
+
+//Breakpoints
+
+//Mobile
+$screen-sm-max: 700px;
+//Tablets & Small laptops
+$screen-md-max: 992px;
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+
+  header {
+    width: 100%;
+    height: 3vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vw;
+    background-color: white;
+
+    @include md {
+      height: 10vw;
+    }
+
+    @include sm {
+      font-size: 8vw;
+      height: 15vw;
+    }
+
+    span {
+      color: $Shadow-of-dark-blue;
+      font-size: 1.4vw;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      @include md {
+        font-size: 2vw;
+      }
+
+      @include sm {
+        font-size: 2.4vw;
+      }
+    }
+
+    @mixin blue-item() {
+      font-size: 1.2vw;
+      border: 0;
+      outline: 0;
+      height: 2vw;
+      position: relative;
+    }
+
+    @keyframes SlideUp {
+      0% {
+        transform: translateY(20vw);
+      }
+      100% {
+        border-bottom: 2px solid $dark-blue;
+        color: $dark-blue;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes MobileSlideUp {
+      0% {
+        transform: translateY(20vw);
+      }
+      100% {
+        border-bottom: 2px solid $dark-blue;
+        color: $dark-blue;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes SlideDown {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        border-bottom: 2px solid $Shadow-of-light-blue;
+        color: $Shadow-of-light-blue;
+        transform: translateY(20vw);
+      }
+    }
+
+    @keyframes MobileSlideDown {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        border-bottom: 2px solid $Shadow-of-light-blue;
+        color: $Shadow-of-light-blue;
+        transform: translateY(50vw);
+      }
+    }
+
+    input {
+      @include blue-item();
+      border-bottom: 2px solid $Shadow-of-light-blue;
+      background-color: transparent;
+      width: 20vw;
+      transform: translateY(20vw);
+      color: $Shadow-of-light-blue;
+      animation: 0.5s SlideDown both linear;
+
+      @include md {
+        width: 40vw;
+        font-size: 4vw;
+        height: 7vw;
+        animation: 0.5s MobileSlideDown both linear;
+      }
+
+      @include sm {
+        width: 80vw;
+        font-size: 5vw;
+        height: 10vw;
+        animation: 0.5s MobileSlideDown both linear;
+      }
+    }
+
+    input.active {
+      animation: 0.5s SlideUp both linear;
+
+      @include md {
+        animation: 0.5s MobileSlideUp both linear;
+      }
+
+      @include sm {
+        animation: 0.5s MobileSlideUp both linear;
+      }
+    }
+
+    button {
+      @include blue-item();
+      width: 8vw;
+      background-color: $lighter-Blue;
+      font-size: 1vw;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include md {
+        width: 25vw;
+        height: 6vw;
+        border-radius: 0;
+        font-size: 2.5vw;
+      }
+
+      @include sm {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+      }
+    }
+
+    button:hover {
+      background-color: $lightest-blue;
+      cursor: pointer;
+    }
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 90%;
+    background-color: $dark-blue;
+
+    img {
+      width: 6vw;
+
+      @include sm {
+        width: 20vw;
+      }
+    }
+  }
+}

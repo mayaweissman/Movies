@@ -9,9 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
-  <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
-  <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -35,36 +35,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>איקאה מציגה: GLAD VAXT</title>
+    <title>Movies</title>
   </head>
 
 <body>
-
-  <script>
-    // Import DejaVu Sans font for embedding
-
-    // NOTE: Only required if the Kendo UI stylesheets are loaded
-    // from a different origin, e.g. cdn.kendostatic.com
-    kendo.pdf.defineFont({
-      "DejaVu Sans": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans.ttf",
-      "DejaVu Sans|Bold": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
-      "DejaVu Sans|Bold|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
-      "DejaVu Sans|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
-    });
-  </script>
-
-  <!-- Load Pako ZLIB library to enable PDF compression -->
-  <script src="../content/shared/js/pako.min.js"></script>
-
-  <script>
-    function getPDF(selector) {
-      kendo.drawing.drawDOM($(selector)).then(function (group) {
-        kendo.drawing.pdf.saveAs(group, "list.pdf");
-      });
-    }
-
-
-  </script>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <script>
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)

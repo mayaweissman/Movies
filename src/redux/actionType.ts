@@ -1,8 +1,7 @@
-export enum ActionType { 
-    changeDisplay,
-    updateCurrentQuestion,
-    addPlantToShoppingCart,
-    changeDisplayForCart,
-    removeFromShoppingCart
-
+export enum ActionType {
+  addMovieToUsersMovies,
+  removeMovieFromUsersMovies,
+  getMovies,
+  changeDisplayForPopUp,
+  
 }

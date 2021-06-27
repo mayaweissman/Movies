@@ -4,4 +4,3 @@ export interface Action {
     type: ActionType;
     payLoad?: any;
 }
-

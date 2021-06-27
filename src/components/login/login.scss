@@ -1,0 +1,138 @@
+$dark-blue: #12232e;
+$lighter-Blue: #007cc7;
+$lightest-blue: #4da8da;
+$Shadow-of-dark-blue: #203647;
+$Shadow-of-light-blue: #eefbfb;
+
+//Breakpoints
+
+//Mobile
+$screen-sm-max: 700px;
+//Tablets & Small laptops
+$screen-md-max: 992px;
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+.login {
+  $width: 15vw;
+
+  width: 100%;
+  height: 100%;
+  background-color: $dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-contanier {
+    width: 20vw;
+    height: 30vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+
+    @include md {
+      width: 60vw;
+      height: 60vw;
+    }
+
+    @include sm {
+      width: 80vw;
+      height: 80vw;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      color: $dark-blue;
+    }
+
+    .name-area {
+      position: relative;
+      top: 8vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        font-size: 1.2vw;
+        border: 0;
+        color: $dark-blue;
+        outline: 0;
+        background-color: white;
+        border-bottom: 2px solid $lighter-Blue;
+        width: $width;
+
+        @include md {
+          font-size: 3.5vw;
+          width: 50vw;
+        }
+
+        @include sm {
+          font-size: 5.5vw;
+          width: 60vw;
+        }
+      }
+
+      span {
+        color: red;
+        width: $width;
+        text-align: left;
+        font-size: 0.8vw;
+
+        @include md {
+          width: 50vw;
+          font-size: 2.2vw;
+        }
+
+        @include sm {
+          width: 60vw;
+          font-size: 2.8vw;
+        }
+      }
+    }
+
+    button {
+      width: $width;
+      background-color: $lighter-Blue;
+      font-size: 1.4vw;
+      color: white;
+      border: 0;
+      outline: 0;
+      top: 12vw;
+      height: 3vw;
+      position: relative;
+
+      @include md {
+        width: 50vw;
+        font-size: 4vw;
+        top: 25vw;
+        height: 8vw;
+      }
+
+      @include sm {
+        width: 61vw;
+        font-size: 5.5vw;
+        top: 26vw;
+        height: 12vw;
+      }
+    }
+
+    button:hover {
+      background-color: $lightest-blue;
+      cursor: pointer;
+    }
+  }
+}

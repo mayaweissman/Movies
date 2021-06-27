@@ -1,0 +1,208 @@
+$dark-blue: #12232e;
+$lighter-Blue: #007cc7;
+$lightest-blue: #4da8da;
+$Shadow-of-dark-blue: #203647;
+$Shadow-of-light-blue: #eefbfb;
+
+//Breakpoints
+
+//Mobile
+$screen-sm-max: 700px;
+//Tablets & Small laptops
+$screen-md-max: 992px;
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+.pop-up {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #12232eeb;
+  z-index: 999;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .inside-pop-up {
+    width: 58vw;
+    height: 38vw;
+    background-color: #0d1820;
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+
+    @include md {
+      width: 70vw;
+      height: 100vw;
+    }
+
+    @include sm {
+      width: 70vw;
+      height: 130vw;
+    }
+
+    .movie-info {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 40vw;
+
+      @include md {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 60vw;
+        align-items: center;
+      }
+
+      @include sm {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 60vw;
+        align-items: center;
+      }
+
+      img,
+      .no-img {
+        width: 16vw;
+        height: 24vw;
+
+        @include md {
+          width: 40vw;
+          height: 56vw;
+        }
+
+        @include sm {
+          width: 46vw;
+          height: 66vw;
+        }
+      }
+    }
+
+    .movie-main-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: $Shadow-of-light-blue;
+      font-size: 1.7vw;
+      text-transform: uppercase;
+
+      @include md {
+        align-items: center;
+        font-size: 4vw;
+      }
+
+      @include sm {
+        align-items: center;
+        font-size: 4vw;
+      }
+    }
+
+    .close-btn {
+      width: 1.8vw;
+      position: absolute;
+      right: 2vw;
+      top: 2vw;
+      height: 1.8vw;
+      display: flex;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+
+      @include md {
+        width: 6vw;
+        height: 6vw;
+      }
+
+      @include sm {
+        width: 8vw;
+        height: 8vw;
+      }
+    }
+
+    button {
+      background-color: #12232e;
+      border: 0;
+      outline: 0;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      width: 10vw;
+      color: $Shadow-of-light-blue;
+      font-size: 1.2vw;
+
+      @include md {
+        width: 60vw;
+        font-size: 4.2vw;
+        height: 8vw;
+      }
+
+      @include sm {
+        width: 60vw;
+        font-size: 4.2vw;
+        height: 10vw;
+      }
+    }
+
+    button:hover {
+      background-color: #1e3341;
+      cursor: pointer;
+    }
+  }
+
+  .plot-area {
+    margin-top: 2vw;
+    width: 40vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    @include md {
+      width: 60vw;
+      font-size: 3vw;
+    }
+
+    @include sm {
+      width: 60vw;
+    }
+
+    .plot-loader {
+      width: 9vw;
+    }
+
+    .plot {
+      color: $Shadow-of-light-blue;
+      max-height: 10vw;
+      overflow: auto;
+      margin-bottom: 1vw;
+
+      @include md {
+        max-height: 16vw;
+        font-size: 3vw;
+      }
+
+      @include sm {
+        max-height: 30vw;
+        font-size: 4vw;
+      }
+    }
+  }
+}
