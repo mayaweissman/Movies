@@ -40,10 +40,10 @@ export class MoviePopUp extends Component<MoviePopUpProps, MoviePopUpState> {
       //Get Plots for movie from API
       this.setState({ showLoader: true });
       const responseForShort = await axios.get(
-        `http://www.omdbapi.com/?apikey=99890933&i=${this.props.movie.imdbID}`
+        `https://www.omdbapi.com/?apikey=99890933&i=${this.props.movie.imdbID}`
       );
       const responseForFull = await axios.get(
-        `http://www.omdbapi.com/?apikey=99890933&i=${this.props.movie.imdbID}&plot=full`
+        `https://www.omdbapi.com/?apikey=99890933&i=${this.props.movie.imdbID}&plot=full`
       );
       const fullPlot = responseForFull.data.Plot;
       const shortPlot = responseForShort.data.Plot;

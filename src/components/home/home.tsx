@@ -53,7 +53,7 @@ export class Home extends Component<any, MoviesState> {
         //Get movies from OMDb API
         this.setState({ isUserStartTyping: true });
         const response = await axios.get(
-          `http://www.omdbapi.com/?apikey=99890933&s=${searchVal}&page=`
+          `https://www.omdbapi.com/?apikey=99890933&s=${searchVal}&page=`
         );
         const moviesData = response.data;
 

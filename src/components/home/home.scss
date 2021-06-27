@@ -120,6 +120,7 @@ $screen-md-max: 992px;
 
     input {
       @include blue-item();
+      border-radius: 0;
       border-bottom: 2px solid $Shadow-of-light-blue;
       background-color: transparent;
       width: 20vw;
